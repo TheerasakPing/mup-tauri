@@ -1,5 +1,6 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 mod commands;
+mod deeplink;
 mod tray;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -24,6 +25,8 @@ pub fn run() {
             commands::get_window_state,
             // IPC bridge commands
             commands::start_orpc_server,
+            // Deep link commands
+            deeplink::handle_deep_link,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
