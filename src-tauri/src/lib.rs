@@ -12,8 +12,10 @@ pub fn run() {
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
-            // Initialize the system tray
-            tray::create_tray(app.handle())?;
+            // Initialize the system tray (non-blocking - don't fail if tray fails)
+            if let Err(e) = tray::create_tray(app.handle()) {
+                eprintln!("Warning: Failed to create system tray: {}", e);
+            }
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![

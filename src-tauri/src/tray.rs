@@ -7,11 +7,16 @@ use tauri::{AppHandle, Emitter, Manager};
 
 /// Create and initialize the system tray
 pub fn create_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
-    // Get the path to the tray icon
-    let icon_path = app.path().resolve("icons/32x32.png", tauri::path::BaseDirectory::Resource)?;
+    // Get the path to the tray icon - use fallback for dev mode
+    let icon_path = app.path().resolve("icons/32x32.png", tauri::path::BaseDirectory::Resource);
     
-    // Load the icon from file with size (None for auto-detect)
-    let icon = Icon::from_path(icon_path, None)?;
+    // Load the icon - use embedded icon as fallback
+    let icon = if let Ok(path) = icon_path {
+        Icon::from_path(path, None)?
+    } else {
+        // Fallback: create a simple icon or skip tray creation in dev
+        return Ok(()); // Skip tray if icon not found (dev mode)
+    };
     
     // Create menu items
     let new_chat_item = MenuItem::new("New Chat", true, None);
