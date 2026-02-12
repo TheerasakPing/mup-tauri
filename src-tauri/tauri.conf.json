@@ -25,10 +25,6 @@
     ],
     "security": {
       "csp": null
-    },
-    "protocol": {
-      "scheme": "mux",
-      "enable": true
     }
   },
   "bundle": {
