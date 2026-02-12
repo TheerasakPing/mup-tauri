@@ -2,11 +2,13 @@
 mod commands;
 mod deeplink;
 mod tray;
+mod updater;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
             // Initialize the system tray
             tray::create_tray(app.handle())?;
@@ -25,6 +27,10 @@ pub fn run() {
             commands::get_window_state,
             // IPC bridge commands
             commands::start_orpc_server,
+            // Updater commands
+            updater::check_for_updates,
+            updater::install_update,
+            updater::get_app_version,
             // Deep link commands
             deeplink::handle_deep_link,
         ])
