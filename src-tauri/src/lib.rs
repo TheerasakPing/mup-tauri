@@ -1,6 +1,7 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 mod commands;
 mod deeplink;
+mod terminal;
 mod tray;
 mod updater;
 
@@ -27,6 +28,8 @@ pub fn run() {
             commands::get_window_state,
             // IPC bridge commands
             commands::start_orpc_server,
+            // Terminal commands
+            terminal::create_terminal,
             // Updater commands
             updater::check_for_updates,
             updater::install_update,
