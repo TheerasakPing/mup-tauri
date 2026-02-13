@@ -38,7 +38,10 @@
       "icons/icon.ico"
     ],
     "publisher": "Coder",
-    "category": "DeveloperTool"
+    "category": "DeveloperTool",
+    "externalBin": [
+      "binaries/mup-server"
+    ]
   },
   "plugins": {
     "updater": {
