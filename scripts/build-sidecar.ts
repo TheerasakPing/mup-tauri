@@ -1,11 +1,11 @@
 #!/usr/bin/env bun
 /**
  * Build script for mup-server sidecar binary
- * 
+ *
  * This script compiles the Node.js backend into a standalone executable
  * using Bun's compile feature. The output is placed in src-tauri/binaries/
  * with the correct naming convention for Tauri sidecar.
- * 
+ *
  * Usage:
  *   bun run scripts/build-sidecar.ts              # Build for current platform
  *   bun run scripts/build-sidecar.ts --target windows
@@ -25,7 +25,10 @@ const ENTRY_POINT = path.join(PROJECT_ROOT, "src-node", "bin", "mup-server.ts");
 
 // Target triple mapping for Tauri sidecar naming
 // Tauri automatically appends the target triple to the binary name
-const TARGETS = {
+const TARGETS: Record<
+  string,
+  { bunTarget: string; tauriTarget: string; outputName: string }
+> = {
   "windows-x64": {
     bunTarget: "bun-windows-x64",
     tauriTarget: "x86_64-pc-windows-msvc",
@@ -58,13 +61,23 @@ const TARGETS = {
   },
 };
 
+// Reverse mapping from Tauri target triple to internal target name
+const TAURI_TO_INTERNAL: Record<string, string> = {
+  "x86_64-pc-windows-msvc": "windows-x64",
+  "aarch64-pc-windows-msvc": "windows-arm64",
+  "x86_64-apple-darwin": "macos-x64",
+  "aarch64-apple-darwin": "macos-arm64",
+  "x86_64-unknown-linux-gnu": "linux-x64",
+  "aarch64-unknown-linux-gnu": "linux-arm64",
+};
+
 function parseArgs_() {
   const { values } = parseArgs({
     options: {
       target: {
         type: "string",
         short: "t",
-        default: "current",
+        default: process.env.TARGET || "current",
       },
       "dry-run": {
         type: "boolean",
@@ -97,6 +110,11 @@ function getCurrentPlatform(): string {
 }
 
 function getTargetsToBuild(targetArg: string): string[] {
+  // Check if it's a Tauri target triple (e.g., x86_64-pc-windows-msvc)
+  if (TAURI_TO_INTERNAL[targetArg]) {
+    return [TAURI_TO_INTERNAL[targetArg]];
+  }
+
   if (targetArg === "current") {
     return [getCurrentPlatform()];
   }
@@ -117,9 +135,14 @@ function getTargetsToBuild(targetArg: string): string[] {
   }
 
   // Validate target
-  if (!TARGETS[targetArg as keyof typeof TARGETS]) {
+  if (!TARGETS[targetArg]) {
     console.error(`Unknown target: ${targetArg}`);
-    console.error(`Valid targets: ${Object.keys(TARGETS).join(", ")}, all, current`);
+    console.error(
+      `Valid targets: ${Object.keys(TARGETS).join(", ")}, all, current`,
+    );
+    console.error(
+      `Or Tauri target triples: ${Object.keys(TAURI_TO_INTERNAL).join(", ")}`,
+    );
     process.exit(1);
   }
 
@@ -154,7 +177,8 @@ async function buildTarget(target: string, dryRun: boolean): Promise<void> {
 
   try {
     // Use bun's compile feature
-    const result = await $`bun build ${ENTRY_POINT} --compile --target=${config.bunTarget} --outfile=${outputPath}`.quiet();
+    const result =
+      await $`bun build ${ENTRY_POINT} --compile --target=${config.bunTarget} --outfile=${outputPath}`.quiet();
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 

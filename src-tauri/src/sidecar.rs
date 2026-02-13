@@ -144,6 +144,7 @@ pub fn spawn_sidecar(app: &AppHandle) -> Result<(), String> {
 }
 
 /// Terminate the sidecar process
+#[allow(dead_code)]
 pub async fn terminate_sidecar() -> Result<(), String> {
     log::info!("Terminating mup-server sidecar...");
     

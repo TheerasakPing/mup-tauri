@@ -65,31 +65,27 @@ fn check_is_windows_wsl_shell() -> bool {
     }
     
     // Try using 'where bash' command
-    match Command::new("where")
+    if let Ok(output) = Command::new("where")
         .args(["bash"])
         .output()
     {
-        Ok(output) => {
-            let result = String::from_utf8_lossy(&output.stdout);
-            let first_path = result
-                .lines()
-                .map(|l| l.trim())
-                .find(|l| !l.is_empty());
-            
-            if let Some(path) = first_path {
-                let path_lower = path.to_lowercase();
-                return path_lower.contains("wsl") 
-                    || path_lower.contains("\\windows\\system32\\bash.exe");
-            }
+        let result = String::from_utf8_lossy(&output.stdout);
+        let first_path = result
+            .lines()
+            .map(|l| l.trim())
+            .find(|l| !l.is_empty());
+
+        if let Some(path) = first_path {
+            let path_lower = path.to_lowercase();
+            return path_lower.contains("wsl")
+                || path_lower.contains("\\windows\\system32\\bash.exe");
         }
-        Err(_) => {}
     }
     
     false
 }
 
 /// Window management commands
-
 /// Minimize window
 #[tauri::command]
 pub fn minimize_window(window: Window) -> Result<(), String> {
