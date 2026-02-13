@@ -12,6 +12,8 @@ import type { Config } from "@/node/config";
 import type { HistoryService } from "./historyService";
 import { createTestHistoryService } from "./testHistoryService";
 import type { PartialService } from "./partialService";
+import type { SessionUsageService } from "./sessionUsageService";
+import type { CostTrackingService } from "./costTrackingService";
 import type { SessionTimingService } from "./sessionTimingService";
 import type { AIService } from "./aiService";
 import type { InitStateManager, InitStatus } from "./initStateManager";
@@ -77,9 +79,9 @@ describe("WorkspaceService rename lock", () => {
       isStreaming: mock(() => false),
       getWorkspaceMetadata: mock(() => Promise.resolve({ success: false, error: "not found" })),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     ({ historyService, cleanup: cleanupHistory } = await createTestHistoryService());
@@ -111,7 +113,9 @@ describe("WorkspaceService rename lock", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -194,9 +198,9 @@ describe("WorkspaceService executeBash archive guards", () => {
       isStreaming: mock(() => false),
       getWorkspaceMetadata: getWorkspaceMetadataMock,
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     ({ historyService, cleanup: cleanupHistory } = await createTestHistoryService());
@@ -231,7 +235,9 @@ describe("WorkspaceService executeBash archive guards", () => {
       aiService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -329,7 +335,9 @@ describe("WorkspaceService post-compaction metadata refresh", () => {
       aiService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -476,7 +484,9 @@ describe("WorkspaceService maybePersistAISettingsFromOptions", () => {
       aiService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -650,7 +660,8 @@ describe("WorkspaceService remove timing rollup", () => {
         mockInitStateManager as InitStateManager,
         mockExtensionMetadataService as ExtensionMetadataService,
         mockBackgroundProcessManager as BackgroundProcessManager,
-        undefined, // sessionUsageService
+        {} as SessionUsageService,
+        {} as CostTrackingService,
         undefined, // policyService
         undefined, // telemetryService
         undefined, // experimentsService
@@ -740,9 +751,9 @@ describe("WorkspaceService archive lifecycle hooks", () => {
       isStreaming: mock(() => false),
       getWorkspaceMetadata: mock(() => Promise.resolve(Ok(workspaceMetadata))),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     workspaceService = new WorkspaceService(
@@ -752,7 +763,9 @@ describe("WorkspaceService archive lifecycle hooks", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -909,9 +922,9 @@ describe("WorkspaceService archive init cancellation", () => {
       isStreaming: mock(() => false),
       getWorkspaceMetadata: mock(() => Promise.resolve(Ok(workspaceMetadata))),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     const workspaceService = new WorkspaceService(
@@ -921,7 +934,9 @@ describe("WorkspaceService archive init cancellation", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       {} as ExtensionMetadataService,
-      { cleanup: mock(() => Promise.resolve()) } as unknown as BackgroundProcessManager
+      { cleanup: mock(() => Promise.resolve()) } as unknown as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
 
     // Seed abort controller so archive() can cancel init.
@@ -1041,9 +1056,9 @@ describe("WorkspaceService unarchive lifecycle hooks", () => {
       isStreaming: mock(() => false),
       getWorkspaceMetadata: mock(() => Promise.resolve(Ok(workspaceMetadata))),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     workspaceService = new WorkspaceService(
@@ -1053,7 +1068,9 @@ describe("WorkspaceService unarchive lifecycle hooks", () => {
       aiService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
   });
 
@@ -1213,7 +1230,9 @@ describe("WorkspaceService archiveMergedInProject", () => {
       aiService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
 
     const executeBashMock = mock(executeBashImpl);
@@ -1476,9 +1495,9 @@ describe("WorkspaceService init cancellation", () => {
     const mockAIService = {
       isStreaming: mock(() => false),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     const mockConfig: Partial<Config> = {
@@ -1519,7 +1538,9 @@ describe("WorkspaceService init cancellation", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
 
     // Make it obvious if archive() incorrectly chooses deletion.
@@ -1541,9 +1562,9 @@ describe("WorkspaceService init cancellation", () => {
     const mockAIService = {
       isStreaming: mock(() => false),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     const mockConfig: Partial<Config> = {
@@ -1584,7 +1605,9 @@ describe("WorkspaceService init cancellation", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
 
     // Make it obvious if archive() incorrectly chooses deletion.
@@ -1602,9 +1625,9 @@ describe("WorkspaceService init cancellation", () => {
     const mockAIService = {
       isStreaming: mock(() => false),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     const mockMetadata: FrontendWorkspaceMetadata = {
@@ -1631,13 +1654,13 @@ describe("WorkspaceService init cancellation", () => {
       getInitState: mock((id: string): InitStatus | undefined =>
         id === workspaceId
           ? {
-              status: "running",
-              hookPath: "/tmp/proj",
-              startTime: 0,
-              lines: [],
-              exitCode: null,
-              endTime: null,
-            }
+            status: "running",
+            hookPath: "/tmp/proj",
+            startTime: 0,
+            lines: [],
+            exitCode: null,
+            endTime: null,
+          }
           : undefined
       ),
     };
@@ -1655,7 +1678,9 @@ describe("WorkspaceService init cancellation", () => {
       mockAIService,
       mockInitStateManager as InitStateManager,
       mockExtensionMetadataService as ExtensionMetadataService,
-      mockBackgroundProcessManager as BackgroundProcessManager
+      mockBackgroundProcessManager as BackgroundProcessManager,
+      {} as SessionUsageService,
+      {} as CostTrackingService
     );
 
     const list = await workspaceService.list();
@@ -1720,9 +1745,9 @@ describe("WorkspaceService init cancellation", () => {
     const mockAIService = {
       isStreaming: mock(() => false),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      on: mock(() => {}),
+      on: mock(() => { }),
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      off: mock(() => {}),
+      off: mock(() => { }),
     } as unknown as AIService;
 
     const mockPartialService: Partial<PartialService> = {};
@@ -1753,7 +1778,7 @@ describe("WorkspaceService init cancellation", () => {
         sessionEmitter.emit("metadata-event", { workspaceId, metadata });
       },
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      dispose: () => {},
+      dispose: () => { },
     } as unknown as AgentSession;
 
     try {
@@ -1764,7 +1789,9 @@ describe("WorkspaceService init cancellation", () => {
         mockAIService,
         mockInitStateManager as InitStateManager,
         mockExtensionMetadataService as ExtensionMetadataService,
-        mockBackgroundProcessManager as BackgroundProcessManager
+        mockBackgroundProcessManager as BackgroundProcessManager,
+        {} as SessionUsageService,
+        {} as CostTrackingService
       );
 
       const metadataEvents: Array<FrontendWorkspaceMetadata | null> = [];
@@ -1817,9 +1844,9 @@ describe("WorkspaceService init cancellation", () => {
         stopStream: mock(() => Promise.resolve({ success: true as const, data: undefined })),
         getWorkspaceMetadata: mock(() => Promise.resolve({ success: false as const, error: "na" })),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        on: mock(() => {}),
+        on: mock(() => { }),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        off: mock(() => {}),
+        off: mock(() => { }),
       } as unknown as AIService;
 
       const mockConfig: Partial<Config> = {
@@ -1847,7 +1874,9 @@ describe("WorkspaceService init cancellation", () => {
         mockAIService,
         mockInitStateManager as InitStateManager,
         mockExtensionMetadataService as ExtensionMetadataService,
-        mockBackgroundProcessManager as BackgroundProcessManager
+        mockBackgroundProcessManager as BackgroundProcessManager,
+        {} as SessionUsageService,
+        {} as CostTrackingService
       );
 
       // Inject an in-progress init AbortController.
@@ -1900,9 +1929,9 @@ describe("WorkspaceService init cancellation", () => {
           )
         ),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        on: mock(() => {}),
+        on: mock(() => { }),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        off: mock(() => {}),
+        off: mock(() => { }),
       } as unknown as AIService;
 
       const mockConfig: Partial<Config> = {
@@ -1930,7 +1959,9 @@ describe("WorkspaceService init cancellation", () => {
         mockAIService,
         mockInitStateManager as InitStateManager,
         mockExtensionMetadataService as ExtensionMetadataService,
-        mockBackgroundProcessManager as BackgroundProcessManager
+        mockBackgroundProcessManager as BackgroundProcessManager,
+        {} as SessionUsageService,
+        {} as CostTrackingService
       );
 
       // Inject an in-progress init AbortController.
@@ -1981,9 +2012,9 @@ describe("WorkspaceService init cancellation", () => {
           )
         ),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        on: mock(() => {}),
+        on: mock(() => { }),
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        off: mock(() => {}),
+        off: mock(() => { }),
       } as unknown as AIService;
 
       const mockConfig: Partial<Config> = {
@@ -2011,7 +2042,9 @@ describe("WorkspaceService init cancellation", () => {
         mockAIService,
         mockInitStateManager as InitStateManager,
         mockExtensionMetadataService as ExtensionMetadataService,
-        mockBackgroundProcessManager as BackgroundProcessManager
+        mockBackgroundProcessManager as BackgroundProcessManager,
+        {} as SessionUsageService,
+        {} as CostTrackingService
       );
 
       const result = await workspaceService.remove(workspaceId, true);

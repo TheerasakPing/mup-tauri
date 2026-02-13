@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { CopyButton } from "./ui/CopyButton";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { DetailContent } from "./tools/shared/ToolPrimitives";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import {
   appendLiveBashOutputChunk,
   type LiveBashOutputInternal,
-} from "@/browser/utils/messages/liveBashOutputBuffer";
+} from "@/utils/messages/liveBashOutputBuffer";
 import { BASH_TRUNCATE_MAX_TOTAL_BYTES } from "@/common/constants/toolLimits";
 
 const BACKGROUND_BASH_INITIAL_TAIL_BYTES = 64_000;

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { AlertTriangle } from "lucide-react";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { useWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { useWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
 import { isLocalProjectRuntime } from "@/common/types/runtime";
 import type { RuntimeConfig } from "@/common/types/runtime";
 import { useSyncExternalStore } from "react";

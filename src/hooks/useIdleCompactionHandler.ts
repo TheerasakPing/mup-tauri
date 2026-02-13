@@ -21,9 +21,9 @@ import type { AppRouter } from "@/node/orpc/router";
 import {
   executeCompaction as executeCompactionDefault,
   type CompactionResult,
-} from "@/browser/utils/chatCommands";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
-import { workspaceStore } from "@/browser/stores/WorkspaceStore";
+} from "@/utils/chatCommands";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
+import { workspaceStore } from "@/stores/WorkspaceStore";
 
 // Type for executeCompaction function (for testing injection)
 type ExecuteCompactionFn = (opts: {

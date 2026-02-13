@@ -15,7 +15,7 @@ import type {
 } from "@/common/orpc/types";
 import type { MuxMessage } from "@/common/types/message";
 import type { ThinkingLevel } from "@/common/types/thinking";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import {
   SELECTED_WORKSPACE_KEY,
   EXPANDED_PROJECTS_KEY,
@@ -30,8 +30,8 @@ import {
   getWorkspaceNameStateKey,
 } from "@/common/constants/storage";
 import type { ReviewSortOrder } from "@/common/types/review";
-import type { HunkFirstSeenState } from "@/browser/hooks/useHunkFirstSeen";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import type { HunkFirstSeenState } from "@/hooks/useHunkFirstSeen";
+import { updatePersistedState } from "@/hooks/usePersistedState";
 import type { Review, ReviewsState } from "@/common/types/review";
 import { DEFAULT_MODEL } from "@/common/constants/knownModels";
 import {
@@ -42,7 +42,7 @@ import {
   createGitStatusOutput,
   type GitStatusFixture,
 } from "./mockFactory";
-import { createMockORPCClient, type MockSessionUsage } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient, type MockSessionUsage } from "@/stories/mocks/orpc";
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // WORKSPACE SELECTION

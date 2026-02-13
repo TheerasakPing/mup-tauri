@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import type { PowerModeEngine } from "@/browser/utils/powerMode/PowerModeEngine";
+import type { PowerModeEngine } from "@/utils/powerMode/PowerModeEngine";
 
 export function PowerModeOverlay(props: { engine: PowerModeEngine }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

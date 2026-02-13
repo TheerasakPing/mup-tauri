@@ -9,38 +9,38 @@ import {
   Sparkles,
 } from "lucide-react";
 import { SplashScreen } from "./SplashScreen";
-import { DocsLink } from "@/browser/components/DocsLink";
-import { ProviderWithIcon } from "@/browser/components/ProviderIcon";
+import { DocsLink } from "@/components/DocsLink";
+import { ProviderWithIcon } from "@/components/ProviderIcon";
 import {
   CoderIcon,
   DockerIcon,
   LocalIcon,
   SSHIcon,
   WorktreeIcon,
-} from "@/browser/components/icons/RuntimeIcons";
+} from "@/components/icons/RuntimeIcons";
 import {
   ProjectCreateForm,
   type ProjectCreateFormHandle,
-} from "@/browser/components/ProjectCreateModal";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { Button } from "@/browser/components/ui/button";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { getStoredAuthToken } from "@/browser/components/AuthTokenModal";
-import { getBrowserBackendBaseUrl } from "@/browser/utils/backendBaseUrl";
-import { useAPI } from "@/browser/contexts/API";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
-import { getEligibleGatewayModels } from "@/browser/utils/gatewayModels";
+} from "@/components/ProjectCreateModal";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { Button } from "@/components/ui/button";
+import { useSettings } from "@/contexts/SettingsContext";
+import { getStoredAuthToken } from "@/components/AuthTokenModal";
+import { getBrowserBackendBaseUrl } from "@/utils/backendBaseUrl";
+import { useAPI } from "@/contexts/API";
+import { updatePersistedState } from "@/hooks/usePersistedState";
+import { getEligibleGatewayModels } from "@/utils/gatewayModels";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
-import { useProvidersConfig } from "@/browser/hooks/useProvidersConfig";
+import { useProvidersConfig } from "@/hooks/useProvidersConfig";
 import {
   formatMuxGatewayBalance,
   useMuxGatewayAccountStatus,
-} from "@/browser/hooks/useMuxGatewayAccountStatus";
-import { KEYBINDS, formatKeybind } from "@/browser/utils/ui/keybinds";
+} from "@/hooks/useMuxGatewayAccountStatus";
+import { KEYBINDS, formatKeybind } from "@/utils/ui/keybinds";
 import { getAgentsInitNudgeKey } from "@/common/constants/storage";
 import { PROVIDER_DISPLAY_NAMES } from "@/common/constants/providers";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { getAllowedProvidersForUi } from "@/browser/utils/policyUi";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { getAllowedProvidersForUi } from "@/utils/policyUi";
 
 interface OAuthMessage {
   type?: unknown;

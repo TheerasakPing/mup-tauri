@@ -7,9 +7,9 @@
  */
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { matchesKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
-import type { APIClient } from "@/browser/contexts/API";
+import { matchesKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { stopKeyboardPropagation } from "@/utils/events";
+import type { APIClient } from "@/contexts/API";
 import { trackVoiceTranscription } from "@/common/telemetry";
 
 export type VoiceInputState = "idle" | "requesting" | "recording" | "transcribing";

@@ -1,5 +1,5 @@
 import { describe, expect, test, mock } from "bun:test";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import { cancelCompaction } from "./handler";
 
 describe("cancelCompaction", () => {

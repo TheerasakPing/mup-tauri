@@ -12,6 +12,7 @@ import { Err, Ok } from "@/common/types/result";
 import type { StreamErrorMessage, WorkspaceChatMessage } from "@/common/orpc/types";
 import { AgentSession } from "./agentSession";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 describe("AgentSession pre-stream errors", () => {
   let historyCleanup: (() => Promise<void>) | undefined;
@@ -67,6 +68,7 @@ describe("AgentSession pre-stream errors", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

@@ -1,5 +1,5 @@
-import type { ChatAttachment } from "@/browser/components/ChatAttachments";
-import { readPersistedState } from "@/browser/hooks/usePersistedState";
+import type { ChatAttachment } from "@/components/ChatAttachments";
+import { readPersistedState } from "@/hooks/usePersistedState";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;

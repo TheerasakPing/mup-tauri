@@ -6,11 +6,11 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/browser/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { DirectoryPickerModal } from "./DirectoryPickerModal";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import type { ProjectConfig } from "@/node/config";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 interface ProjectCreateModalProps {
   isOpen: boolean;

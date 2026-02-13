@@ -6,14 +6,14 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "./ui/checkbox";
-import { Input } from "@/browser/components/ui/input";
+import { Input } from "@/components/ui/input";
 import type { FileTreeNode } from "@/common/utils/git/numstatParser";
 import { DirectoryTree } from "./DirectoryTree";
-import { useAPI } from "@/browser/contexts/API";
-import { formatKeybind, isMac } from "@/browser/utils/ui/keybinds";
+import { useAPI } from "@/contexts/API";
+import { formatKeybind, isMac } from "@/utils/ui/keybinds";
 
 const OPEN_KEYBIND = { key: "o", ctrl: true };
 

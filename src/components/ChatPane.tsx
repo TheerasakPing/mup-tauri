@@ -9,6 +9,7 @@ import React, {
 } from "react";
 
 import { getRootIconUrl } from "./FileIcon";
+import { ChatPaneMCPStatus } from "./ChatPaneMCPStatus";
 import { MessageListProvider } from "./Messages/MessageListContext";
 import { cn } from "@/common/lib/utils";
 import { MessageRenderer } from "./Messages/MessageRenderer";
@@ -23,57 +24,57 @@ import {
   shouldShowInterruptedBarrier,
   mergeConsecutiveStreamErrors,
   computeBashOutputGroupInfo,
-} from "@/browser/utils/messages/messageUtils";
-import { computeTaskReportLinking } from "@/browser/utils/messages/taskReportLinking";
+} from "@/utils/messages/messageUtils";
+import { computeTaskReportLinking } from "@/utils/messages/taskReportLinking";
 import { BashOutputCollapsedIndicator } from "./tools/BashOutputCollapsedIndicator";
-import { enableAutoRetryPreference } from "@/browser/utils/messages/autoRetryPreference";
+import { enableAutoRetryPreference } from "@/utils/messages/autoRetryPreference";
 import {
   getInterruptionContext,
   getLastNonDecorativeMessage,
-} from "@/browser/utils/messages/retryEligibility";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { useAutoScroll } from "@/browser/hooks/useAutoScroll";
-import { useOpenInEditor } from "@/browser/hooks/useOpenInEditor";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+} from "@/utils/messages/retryEligibility";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { useAutoScroll } from "@/hooks/useAutoScroll";
+import { useOpenInEditor } from "@/hooks/useOpenInEditor";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import {
   useWorkspaceAggregator,
   useWorkspaceUsage,
   useWorkspaceStoreRaw,
   type WorkspaceState,
-} from "@/browser/stores/WorkspaceStore";
+} from "@/stores/WorkspaceStore";
 import { WorkspaceHeader } from "./WorkspaceHeader";
 import type { DisplayedMessage, QueuedMessage as QueuedMessageData } from "@/common/types/message";
 import type { RuntimeConfig } from "@/common/types/runtime";
 import { getRuntimeTypeForTelemetry } from "@/common/telemetry";
-import { useAIViewKeybinds } from "@/browser/hooks/useAIViewKeybinds";
+import { useAIViewKeybinds } from "@/hooks/useAIViewKeybinds";
 import { QueuedMessage } from "./Messages/QueuedMessage";
 import { CompactionWarning } from "./CompactionWarning";
 import { ContextSwitchWarning as ContextSwitchWarningBanner } from "./ContextSwitchWarning";
 import { ConcurrentLocalWarning } from "./ConcurrentLocalWarning";
 import { BackgroundProcessesBanner } from "./BackgroundProcessesBanner";
-import { checkAutoCompaction } from "@/browser/utils/compaction/autoCompactionCheck";
-import type { ContextSwitchWarning } from "@/browser/utils/compaction/contextSwitchCheck";
-import { executeCompaction } from "@/browser/utils/chatCommands";
-import { useProviderOptions } from "@/browser/hooks/useProviderOptions";
+import { checkAutoCompaction } from "@/utils/compaction/autoCompactionCheck";
+import type { ContextSwitchWarning } from "@/utils/compaction/contextSwitchCheck";
+import { executeCompaction } from "@/utils/chatCommands";
+import { useProviderOptions } from "@/hooks/useProviderOptions";
 import { useAutoCompactionSettings } from "../hooks/useAutoCompactionSettings";
-import { useContextSwitchWarning } from "@/browser/hooks/useContextSwitchWarning";
-import { useSendMessageOptions } from "@/browser/hooks/useSendMessageOptions";
-import { useForceCompaction } from "@/browser/hooks/useForceCompaction";
-import type { TerminalSessionCreateOptions } from "@/browser/utils/terminal";
-import { useAPI } from "@/browser/contexts/API";
-import { useReviews } from "@/browser/hooks/useReviews";
+import { useContextSwitchWarning } from "@/hooks/useContextSwitchWarning";
+import { useSendMessageOptions } from "@/hooks/useSendMessageOptions";
+import { useForceCompaction } from "@/hooks/useForceCompaction";
+import type { TerminalSessionCreateOptions } from "@/utils/terminal";
+import { useAPI } from "@/contexts/API";
+import { useReviews } from "@/hooks/useReviews";
 import { ReviewsBanner } from "./ReviewsBanner";
 import type { ReviewNoteData } from "@/common/types/review";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
 import {
   useBackgroundBashActions,
   useBackgroundBashError,
-} from "@/browser/contexts/BackgroundBashContext";
+} from "@/contexts/BackgroundBashContext";
 import {
   buildEditingStateFromDisplayed,
   normalizeQueuedMessage,
   type EditingMessageState,
-} from "@/browser/utils/chatEditing";
+} from "@/utils/chatEditing";
 
 interface ChatPaneProps {
   workspaceId: string;
@@ -610,6 +611,7 @@ export const ChatPane: React.FC<ChatPaneProps> = (props) => {
                     (e.g., install dependencies, build) when creating new workspaces
                   </span>
                 </p>
+                <ChatPaneMCPStatus projectPath={projectPath} />
               </div>
             ) : (
               <MessageListProvider value={messageListContextValue}>

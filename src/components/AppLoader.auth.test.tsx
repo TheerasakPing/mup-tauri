@@ -7,7 +7,7 @@ import { useTheme } from "../contexts/ThemeContext";
 let apiStatus: "auth_required" | "connecting" | "error" = "auth_required";
 let apiError: string | null = "Authentication required";
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   APIProvider: (props: { children: React.ReactNode }) => props.children,
   useAPI: () => {
     if (apiStatus === "auth_required") {
@@ -53,7 +53,7 @@ void mock.module("./StartupConnectionError", () => ({
   ),
 }));
 
-void mock.module("@/browser/components/AuthTokenModal", () => ({
+void mock.module("@/components/AuthTokenModal", () => ({
   // Note: Module mocks leak between bun test files.
   // Export all commonly-used symbols to avoid cross-test import errors.
   AuthTokenModal: (props: { error?: string | null }) => (

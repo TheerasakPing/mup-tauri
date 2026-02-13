@@ -5,25 +5,25 @@
  */
 
 import React, { useEffect, useMemo, useState } from "react";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+import { stopKeyboardPropagation } from "@/utils/events";
 import { cn } from "@/common/lib/utils";
 import { getLanguageFromPath } from "@/common/utils/git/languageDetector";
-import { useOverflowDetection } from "@/browser/hooks/useOverflowDetection";
+import { useOverflowDetection } from "@/hooks/useOverflowDetection";
 import { MessageSquare } from "lucide-react";
 import { InlineReviewNote, type ReviewActionCallbacks } from "./InlineReviewNote";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
-import { groupDiffLines } from "@/browser/utils/highlighting/diffChunking";
-import { useTheme, type ThemeMode } from "@/browser/contexts/ThemeContext";
+import { groupDiffLines } from "@/utils/highlighting/diffChunking";
+import { useTheme, type ThemeMode } from "@/contexts/ThemeContext";
 import {
   escapeHtml,
   highlightDiffChunk,
   type HighlightedChunk,
-} from "@/browser/utils/highlighting/highlightDiffChunk";
+} from "@/utils/highlighting/highlightDiffChunk";
 import { LRUCache } from "lru-cache";
 import {
   highlightSearchMatches,
   type SearchHighlightConfig,
-} from "@/browser/utils/highlighting/highlightSearchTerms";
+} from "@/utils/highlighting/highlightSearchTerms";
 import {
   parseReviewLineRange,
   type ParsedReviewLineRange,

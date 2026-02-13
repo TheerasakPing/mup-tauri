@@ -8,12 +8,12 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import type { ProjectConfig, SectionConfig } from "@/common/types/project";
 import type { BranchListResult } from "@/common/orpc/types";
 import type { Secret } from "@/common/types/secrets";
 import type { Result } from "@/common/types/result";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 import {
   WORKSPACE_DRAFTS_BY_PROJECT_KEY,
   deleteWorkspaceStorage,

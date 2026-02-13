@@ -1,4 +1,4 @@
-import { KEYBINDS, formatKeybind } from "@/browser/utils/ui/keybinds";
+import { KEYBINDS, formatKeybind } from "@/utils/ui/keybinds";
 
 /**
  * Human-readable labels for keybind IDs.

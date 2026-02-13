@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { highlightCode } from "@/browser/utils/highlighting/highlightWorkerClient";
-import { extractShikiLines } from "@/browser/utils/highlighting/shiki-shared";
-import { useTheme } from "@/browser/contexts/ThemeContext";
+import { highlightCode } from "@/utils/highlighting/highlightWorkerClient";
+import { extractShikiLines } from "@/utils/highlighting/shiki-shared";
+import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/common/lib/utils";
 
 interface HighlightedCodeProps {

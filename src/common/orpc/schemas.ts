@@ -221,3 +221,10 @@ export {
   type HealthCheckResultType,
 } from "./schemas/api";
 export type { WorkspaceSendMessageOutput } from "./schemas/api";
+
+// Icon Theme schemas
+export {
+  iconTheme,
+  IconThemeDocumentSchema,
+  InstalledIconThemeSchema,
+} from "./schemas/iconTheme";

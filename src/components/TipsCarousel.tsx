@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 
 // Extend window with tip debugging functions
 declare global {

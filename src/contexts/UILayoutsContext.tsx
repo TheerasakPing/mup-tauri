@@ -7,7 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import assert from "@/common/utils/assert";
 import {
   DEFAULT_LAYOUT_PRESETS_CONFIG,
@@ -24,7 +24,7 @@ import {
   getPresetForSlot,
   updateSlotKeybindOverride,
   updateSlotPreset,
-} from "@/browser/utils/uiLayouts";
+} from "@/utils/uiLayouts";
 import type { Keybind } from "@/common/types/keybind";
 
 interface UILayoutsContextValue {

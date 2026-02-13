@@ -3,6 +3,8 @@ import * as path from "path";
 import writeFileAtomic from "write-file-atomic";
 import type { Config } from "@/node/config";
 import { log } from "./log";
+import { createDisplayUsage } from "@/common/utils/tokens/displayUsage";
+import type { LanguageModelV2Usage } from "@ai-sdk/provider";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -47,8 +49,10 @@ const DEFAULT_RETENTION_DAYS = 90;
 
 export class CostTrackingService {
     private readonly filePath: string;
+    private readonly config: Config;
 
     constructor(config: Config) {
+        this.config = config;
         this.filePath = path.join(config.rootDir, "cost-history.json");
     }
 
@@ -100,9 +104,48 @@ export class CostTrackingService {
             entry.inputTokens + entry.outputTokens + entry.cachedTokens + entry.reasoningTokens;
         summary.byModel[entry.model] = modelSummary;
 
+        // Ensure the summary is assigned back to the data object
         data.dailySummaries[dateKey] = summary;
 
         await this.write(data);
+    }
+
+    /**
+     * Calculate cost and record it.
+     */
+    async trackCost(
+        workspaceId: string,
+        model: string,
+        usage: LanguageModelV2Usage,
+        providerMetadata?: Record<string, unknown>
+    ): Promise<void> {
+        // Load latest config to check for custom model prices
+        const currentConfig = this.config.loadConfigOrDefault();
+        const customPrice = currentConfig.customModelPrices?.[model];
+
+        const displayUsage = createDisplayUsage(usage, model, providerMetadata, customPrice);
+        if (!displayUsage) return;
+
+        const totalCost =
+            (displayUsage.input.cost_usd ?? 0) +
+            (displayUsage.output.cost_usd ?? 0) +
+            (displayUsage.cached.cost_usd ?? 0) +
+            (displayUsage.cacheCreate.cost_usd ?? 0) +
+            (displayUsage.reasoning.cost_usd ?? 0);
+
+        const entry: CostEntry = {
+            timestamp: Date.now(),
+            workspaceId,
+            model,
+            inputTokens: displayUsage.input.tokens,
+            outputTokens: displayUsage.output.tokens,
+            cachedTokens: displayUsage.cached.tokens,
+            cacheCreateTokens: displayUsage.cacheCreate.tokens,
+            reasoningTokens: displayUsage.reasoning.tokens,
+            cost: totalCost,
+        };
+
+        await this.recordCost(entry);
     }
 
     /**

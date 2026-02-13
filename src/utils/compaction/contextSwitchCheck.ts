@@ -8,7 +8,7 @@
 
 import type { EffectivePolicy, ProvidersConfigMap } from "@/common/orpc/types";
 import type { DisplayedMessage } from "@/common/types/message";
-import { getPreferredCompactionModel } from "@/browser/utils/messages/compactionModelPreference";
+import { getPreferredCompactionModel } from "@/utils/messages/compactionModelPreference";
 import { normalizeGatewayModel } from "@/common/utils/ai/models";
 import { getEffectiveContextLimit } from "./contextLimit";
 import { getExplicitCompactionSuggestion } from "./suggestion";

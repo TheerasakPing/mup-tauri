@@ -4,11 +4,11 @@ import { AlertTriangle, Check } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
-import { useAPI } from "@/browser/contexts/API";
-import { useAutoResizeTextarea } from "@/browser/hooks/useAutoResizeTextarea";
-import { Checkbox } from "@/browser/components/ui/checkbox";
+import { useAPI } from "@/contexts/API";
+import { useAutoResizeTextarea } from "@/hooks/useAutoResizeTextarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/common/lib/utils";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   ErrorBox,
   ExpandIcon,
@@ -17,12 +17,12 @@ import {
   ToolDetails,
   ToolHeader,
   ToolName,
-} from "@/browser/components/tools/shared/ToolPrimitives";
+} from "@/components/tools/shared/ToolPrimitives";
 import {
   getStatusDisplay,
   useToolExpansion,
   type ToolStatus,
-} from "@/browser/components/tools/shared/toolUtils";
+} from "@/components/tools/shared/toolUtils";
 import type {
   AskUserQuestionQuestion,
   AskUserQuestionToolArgs,

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import React, { createContext, useContext, useMemo } from "react";
-import { usePopoverError } from "@/browser/hooks/usePopoverError";
-import { useBackgroundBashStoreRaw } from "@/browser/stores/BackgroundBashStore";
+import { usePopoverError } from "@/hooks/usePopoverError";
+import { useBackgroundBashStoreRaw } from "@/stores/BackgroundBashStore";
 
 interface BackgroundBashActions {
   terminate: (processId: string) => void;

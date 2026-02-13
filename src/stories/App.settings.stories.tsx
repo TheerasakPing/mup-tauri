@@ -14,11 +14,11 @@
  * Uses play functions to open the settings modal and navigate to sections.
  */
 
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import { appMeta, AppWithMocks, type AppStory } from "./meta.js";
 import { createWorkspace, groupWorkspacesByProject } from "./mockFactory";
 import { selectWorkspace } from "./storyHelpers";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 import { within, userEvent, waitFor } from "@storybook/test";
 import {
   getExperimentKey,

@@ -24,7 +24,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { getStorageChangeEvent } from "@/common/constants/events";
-import { readPersistedString, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedString, updatePersistedState } from "@/hooks/usePersistedState";
 
 export type ResizableSidebarSide = "left" | "right";
 

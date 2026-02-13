@@ -54,6 +54,7 @@ import { setGlobalCoderService } from "@/node/runtime/runtimeFactory";
 import { PolicyService } from "@/node/services/policyService";
 import { ModelPresetsService } from "@/node/services/modelPresetsService";
 import { ModelHealthService } from "@/node/services/modelHealthService";
+import { IconThemeService } from "@/node/services/iconThemeService";
 import type { ORPCContext } from "@/node/orpc/context";
 
 const MUX_HELP_CHAT_WELCOME_MESSAGE_ID = "mux-chat-welcome";
@@ -89,6 +90,7 @@ export class ServiceContainer {
   public readonly mcpConfigService: CoreServices["mcpConfigService"];
   public readonly mcpServerManager: CoreServices["mcpServerManager"];
   public readonly sessionUsageService: CoreServices["sessionUsageService"];
+  public readonly costTrackingService: CoreServices["costTrackingService"];
   private readonly extensionMetadata: CoreServices["extensionMetadata"];
   private readonly backgroundProcessManager: CoreServices["backgroundProcessManager"];
   // Desktop-only services
@@ -118,6 +120,7 @@ export class ServiceContainer {
   public readonly idleCompactionService: IdleCompactionService;
   public readonly modelPresetsService: ModelPresetsService;
   public readonly modelHealthService: ModelHealthService;
+  public readonly iconThemeService: IconThemeService;
 
   constructor(config: Config) {
     this.config = config;
@@ -155,12 +158,14 @@ export class ServiceContainer {
     this.mcpConfigService = core.mcpConfigService;
     this.mcpServerManager = core.mcpServerManager;
     this.sessionUsageService = core.sessionUsageService;
+    this.costTrackingService = core.costTrackingService;
     this.extensionMetadata = core.extensionMetadata;
     this.backgroundProcessManager = core.backgroundProcessManager;
 
     this.projectService = new ProjectService(config);
     this.modelPresetsService = new ModelPresetsService(config);
     this.modelHealthService = new ModelHealthService(config);
+    this.iconThemeService = new IconThemeService(config);
 
     // Idle compaction service - auto-compacts workspaces after configured idle period
     this.idleCompactionService = new IdleCompactionService(
@@ -398,6 +403,7 @@ export class ServiceContainer {
       coderService: this.coderService,
       modelPresetsService: this.modelPresetsService,
       modelHealthService: this.modelHealthService,
+      iconThemeService: this.iconThemeService,
     };
   }
 

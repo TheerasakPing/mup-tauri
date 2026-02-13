@@ -1,6 +1,6 @@
 import { getModelKey } from "@/common/constants/storage";
 import { normalizeGatewayModel } from "@/common/utils/ai/models";
-import { readPersistedString, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedString, updatePersistedState } from "@/hooks/usePersistedState";
 
 export type ModelChangeOrigin = "user" | "agent" | "sync";
 

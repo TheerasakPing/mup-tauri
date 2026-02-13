@@ -1,11 +1,11 @@
-import { readPersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState } from "@/hooks/usePersistedState";
 import {
   getEditorDeepLink,
   getDockerDeepLink,
   getDevcontainerDeepLink,
   isLocalhost,
   type DeepLinkEditor,
-} from "@/browser/utils/editorDeepLinks";
+} from "@/utils/editorDeepLinks";
 import {
   DEFAULT_EDITOR_CONFIG,
   EDITOR_CONFIG_KEY,
@@ -13,7 +13,7 @@ import {
 } from "@/common/constants/storage";
 import type { RuntimeConfig } from "@/common/types/runtime";
 import { isSSHRuntime, isDockerRuntime, isDevcontainerRuntime } from "@/common/types/runtime";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 export interface OpenInEditorResult {
   success: boolean;

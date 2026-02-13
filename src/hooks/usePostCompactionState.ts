@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 import { getPostCompactionStateKey } from "@/common/constants/storage";
 
 interface PostCompactionState {

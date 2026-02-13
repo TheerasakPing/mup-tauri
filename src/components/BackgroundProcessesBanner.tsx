@@ -7,8 +7,8 @@ import { formatDuration } from "./tools/shared/toolUtils";
 import {
   useBackgroundBashTerminatingIds,
   useBackgroundProcesses,
-} from "@/browser/stores/BackgroundBashStore";
-import { useBackgroundBashActions } from "@/browser/contexts/BackgroundBashContext";
+} from "@/stores/BackgroundBashStore";
+import { useBackgroundBashActions } from "@/contexts/BackgroundBashContext";
 
 /**
  * Truncate script to reasonable display length.

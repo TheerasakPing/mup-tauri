@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from "react";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import type { BackgroundProcessInfo } from "@/common/orpc/schemas/api";
-import { isAbortError } from "@/browser/utils/isAbortError";
+import { isAbortError } from "@/utils/isAbortError";
 import { MapStore } from "./MapStore";
 
 const EMPTY_SET = new Set<string>();

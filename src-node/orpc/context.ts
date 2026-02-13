@@ -31,6 +31,7 @@ import type { PolicyService } from "@/node/services/policyService";
 import type { CoderService } from "@/node/services/coderService";
 import type { ModelPresetsService } from "@/node/services/modelPresetsService";
 import type { ModelHealthService } from "@/node/services/modelHealthService";
+import type { IconThemeService } from "@/node/services/iconThemeService";
 
 export interface ORPCContext {
   config: Config;
@@ -65,5 +66,6 @@ export interface ORPCContext {
   coderService: CoderService;
   modelPresetsService: ModelPresetsService;
   modelHealthService: ModelHealthService;
+  iconThemeService: IconThemeService;
   headers?: IncomingHttpHeaders;
 }

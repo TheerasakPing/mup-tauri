@@ -1,20 +1,20 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
-import { usePersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
-import type { RetryState } from "@/browser/hooks/useResumeManager";
-import { useWorkspaceState } from "@/browser/stores/WorkspaceStore";
+import { usePersistedState, updatePersistedState } from "@/hooks/usePersistedState";
+import type { RetryState } from "@/hooks/useResumeManager";
+import { useWorkspaceState } from "@/stores/WorkspaceStore";
 import {
   disableAutoRetryPreference,
   enableAutoRetryPreference,
   useAutoRetryPreference,
-} from "@/browser/utils/messages/autoRetryPreference";
+} from "@/utils/messages/autoRetryPreference";
 import {
   getInterruptionContext,
   getLastNonDecorativeMessage,
   isNonRetryableSendError,
-} from "@/browser/utils/messages/retryEligibility";
-import { calculateBackoffDelay, createManualRetryState } from "@/browser/utils/messages/retryState";
-import { KEYBINDS, formatKeybind } from "@/browser/utils/ui/keybinds";
+} from "@/utils/messages/retryEligibility";
+import { calculateBackoffDelay, createManualRetryState } from "@/utils/messages/retryState";
+import { KEYBINDS, formatKeybind } from "@/utils/ui/keybinds";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { getRetryStateKey, VIM_ENABLED_KEY } from "@/common/constants/storage";
 import { cn } from "@/common/lib/utils";

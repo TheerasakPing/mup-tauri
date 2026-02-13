@@ -8,11 +8,11 @@ import {
     DialogFooter,
     DialogClose,
     DialogDescription,
-} from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
-import { Input } from "@/browser/components/ui/input";
-import { Label } from "@/browser/components/ui/label";
-import { useAPI } from "@/browser/contexts/API";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useAPI } from "@/contexts/API";
 import type { CustomModelMetadata } from "@/common/orpc/schemas/api";
 
 // Matches PresetModelEntry from the backend service

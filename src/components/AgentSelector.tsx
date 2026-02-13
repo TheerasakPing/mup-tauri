@@ -1,21 +1,21 @@
 import React from "react";
 
-import { useAgent } from "@/browser/contexts/AgentContext";
+import { useAgent } from "@/contexts/AgentContext";
 import {
   HelpIndicator,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/browser/components/ui/tooltip";
+} from "@/components/ui/tooltip";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { sortAgentsStable } from "@/browser/utils/agents";
+} from "@/components/ui/select";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { sortAgentsStable } from "@/utils/agents";
 import { cn } from "@/common/lib/utils";
 
 interface AgentSelectorProps {

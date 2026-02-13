@@ -1,14 +1,14 @@
 import React from "react";
-import AnthropicIcon from "@/browser/assets/icons/anthropic.svg?react";
-import OpenAIIcon from "@/browser/assets/icons/openai.svg?react";
-import GoogleIcon from "@/browser/assets/icons/google.svg?react";
-import XAIIcon from "@/browser/assets/icons/xai.svg?react";
-import OpenRouterIcon from "@/browser/assets/icons/openrouter.svg?react";
-import OllamaIcon from "@/browser/assets/icons/ollama.svg?react";
-import DeepSeekIcon from "@/browser/assets/icons/deepseek.svg?react";
-import AWSIcon from "@/browser/assets/icons/aws.svg?react";
-import GitHubIcon from "@/browser/assets/icons/github.svg?react";
-import { GatewayIcon } from "@/browser/components/icons/GatewayIcon";
+import AnthropicIcon from "@/assets/icons/anthropic.svg?react";
+import OpenAIIcon from "@/assets/icons/openai.svg?react";
+import GoogleIcon from "@/assets/icons/google.svg?react";
+import XAIIcon from "@/assets/icons/xai.svg?react";
+import OpenRouterIcon from "@/assets/icons/openrouter.svg?react";
+import OllamaIcon from "@/assets/icons/ollama.svg?react";
+import DeepSeekIcon from "@/assets/icons/deepseek.svg?react";
+import AWSIcon from "@/assets/icons/aws.svg?react";
+import GitHubIcon from "@/assets/icons/github.svg?react";
+import { GatewayIcon } from "@/components/icons/GatewayIcon";
 import {
   PROVIDER_DEFINITIONS,
   PROVIDER_DISPLAY_NAMES,

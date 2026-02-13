@@ -1,8 +1,8 @@
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import type { TelemetryRuntimeType } from "@/common/telemetry/payload";
-import type { AutoCompactionCheckResult } from "@/browser/utils/compaction/autoCompactionCheck";
+import type { AutoCompactionCheckResult } from "@/utils/compaction/autoCompactionCheck";
 import type { Review } from "@/common/types/review";
-import type { EditingMessageState, PendingUserMessage } from "@/browser/utils/chatEditing";
+import type { EditingMessageState, PendingUserMessage } from "@/utils/chatEditing";
 
 export interface ChatInputAPI {
   focus: () => void;

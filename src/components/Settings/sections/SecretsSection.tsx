@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Loader2, Trash2 } from "lucide-react";
 import type { Secret } from "@/common/types/secrets";
-import { useAPI } from "@/browser/contexts/API";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { Button } from "@/browser/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/browser/components/ui/toggle-group";
+import { useAPI } from "@/contexts/API";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
+} from "@/components/ui/select";
 
 type SecretsScope = "global" | "project";
 

@@ -11,7 +11,7 @@
  */
 
 import React from "react";
-import type { LRUCache } from "@/browser/utils/lruCache";
+import type { LRUCache } from "@/utils/lruCache";
 
 export type OptimisticBatchStatus = "idle" | "loading" | "loaded" | "error";
 

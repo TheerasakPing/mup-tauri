@@ -3,11 +3,11 @@
  */
 
 import React, { useState, useRef, useEffect } from "react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { formatRelativeTimeCompact } from "@/browser/utils/ui/dateTime";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { formatRelativeTimeCompact } from "@/utils/ui/dateTime";
 import { cn } from "@/common/lib/utils";
-import type { LastRefreshInfo, RefreshTrigger } from "@/browser/utils/RefreshController";
+import type { LastRefreshInfo, RefreshTrigger } from "@/utils/RefreshController";
 
 interface RefreshButtonProps {
   onClick: () => void;

@@ -1,10 +1,10 @@
-import { useRename } from "@/browser/contexts/WorkspaceRenameContext";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+import { useRename } from "@/contexts/WorkspaceRenameContext";
+import { stopKeyboardPropagation } from "@/utils/events";
 import { cn } from "@/common/lib/utils";
-import { useGitStatus } from "@/browser/stores/GitStatusStore";
-import { useWorkspaceUnread } from "@/browser/hooks/useWorkspaceUnread";
-import { useWorkspaceSidebarState } from "@/browser/stores/WorkspaceStore";
-import { useWorkspaceFallbackModel } from "@/browser/hooks/useWorkspaceFallbackModel";
+import { useGitStatus } from "@/stores/GitStatusStore";
+import { useWorkspaceUnread } from "@/hooks/useWorkspaceUnread";
+import { useWorkspaceSidebarState } from "@/stores/WorkspaceStore";
+import { useWorkspaceFallbackModel } from "@/hooks/useWorkspaceFallbackModel";
 import { MUX_HELP_CHAT_WORKSPACE_ID } from "@/common/constants/muxChat";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import React, { useState, useEffect, useRef } from "react";
@@ -21,8 +21,8 @@ import { WorkspaceStatusIndicator } from "./WorkspaceStatusIndicator";
 import { Shimmer } from "./ai-elements/shimmer";
 import { ArchiveIcon } from "./icons/ArchiveIcon";
 import { WORKSPACE_DRAG_TYPE, type WorkspaceDragItem } from "./WorkspaceSectionDropZone";
-import { useLinkSharingEnabled } from "@/browser/contexts/TelemetryEnabledContext";
-import { formatKeybind, matchesKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { useLinkSharingEnabled } from "@/contexts/TelemetryEnabledContext";
+import { formatKeybind, matchesKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { ShareTranscriptDialog } from "./ShareTranscriptDialog";
 
 const RADIX_PORTAL_WRAPPER_SELECTOR = "[data-radix-popper-content-wrapper]" as const;

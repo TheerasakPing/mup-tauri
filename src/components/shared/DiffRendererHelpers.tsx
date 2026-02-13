@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { DIFF_VIEW_MODE_KEY } from "@/common/constants/storage";
 import type { DiffViewMode } from "./DiffViewModeSelector";
 

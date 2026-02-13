@@ -1,4 +1,4 @@
-import { useTheme, THEME_OPTIONS, type ThemeMode } from "@/browser/contexts/ThemeContext";
+import { useTheme, THEME_OPTIONS, type ThemeMode } from "@/contexts/ThemeContext";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import {
   Select,
@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
+} from "@/components/ui/select";
 
 export function ThemeSelector() {
   const { theme, setTheme } = useTheme();

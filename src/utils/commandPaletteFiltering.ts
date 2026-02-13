@@ -3,7 +3,7 @@
  * Separates workspace switching from all other commands
  */
 
-import { CommandIdMatchers } from "@/browser/utils/commandIds";
+import { CommandIdMatchers } from "@/utils/commandIds";
 
 export interface CommandActionMinimal {
   id: string;

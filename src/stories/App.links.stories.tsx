@@ -16,7 +16,7 @@ import {
   groupWorkspacesByProject,
 } from "./mockFactory";
 import { createOnChatAdapter, selectWorkspace as selectWorkspaceHelper } from "./storyHelpers";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 
 export default {
   ...appMeta,

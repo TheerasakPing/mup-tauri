@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
-import { ThemeProvider } from "@/browser/contexts/ThemeContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { MessageListProvider } from "./MessageListContext";
 import { markdownComponents } from "./MarkdownComponents";
 

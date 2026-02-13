@@ -3,8 +3,8 @@ import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 
-import { AgentProvider } from "@/browser/contexts/AgentContext";
-import { TooltipProvider } from "@/browser/components/ui/tooltip";
+import { AgentProvider } from "@/contexts/AgentContext";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { AgentModePicker } from "./AgentModePicker";
 import type { AgentDefinitionDescriptor } from "@/common/types/agentDefinition";
 

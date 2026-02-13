@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, mock, test, type Mock } from "
 import { GlobalWindow } from "happy-dom";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 
-import { ThemeProvider } from "@/browser/contexts/ThemeContext";
-import { TooltipProvider } from "@/browser/components/ui/tooltip";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { SelectableDiffRenderer } from "./DiffRenderer";
 
 describe("SelectableDiffRenderer drag selection", () => {

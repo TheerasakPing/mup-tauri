@@ -2,12 +2,12 @@ import React from "react";
 
 import type { WorkspaceStatsSnapshot } from "@/common/orpc/types";
 
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useWorkspaceStatsSnapshot } from "@/browser/stores/WorkspaceStore";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useWorkspaceStatsSnapshot } from "@/stores/WorkspaceStore";
 import { ToggleGroup, type ToggleOption } from "../ToggleGroup";
-import { useTelemetry } from "@/browser/hooks/useTelemetry";
-import { computeTimingPercentages } from "@/browser/utils/timingPercentages";
-import { calculateAverageTPS } from "@/browser/utils/messages/StreamingTPSCalculator";
+import { useTelemetry } from "@/hooks/useTelemetry";
+import { computeTimingPercentages } from "@/utils/timingPercentages";
+import { calculateAverageTPS } from "@/utils/messages/StreamingTPSCalculator";
 
 // Colors for timing components (matching TOKEN_COMPONENT_COLORS style)
 const TIMING_COLORS = {

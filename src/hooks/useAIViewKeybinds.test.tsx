@@ -3,12 +3,12 @@ import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { cleanup, renderHook } from "@testing-library/react";
 import { GlobalWindow } from "happy-dom";
 import { useAIViewKeybinds } from "./useAIViewKeybinds";
-import type { ChatInputAPI } from "@/browser/components/ChatInput";
-import type { APIClient } from "@/browser/contexts/API";
-import type { RecursivePartial } from "@/browser/testUtils";
+import type { ChatInputAPI } from "@/components/ChatInput";
+import type { APIClient } from "@/contexts/API";
+import type { RecursivePartial } from "@/testUtils";
 
 let currentClientMock: RecursivePartial<APIClient> = {};
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: currentClientMock as APIClient,
     status: "connected" as const,

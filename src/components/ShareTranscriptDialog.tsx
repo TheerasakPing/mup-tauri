@@ -1,27 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, ExternalLink, Loader2, Trash2 } from "lucide-react";
 
-import { CopyIcon } from "@/browser/components/icons/CopyIcon";
-import { Button } from "@/browser/components/ui/button";
-import { Checkbox } from "@/browser/components/ui/checkbox";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/browser/components/ui/dialog";
+import { CopyIcon } from "@/components/icons/CopyIcon";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
-import { useWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
-import { useAPI } from "@/browser/contexts/API";
-import { copyToClipboard } from "@/browser/utils/clipboard";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
+} from "@/components/ui/select";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
+import { useAPI } from "@/contexts/API";
+import { copyToClipboard } from "@/utils/clipboard";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
 import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import { SHARE_EXPIRATION_KEY, SHARE_SIGNING_KEY } from "@/common/constants/storage";
 import {
   deleteFromMuxMd,

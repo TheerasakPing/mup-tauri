@@ -12,6 +12,7 @@ import type { Result } from "@/common/types/result";
 import { Ok } from "@/common/types/result";
 import { AgentSession } from "./agentSession";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 describe("AgentSession.sendMessage (editMessageId)", () => {
   let historyCleanup: (() => Promise<void>) | undefined;
@@ -65,6 +66,7 @@ describe("AgentSession.sendMessage (editMessageId)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -137,6 +139,7 @@ describe("AgentSession.sendMessage (editMessageId)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -216,6 +219,7 @@ describe("AgentSession.sendMessage (editMessageId)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

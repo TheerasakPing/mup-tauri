@@ -5,7 +5,7 @@ import type { FilePart } from "@/common/orpc/schemas";
 import { cn } from "@/common/lib/utils";
 import { ReviewBlockFromData } from "../shared/ReviewBlock";
 import { HoverCard, HoverCardContent, HoverCardPortal, HoverCardTrigger } from "../ui/hover-card";
-import { isDesktopMode } from "@/browser/hooks/useDesktopTitlebar";
+import { isDesktopMode } from "@/hooks/useDesktopTitlebar";
 import { MarkdownRenderer } from "./MarkdownRenderer";
 
 interface UserMessageContentProps {

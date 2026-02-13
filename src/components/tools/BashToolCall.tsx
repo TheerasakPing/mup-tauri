@@ -22,9 +22,9 @@ import {
   type ToolStatus,
 } from "./shared/toolUtils";
 import { cn } from "@/common/lib/utils";
-import { useBashToolLiveOutput, useLatestStreamingBashId } from "@/browser/stores/WorkspaceStore";
-import { useForegroundBashToolCallIds } from "@/browser/stores/BackgroundBashStore";
-import { useBackgroundBashActions } from "@/browser/contexts/BackgroundBashContext";
+import { useBashToolLiveOutput, useLatestStreamingBashId } from "@/stores/WorkspaceStore";
+import { useForegroundBashToolCallIds } from "@/stores/BackgroundBashStore";
+import { useBackgroundBashActions } from "@/contexts/BackgroundBashContext";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { BackgroundBashOutputDialog } from "../BackgroundBashOutputDialog";
 

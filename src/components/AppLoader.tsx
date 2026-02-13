@@ -11,10 +11,11 @@ import { useGitStatusStoreRaw } from "../stores/GitStatusStore";
 import { useBackgroundBashStoreRaw } from "../stores/BackgroundBashStore";
 import { getPRStatusStoreInstance } from "../stores/PRStatusStore";
 import { ProjectProvider, useProjectContext } from "../contexts/ProjectContext";
-import { PolicyProvider, usePolicy } from "@/browser/contexts/PolicyContext";
-import { PolicyBlockedScreen } from "@/browser/components/PolicyBlockedScreen";
-import { APIProvider, useAPI, type APIClient } from "@/browser/contexts/API";
-import { useIdleCompactionHandler } from "@/browser/hooks/useIdleCompactionHandler";
+import { PolicyProvider, usePolicy } from "@/contexts/PolicyContext";
+import { PolicyBlockedScreen } from "@/components/PolicyBlockedScreen";
+import { APIProvider, useAPI, type APIClient } from "@/contexts/API";
+import { IconThemeProvider } from "@/contexts/IconThemeContext";
+import { useIdleCompactionHandler } from "@/hooks/useIdleCompactionHandler";
 import { WorkspaceProvider, useWorkspaceContext } from "../contexts/WorkspaceContext";
 import { RouterProvider } from "../contexts/RouterContext";
 import { TelemetryEnabledProvider } from "../contexts/TelemetryEnabledContext";
@@ -41,15 +42,17 @@ export function AppLoader(props: AppLoaderProps) {
   return (
     <ThemeProvider>
       <APIProvider client={props.client}>
-        <PolicyProvider>
-          <RouterProvider>
-            <ProjectProvider>
-              <WorkspaceProvider>
-                <AppLoaderInner />
-              </WorkspaceProvider>
-            </ProjectProvider>
-          </RouterProvider>
-        </PolicyProvider>
+        <IconThemeProvider>
+          <PolicyProvider>
+            <RouterProvider>
+              <ProjectProvider>
+                <WorkspaceProvider>
+                  <AppLoaderInner />
+                </WorkspaceProvider>
+              </ProjectProvider>
+            </RouterProvider>
+          </PolicyProvider>
+        </IconThemeProvider>
       </APIProvider>
     </ThemeProvider>
   );

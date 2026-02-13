@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
-import { SettingsProvider } from "@/browser/contexts/SettingsContext";
+import { SettingsProvider } from "@/contexts/SettingsContext";
 import { cleanup, render, waitFor } from "@testing-library/react";
 
 let focusMock: ReturnType<typeof mock> | null = null;
 let readyCalls = 0;
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: null,
     status: "connecting" as const,
@@ -18,7 +18,7 @@ void mock.module("@/browser/contexts/API", () => ({
 }));
 
 // Mock useProvidersConfig to return a configured provider so ChatInput renders
-void mock.module("@/browser/hooks/useProvidersConfig", () => ({
+void mock.module("@/hooks/useProvidersConfig", () => ({
   useProvidersConfig: () => ({
     config: { anthropic: { apiKeySet: true, isConfigured: true } },
     loading: false,

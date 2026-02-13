@@ -11,19 +11,19 @@ import {
   readPersistedState,
   readPersistedString,
   updatePersistedState,
-} from "@/browser/hooks/usePersistedState";
-import { getDefaultModel } from "@/browser/hooks/useModelsFromSettings";
+} from "@/hooks/usePersistedState";
+import { getDefaultModel } from "@/hooks/useModelsFromSettings";
 import {
   buildSendMessageOptions,
   normalizeModelPreference,
   normalizeSystem1Model,
   normalizeSystem1ThinkingLevel,
-} from "@/browser/utils/messages/buildSendMessageOptions";
+} from "@/utils/messages/buildSendMessageOptions";
 import type { SendMessageOptions } from "@/common/orpc/types";
 import type { ThinkingLevel } from "@/common/types/thinking";
 import type { MuxProviderOptions } from "@/common/types/providerOptions";
 import { WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
-import { isExperimentEnabled } from "@/browser/hooks/useExperiments";
+import { isExperimentEnabled } from "@/hooks/useExperiments";
 import { EXPERIMENT_IDS } from "@/common/constants/experiments";
 
 /**

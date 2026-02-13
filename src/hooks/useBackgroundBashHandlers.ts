@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import type { BackgroundProcessInfo } from "@/common/orpc/schemas/api";
-import type { APIClient } from "@/browser/contexts/API";
-import { usePopoverError } from "@/browser/hooks/usePopoverError";
+import type { APIClient } from "@/contexts/API";
+import { usePopoverError } from "@/hooks/usePopoverError";
 
 /** Shared empty arrays/sets to avoid creating new objects */
 const EMPTY_SET = new Set<string>();

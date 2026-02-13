@@ -20,15 +20,15 @@ const useProvidersConfigMock = mock(() => ({
   refresh: () => Promise.resolve(),
 }));
 
-void mock.module("@/browser/hooks/useProvidersConfig", () => ({
+void mock.module("@/hooks/useProvidersConfig", () => ({
   useProvidersConfig: useProvidersConfigMock,
 }));
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({ api: null }),
 }));
 
-void mock.module("@/browser/contexts/PolicyContext", () => ({
+void mock.module("@/contexts/PolicyContext", () => ({
   usePolicy: () => ({
     status: { state: "disabled" as const },
     policy: null,

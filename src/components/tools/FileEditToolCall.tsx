@@ -1,5 +1,5 @@
 import React from "react";
-import { FileIcon } from "@/browser/components/FileIcon";
+import { FileIcon } from "@/components/FileIcon";
 import { parsePatch } from "diff";
 import type {
   FileEditInsertToolArgs,
@@ -23,7 +23,7 @@ import {
   ErrorBox,
 } from "./shared/ToolPrimitives";
 import { useToolExpansion, getStatusDisplay, type ToolStatus } from "./shared/toolUtils";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { DiffContainer, DiffRenderer, SelectableDiffRenderer } from "../shared/DiffRenderer";
 import { KebabMenu, type KebabMenuItem } from "../KebabMenu";
 import { JsonHighlight } from "./shared/HighlightedCode";

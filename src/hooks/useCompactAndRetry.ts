@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useWorkspaceState } from "@/browser/stores/WorkspaceStore";
+import { useAPI } from "@/contexts/API";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useWorkspaceState } from "@/stores/WorkspaceStore";
 import {
   formatCompactionCommandLine,
   getFollowUpContentText,
-} from "@/browser/utils/compaction/format";
+} from "@/utils/compaction/format";
 import {
   getExplicitCompactionSuggestion,
   getHigherContextCompactionSuggestion,
   type CompactionSuggestion,
-} from "@/browser/utils/compaction/suggestion";
-import { executeCompaction } from "@/browser/utils/chatCommands";
+} from "@/utils/compaction/suggestion";
+import { executeCompaction } from "@/utils/chatCommands";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { PREFERRED_COMPACTION_MODEL_KEY } from "@/common/constants/storage";
 import type { FilePart, ProvidersConfigMap } from "@/common/orpc/types";

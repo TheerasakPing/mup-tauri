@@ -1,6 +1,6 @@
 import React from "react";
-import { FileIcon } from "@/browser/components/FileIcon";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
+import { FileIcon } from "@/components/FileIcon";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 // Format token display - show k for thousands with 1 decimal
 const formatTokens = (tokens: number) =>

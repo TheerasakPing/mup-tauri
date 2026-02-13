@@ -3,7 +3,7 @@
  * Used by the read-more feature in code review.
  */
 
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 /** Number of lines to expand per click */
 export const LINES_PER_EXPANSION = 20;

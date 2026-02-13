@@ -2,8 +2,8 @@ import React, { useState, useCallback, useRef } from "react";
 import type { GitStatus } from "@/common/types/workspace";
 import { GIT_STATUS_INDICATOR_MODE_KEY } from "@/common/constants/storage";
 import { STORAGE_KEYS, WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { invalidateGitStatus, useGitStatusRefreshing } from "@/browser/stores/GitStatusStore";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { invalidateGitStatus, useGitStatusRefreshing } from "@/stores/GitStatusStore";
 import { GitStatusIndicatorView, type GitStatusIndicatorMode } from "./GitStatusIndicatorView";
 import { useGitBranchDetails } from "./hooks/useGitBranchDetails";
 

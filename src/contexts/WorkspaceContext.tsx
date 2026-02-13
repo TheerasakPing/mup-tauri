@@ -11,7 +11,7 @@ import {
 } from "react";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import type { ThinkingLevel } from "@/common/types/thinking";
-import type { WorkspaceSelection } from "@/browser/components/ProjectSidebar";
+import type { WorkspaceSelection } from "@/components/ProjectSidebar";
 import type { RuntimeConfig } from "@/common/types/runtime";
 import type { MuxDeepLinkPayload } from "@/common/types/deepLink";
 import { MUX_HELP_CHAT_WORKSPACE_ID } from "@/common/constants/muxChat";
@@ -36,26 +36,26 @@ import {
   SELECTED_WORKSPACE_KEY,
   WORKSPACE_DRAFTS_BY_PROJECT_KEY,
 } from "@/common/constants/storage";
-import { useAPI } from "@/browser/contexts/API";
-import { setWorkspaceModelWithOrigin } from "@/browser/utils/modelChange";
+import { useAPI } from "@/contexts/API";
+import { setWorkspaceModelWithOrigin } from "@/utils/modelChange";
 import {
   readPersistedState,
   readPersistedString,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { useWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
+} from "@/hooks/usePersistedState";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { useWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
 import { normalizeAgentAiDefaults } from "@/common/types/agentAiDefaults";
 import { isWorkspaceArchived } from "@/common/utils/archive";
 import { getProjectRouteId } from "@/common/utils/projectRouteId";
 import { resolveProjectPathFromProjectQuery } from "@/common/utils/deepLink";
-import { shouldApplyWorkspaceAiSettingsFromBackend } from "@/browser/utils/workspaceAiSettingsSync";
-import { isAbortError } from "@/browser/utils/isAbortError";
-import { useRouter } from "@/browser/contexts/RouterContext";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
+import { shouldApplyWorkspaceAiSettingsFromBackend } from "@/utils/workspaceAiSettingsSync";
+import { isAbortError } from "@/utils/isAbortError";
+import { useRouter } from "@/contexts/RouterContext";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
 import { WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 /**
  * One-time best-effort migration: if the backend doesn't have model preferences yet,

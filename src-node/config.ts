@@ -11,7 +11,9 @@ import type {
   ProjectConfig,
   ProjectsConfig,
   FeatureFlagOverride,
+  CustomModelConfig,
 } from "@/common/types/project";
+import type { IconThemeConfig } from "@/common/types/iconTheme";
 import {
   DEFAULT_TASK_SETTINGS,
   normalizeSubagentAiDefaults,
@@ -28,7 +30,7 @@ import { stripTrailingSlashes } from "@/node/utils/pathUtils";
 import { getContainerName as getDockerContainerName } from "@/node/runtime/DockerRuntime";
 
 // Re-export project types from dedicated types file (for preload usage)
-export type { Workspace, ProjectConfig, ProjectsConfig };
+export type { Workspace, ProjectConfig, ProjectsConfig, CustomModelConfig };
 
 export interface ProviderConfig {
   apiKey?: string;
@@ -183,6 +185,8 @@ export class Config {
           muxGovernorUrl?: unknown;
           muxGovernorToken?: unknown;
           stopCoderWorkspaceOnArchive?: unknown;
+          customModelPrices?: unknown;
+        iconThemeConfig?: unknown;
         };
 
         // Config is stored as array of [path, config] pairs
@@ -256,6 +260,8 @@ export class Config {
             muxGovernorUrl: parseOptionalNonEmptyString(parsed.muxGovernorUrl),
             muxGovernorToken: parseOptionalNonEmptyString(parsed.muxGovernorToken),
             stopCoderWorkspaceOnArchive,
+            customModelPrices: parsed.customModelPrices as Record<string, CustomModelConfig> | undefined,
+            iconThemeConfig: parsed.iconThemeConfig as IconThemeConfig | undefined,
           };
         }
       }
@@ -301,6 +307,8 @@ export class Config {
         muxGovernorUrl?: string;
         muxGovernorToken?: string;
         stopCoderWorkspaceOnArchive?: boolean;
+        customModelPrices?: Record<string, CustomModelConfig>;
+        iconThemeConfig?: IconThemeConfig;
       } = {
         projects: Array.from(config.projects.entries()),
         taskSettings: config.taskSettings ?? DEFAULT_TASK_SETTINGS,
@@ -407,6 +415,14 @@ export class Config {
       // Default ON: persist `false` only.
       if (config.stopCoderWorkspaceOnArchive === false) {
         data.stopCoderWorkspaceOnArchive = false;
+      }
+
+      if (config.customModelPrices) {
+        data.customModelPrices = config.customModelPrices;
+      }
+
+      if (config.iconThemeConfig) {
+        data.iconThemeConfig = config.iconThemeConfig;
       }
 
       await writeFileAtomic(this.configFile, JSON.stringify(data, null, 2), "utf-8");
@@ -672,9 +688,9 @@ export class Config {
                 workspace.aiSettingsByAgent ??
                 (workspace.aiSettings
                   ? {
-                      plan: workspace.aiSettings,
-                      exec: workspace.aiSettings,
-                    }
+                    plan: workspace.aiSettings,
+                    exec: workspace.aiSettings,
+                  }
                   : undefined),
               parentWorkspaceId: workspace.parentWorkspaceId,
               agentType: workspace.agentType,
@@ -699,9 +715,9 @@ export class Config {
             if (!workspace.aiSettingsByAgent) {
               const derived = workspace.aiSettings
                 ? {
-                    plan: workspace.aiSettings,
-                    exec: workspace.aiSettings,
-                  }
+                  plan: workspace.aiSettings,
+                  exec: workspace.aiSettings,
+                }
                 : undefined;
               if (derived) {
                 workspace.aiSettingsByAgent = derived;
@@ -755,9 +771,9 @@ export class Config {
               workspace.aiSettingsByAgent ??
               (workspace.aiSettings
                 ? {
-                    plan: workspace.aiSettings,
-                    exec: workspace.aiSettings,
-                  }
+                  plan: workspace.aiSettings,
+                  exec: workspace.aiSettings,
+                }
                 : undefined);
             metadata.aiSettings ??= workspace.aiSettings;
 
@@ -808,9 +824,9 @@ export class Config {
                 workspace.aiSettingsByAgent ??
                 (workspace.aiSettings
                   ? {
-                      plan: workspace.aiSettings,
-                      exec: workspace.aiSettings,
-                    }
+                    plan: workspace.aiSettings,
+                    exec: workspace.aiSettings,
+                  }
                   : undefined),
               parentWorkspaceId: workspace.parentWorkspaceId,
               agentType: workspace.agentType,
@@ -852,9 +868,9 @@ export class Config {
               workspace.aiSettingsByAgent ??
               (workspace.aiSettings
                 ? {
-                    plan: workspace.aiSettings,
-                    exec: workspace.aiSettings,
-                  }
+                  plan: workspace.aiSettings,
+                  exec: workspace.aiSettings,
+                }
                 : undefined),
             parentWorkspaceId: workspace.parentWorkspaceId,
             agentType: workspace.agentType,

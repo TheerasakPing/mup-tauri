@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import type { DebugLlmRequestSnapshot } from "@/common/types/debugLlmRequest";
-import { useAPI } from "@/browser/contexts/API";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
-import { copyToClipboard } from "@/browser/utils/clipboard";
+import { useAPI } from "@/contexts/API";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { copyToClipboard } from "@/utils/clipboard";
 
 const JsonOutput: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="bg-code-bg text-text mt-3 w-full max-w-full min-w-0 overflow-x-auto rounded-sm">

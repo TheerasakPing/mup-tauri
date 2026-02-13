@@ -6,7 +6,7 @@ import React, {
   useMemo,
   type ReactNode,
 } from "react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { UI_THEME_KEY } from "@/common/constants/storage";
 
 export type ThemeMode = "light" | "dark" | "flexoki-light" | "flexoki-dark";

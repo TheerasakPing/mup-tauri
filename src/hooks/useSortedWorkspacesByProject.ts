@@ -1,8 +1,8 @@
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
-import { useWorkspaceRecency } from "@/browser/stores/WorkspaceStore";
-import { useStableReference, compareMaps } from "@/browser/hooks/useStableReference";
+import { useWorkspaceRecency } from "@/stores/WorkspaceStore";
+import { useStableReference, compareMaps } from "@/hooks/useStableReference";
 
 export function useSortedWorkspacesByProject() {
   const { projects } = useProjectContext();

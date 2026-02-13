@@ -6,7 +6,7 @@ import {
   type GitCommit,
   type GitBranchHeader,
 } from "@/common/utils/git/parseGitLog";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 const GitBranchDataSchema = z.object({
   showBranch: z.string(),

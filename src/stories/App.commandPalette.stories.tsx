@@ -11,7 +11,7 @@ import { expect, userEvent, within } from "@storybook/test";
 import { appMeta, AppWithMocks, type AppStory } from "./meta.js";
 import { NOW, createWorkspace, groupWorkspacesByProject } from "./mockFactory";
 import { selectWorkspace, collapseRightSidebar, expandProjects } from "./storyHelpers";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 
 export default {
   ...appMeta,

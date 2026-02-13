@@ -2,10 +2,10 @@ import React from "react";
 import { AlertTriangle } from "lucide-react";
 import { cn } from "@/common/lib/utils";
 import type { RuntimeConfig } from "@/common/types/runtime";
-import { ThinkingProvider } from "@/browser/contexts/ThinkingContext";
-import { WorkspaceModeAISync } from "@/browser/components/WorkspaceModeAISync";
-import { AgentProvider } from "@/browser/contexts/AgentContext";
-import { BackgroundBashProvider } from "@/browser/contexts/BackgroundBashContext";
+import { ThinkingProvider } from "@/contexts/ThinkingContext";
+import { WorkspaceModeAISync } from "@/components/WorkspaceModeAISync";
+import { AgentProvider } from "@/contexts/AgentContext";
+import { BackgroundBashProvider } from "@/contexts/BackgroundBashContext";
 import { WorkspaceShell } from "./WorkspaceShell";
 
 interface AIViewProps {

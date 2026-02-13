@@ -1,5 +1,5 @@
 import React from "react";
-import { useProviderOptions } from "@/browser/hooks/useProviderOptions";
+import { useProviderOptions } from "@/hooks/useProviderOptions";
 import { supports1MContext } from "@/common/utils/ai/models";
 import { cn } from "@/common/lib/utils";
 

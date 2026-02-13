@@ -1,5 +1,5 @@
 import { Settings, Zap } from "lucide-react";
-import { useSettings } from "@/browser/contexts/SettingsContext";
+import { useSettings } from "@/contexts/SettingsContext";
 import { Button } from "./ui/button";
 
 /**

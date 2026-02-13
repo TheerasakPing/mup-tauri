@@ -1,8 +1,8 @@
 import { Settings } from "lucide-react";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { Button } from "@/browser/components/ui/button";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { useSettings } from "@/contexts/SettingsContext";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 
 export function SettingsButton() {
   const { open } = useSettings();

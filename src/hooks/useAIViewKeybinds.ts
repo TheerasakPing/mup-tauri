@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import type { ChatInputAPI } from "@/browser/components/ChatInput";
+import type { ChatInputAPI } from "@/components/ChatInput";
 import {
   matchesKeybind,
   KEYBINDS,
   isEditableElement,
   isTerminalFocused,
-} from "@/browser/utils/ui/keybinds";
-import type { StreamingMessageAggregator } from "@/browser/utils/messages/StreamingMessageAggregator";
-import { isCompactingStream, cancelCompaction } from "@/browser/utils/compaction/handler";
-import { useAPI } from "@/browser/contexts/API";
-import { disableAutoRetryPreference } from "@/browser/utils/messages/autoRetryPreference";
-import type { EditingMessageState } from "@/browser/utils/chatEditing";
+} from "@/utils/ui/keybinds";
+import type { StreamingMessageAggregator } from "@/utils/messages/StreamingMessageAggregator";
+import { isCompactingStream, cancelCompaction } from "@/utils/compaction/handler";
+import { useAPI } from "@/contexts/API";
+import { disableAutoRetryPreference } from "@/utils/messages/autoRetryPreference";
+import type { EditingMessageState } from "@/utils/chatEditing";
 
 interface UseAIViewKeybindsParams {
   workspaceId: string;

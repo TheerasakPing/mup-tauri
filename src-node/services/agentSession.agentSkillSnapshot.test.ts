@@ -18,6 +18,7 @@ import { Ok } from "@/common/types/result";
 
 import { AgentSession } from "./agentSession";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 describe("AgentSession.sendMessage (agent skill snapshots)", () => {
   async function createTestWorkspaceWithSkill(args: { skillName: string; skillBody: string }) {
@@ -105,6 +106,7 @@ describe("AgentSession.sendMessage (agent skill snapshots)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -215,6 +217,7 @@ describe("AgentSession.sendMessage (agent skill snapshots)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -308,6 +311,7 @@ describe("AgentSession.sendMessage (agent skill snapshots)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -414,6 +418,7 @@ describe("AgentSession.sendMessage (agent skill snapshots)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -553,6 +558,7 @@ describe("AgentSession.sendMessage (agent skill snapshots)", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

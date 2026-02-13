@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { filterCommandsByPrefix } from "@/browser/utils/commandPaletteFiltering";
-import { CommandIds, CommandIdMatchers } from "@/browser/utils/commandIds";
+import { filterCommandsByPrefix } from "@/utils/commandPaletteFiltering";
+import { CommandIds, CommandIdMatchers } from "@/utils/commandIds";
 
 /**
  * Tests for command palette filtering logic

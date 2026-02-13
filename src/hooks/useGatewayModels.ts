@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import { usePersistedState, readPersistedState, updatePersistedState } from "./usePersistedState";
 import { useProvidersConfig } from "./useProvidersConfig";
 import {

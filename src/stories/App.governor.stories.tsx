@@ -9,11 +9,11 @@
  * Uses play functions to open the settings modal and navigate to the Governor section.
  */
 
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import { appMeta, AppWithMocks, type AppStory } from "./meta.js";
 import { createWorkspace, groupWorkspacesByProject } from "./mockFactory";
 import { selectWorkspace } from "./storyHelpers";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 import { within, userEvent } from "@storybook/test";
 import type { PolicyGetResponse, PolicySource, EffectivePolicy } from "@/common/orpc/types";
 import { getExperimentKey, EXPERIMENT_IDS } from "@/common/constants/experiments";

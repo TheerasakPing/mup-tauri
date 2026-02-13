@@ -3,26 +3,26 @@ import {
   useExperiment,
   useExperimentValue,
   useRemoteExperimentValue,
-} from "@/browser/contexts/ExperimentsContext";
+} from "@/contexts/ExperimentsContext";
 import {
   getExperimentList,
   EXPERIMENT_IDS,
   type ExperimentId,
 } from "@/common/constants/experiments";
-import { Switch } from "@/browser/components/ui/switch";
-import { Button } from "@/browser/components/ui/button";
-import { CopyButton } from "@/browser/components/ui/CopyButton";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { CopyButton } from "@/components/ui/CopyButton";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
+} from "@/components/ui/select";
 import type { ApiServerStatus } from "@/common/orpc/types";
-import { Input } from "@/browser/components/ui/input";
-import { useAPI } from "@/browser/contexts/API";
-import { useTelemetry } from "@/browser/hooks/useTelemetry";
+import { Input } from "@/components/ui/input";
+import { useAPI } from "@/contexts/API";
+import { useTelemetry } from "@/hooks/useTelemetry";
 
 interface ExperimentRowProps {
   experimentId: ExperimentId;

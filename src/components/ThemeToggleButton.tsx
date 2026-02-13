@@ -1,5 +1,5 @@
 import { MoonStar, SunMedium } from "lucide-react";
-import { useTheme } from "@/browser/contexts/ThemeContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 
 export function ThemeToggleButton() {

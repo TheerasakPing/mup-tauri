@@ -15,7 +15,7 @@ import {
   createFileEditTool,
   createStaticChatHandler,
 } from "./mockFactory";
-import { disableAutoRetryPreference } from "@/browser/utils/messages/autoRetryPreference";
+import { disableAutoRetryPreference } from "@/utils/messages/autoRetryPreference";
 import {
   collapseRightSidebar,
   createOnChatAdapter,
@@ -24,7 +24,7 @@ import {
   setupCustomChatStory,
   setupSimpleChatStory,
 } from "./storyHelpers";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 import { userEvent, waitFor } from "@storybook/test";
 
 export default {

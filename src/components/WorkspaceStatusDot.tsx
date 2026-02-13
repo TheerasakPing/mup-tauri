@@ -1,6 +1,6 @@
 import { cn } from "@/common/lib/utils";
-import { useWorkspaceSidebarState } from "@/browser/stores/WorkspaceStore";
-import { getStatusTooltip } from "@/browser/utils/ui/statusTooltip";
+import { useWorkspaceSidebarState } from "@/stores/WorkspaceStore";
+import { getStatusTooltip } from "@/utils/ui/statusTooltip";
 import { memo, useMemo } from "react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 

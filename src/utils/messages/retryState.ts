@@ -1,4 +1,4 @@
-import type { RetryState } from "@/browser/hooks/useResumeManager";
+import type { RetryState } from "@/hooks/useResumeManager";
 
 export const INITIAL_DELAY = 1000; // 1 second
 export const MAX_DELAY = 60000; // 60 seconds

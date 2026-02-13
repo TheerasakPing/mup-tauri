@@ -8,13 +8,13 @@
  */
 
 import React from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { workspaceStore } from "@/browser/stores/WorkspaceStore";
+import { useAPI } from "@/contexts/API";
+import { workspaceStore } from "@/stores/WorkspaceStore";
 import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import {
   ChevronDown,
   ChevronRight,
@@ -36,7 +36,7 @@ import {
   parseGitStatus,
   parseGitCheckIgnoreOutput,
   type GitStatusResult,
-} from "@/browser/utils/fileExplorer";
+} from "@/utils/fileExplorer";
 
 interface ExplorerTabProps {
   workspaceId: string;

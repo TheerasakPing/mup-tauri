@@ -7,7 +7,7 @@ import {
   DockerIcon,
   DevcontainerIcon,
   CoderIcon,
-} from "@/browser/components/icons/RuntimeIcons";
+} from "@/components/icons/RuntimeIcons";
 
 export interface RuntimeIconProps {
   size?: number;

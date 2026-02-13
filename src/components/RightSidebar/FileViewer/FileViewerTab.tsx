@@ -5,8 +5,8 @@
  */
 
 import React from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { workspaceStore } from "@/browser/stores/WorkspaceStore";
+import { useAPI } from "@/contexts/API";
+import { workspaceStore } from "@/stores/WorkspaceStore";
 import { RefreshCw, AlertCircle } from "lucide-react";
 import { TextFileViewer } from "./TextFileViewer";
 import { ImageFileViewer } from "./ImageFileViewer";
@@ -17,13 +17,13 @@ import {
   processFileContents,
   EXIT_CODE_TOO_LARGE,
   type FileContentsResult,
-} from "@/browser/utils/fileExplorer";
+} from "@/utils/fileExplorer";
 import {
   getCachedFileContent,
   setCachedFileContent,
   removeCachedFileContent,
   cacheToResult,
-} from "@/browser/utils/fileContentCache";
+} from "@/utils/fileContentCache";
 import type { ReviewNoteData } from "@/common/types/review";
 
 interface FileViewerTabProps {

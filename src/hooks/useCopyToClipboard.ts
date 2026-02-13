@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { COPY_FEEDBACK_DURATION_MS } from "@/common/constants/ui";
-import { copyToClipboard as copyToClipboardUtil } from "@/browser/utils/clipboard";
+import { copyToClipboard as copyToClipboardUtil } from "@/utils/clipboard";
 
 /**
  * Hook for copy-to-clipboard functionality with temporary "copied" feedback state.

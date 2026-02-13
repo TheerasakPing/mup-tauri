@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from "react";
 import { Plus, X } from "lucide-react";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import assert from "@/common/utils/assert";
-import { KebabMenu, type KebabMenuItem } from "@/browser/components/KebabMenu";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { useUILayouts } from "@/browser/contexts/UILayoutsContext";
-import { getEffectiveSlotKeybind } from "@/browser/utils/uiLayouts";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
-import { formatKeybind, isMac, KEYBINDS, matchesKeybind } from "@/browser/utils/ui/keybinds";
+import { KebabMenu, type KebabMenuItem } from "@/components/KebabMenu";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { useUILayouts } from "@/contexts/UILayoutsContext";
+import { getEffectiveSlotKeybind } from "@/utils/uiLayouts";
+import { stopKeyboardPropagation } from "@/utils/events";
+import { formatKeybind, isMac, KEYBINDS, matchesKeybind } from "@/utils/ui/keybinds";
 import type { Keybind } from "@/common/types/keybind";
 import type { LayoutSlotNumber } from "@/common/types/uiLayouts";
 

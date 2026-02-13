@@ -1,13 +1,13 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { init, Terminal, FitAddon } from "ghostty-web";
-import { useAPI } from "@/browser/contexts/API";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import {
   DEFAULT_TERMINAL_FONT_CONFIG,
   TERMINAL_FONT_CONFIG_KEY,
   type TerminalFontConfig,
 } from "@/common/constants/storage";
-import { useTerminalRouter } from "@/browser/terminal/TerminalRouterContext";
+import { useTerminalRouter } from "@/terminal/TerminalRouterContext";
 import {
   appendTerminalIconFallback,
   formatCssFontFamilyList,
@@ -16,8 +16,8 @@ import {
   splitFontFamilyList,
   stripOuterQuotes,
   TERMINAL_ICON_FALLBACK_FAMILY,
-} from "@/browser/terminal/terminalFontFamily";
-import { TERMINAL_CONTAINER_ATTR } from "@/browser/utils/ui/keybinds";
+} from "@/terminal/terminalFontFamily";
+import { TERMINAL_CONTAINER_ATTR } from "@/utils/ui/keybinds";
 
 function normalizeTerminalFontConfig(value: unknown): TerminalFontConfig {
   if (!value || typeof value !== "object") {

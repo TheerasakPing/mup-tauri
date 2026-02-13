@@ -5,15 +5,15 @@
 import React from "react";
 import { extractNewPath, type FileTreeNode } from "@/common/utils/git/numstatParser";
 import type { FileChangeType } from "@/common/types/review";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import {
   getFileTreeExpandStateKey,
   REVIEW_FILE_TREE_VIEW_MODE_KEY,
 } from "@/common/constants/storage";
 import { cn } from "@/common/lib/utils";
-import { ToggleGroup, type ToggleOption } from "@/browser/components/ToggleGroup";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { FileIcon } from "@/browser/components/FileIcon";
+import { ToggleGroup, type ToggleOption } from "@/components/ToggleGroup";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { FileIcon } from "@/components/FileIcon";
 
 /**
  * Compute read status for a directory by recursively checking all descendant files

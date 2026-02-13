@@ -12,23 +12,25 @@ import {
   ShieldCheck,
   Server,
   Lock,
+  Palette,
 } from "lucide-react";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { useExperimentValue } from "@/browser/hooks/useExperiments";
+import { useSettings } from "@/contexts/SettingsContext";
+import { useExperimentValue } from "@/hooks/useExperiments";
 import { EXPERIMENT_IDS } from "@/common/constants/experiments";
-import { Dialog, DialogContent, DialogTitle, VisuallyHidden } from "@/browser/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, VisuallyHidden } from "@/components/ui/dialog";
 import { GeneralSection } from "./sections/GeneralSection";
 import { TasksSection } from "./sections/TasksSection";
 import { ProvidersSection } from "./sections/ProvidersSection";
 import { ModelsSection } from "./sections/ModelsSection";
 import { System1Section } from "./sections/System1Section";
 import { GovernorSection } from "./sections/GovernorSection";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { MCPSettingsSection } from "./sections/MCPSettingsSection";
 import { SecretsSection } from "./sections/SecretsSection";
 import { LayoutsSection } from "./sections/LayoutsSection";
 import { ExperimentsSection } from "./sections/ExperimentsSection";
 import { KeybindsSection } from "./sections/KeybindsSection";
+import { AppearanceSection } from "./sections/AppearanceSection";
 import type { SettingsSection } from "./types";
 
 const BASE_SECTIONS: SettingsSection[] = [
@@ -37,6 +39,12 @@ const BASE_SECTIONS: SettingsSection[] = [
     label: "General",
     icon: <Settings className="h-4 w-4" />,
     component: GeneralSection,
+  },
+  {
+    id: "appearance",
+    label: "Appearance",
+    icon: <Palette className="h-4 w-4" />,
+    component: AppearanceSection,
   },
   {
     id: "tasks",
@@ -164,11 +172,10 @@ export function SettingsModal() {
                 key={section.id}
                 variant="ghost"
                 onClick={() => setActiveSection(section.id)}
-                className={`flex h-auto shrink-0 items-center justify-start gap-2 rounded-md px-3 py-2 text-left text-sm whitespace-nowrap md:w-full ${
-                  activeSection === section.id
+                className={`flex h-auto shrink-0 items-center justify-start gap-2 rounded-md px-3 py-2 text-left text-sm whitespace-nowrap md:w-full ${activeSection === section.id
                     ? "bg-accent/20 text-accent hover:bg-accent/20 hover:text-accent"
                     : "text-muted hover:bg-hover hover:text-foreground"
-                }`}
+                  }`}
               >
                 {section.icon}
                 {section.label}

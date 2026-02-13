@@ -1,6 +1,6 @@
 import React from "react";
-import { ModelDisplay } from "@/browser/components/Messages/ModelDisplay";
-import { formatRelativeTime } from "@/browser/utils/ui/dateTime";
+import { ModelDisplay } from "@/components/Messages/ModelDisplay";
+import { formatRelativeTime } from "@/utils/ui/dateTime";
 
 /**
  * Compute tooltip content for StatusIndicator based on workspace state.

@@ -5,13 +5,13 @@
  * with original /compact command restored for re-editing.
  */
 
-import type { StreamingMessageAggregator } from "@/browser/utils/messages/StreamingMessageAggregator";
+import type { StreamingMessageAggregator } from "@/utils/messages/StreamingMessageAggregator";
 import { getCompactionFollowUpContent } from "@/common/types/message";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import {
   buildEditingStateFromCompaction,
   type EditingMessageState,
-} from "@/browser/utils/chatEditing";
+} from "@/utils/chatEditing";
 import { getFollowUpContentText } from "./format";
 
 /**

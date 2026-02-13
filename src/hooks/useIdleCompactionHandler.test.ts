@@ -9,7 +9,7 @@
  *
  * NOTE: We use dependency injection (_executeCompaction prop) instead of
  * mock.module() because mock.module() is global in bun and would break
- * other tests that import @/browser/utils/chatCommands.
+ * other tests that import @/utils/chatCommands.
  */
 
 import { describe, test, expect, mock, beforeEach, afterEach } from "bun:test";
@@ -21,7 +21,7 @@ let mockUnsubscribe: () => void;
 let capturedCallback: ((workspaceId: string) => void) | null = null;
 let onIdleCompactionNeededCallCount = 0;
 
-void mock.module("@/browser/stores/WorkspaceStore", () => ({
+void mock.module("@/stores/WorkspaceStore", () => ({
   workspaceStore: {
     onIdleCompactionNeeded: (callback: (workspaceId: string) => void) => {
       onIdleCompactionNeededCallCount++;

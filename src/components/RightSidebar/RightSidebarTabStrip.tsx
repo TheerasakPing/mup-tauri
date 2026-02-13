@@ -5,12 +5,12 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useDroppable, useDndContext } from "@dnd-kit/core";
 import { Plus } from "lucide-react";
-import type { TabType } from "@/browser/types/rightSidebar";
+import type { TabType } from "@/types/rightSidebar";
 import {
   isDesktopMode,
   getTitlebarRightInset,
   DESKTOP_TITLEBAR_MIN_HEIGHT_CLASS,
-} from "@/browser/hooks/useDesktopTitlebar";
+} from "@/hooks/useDesktopTitlebar";
 
 // Re-export for consumers that import from this file
 export { getTabName } from "./tabs";

@@ -22,9 +22,9 @@ import {
   PREFERRED_COMPACTION_MODEL_KEY,
   getAutoCompactionThresholdKey,
 } from "@/common/constants/storage";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { updatePersistedState } from "@/hooks/usePersistedState";
 import type { ComponentType } from "react";
-import type { MockSessionUsage } from "@/browser/stories/mocks/orpc";
+import type { MockSessionUsage } from "@/stories/mocks/orpc";
 
 export default {
   ...appMeta,

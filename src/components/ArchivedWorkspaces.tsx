@@ -2,9 +2,9 @@ import React from "react";
 
 import { cn } from "@/common/lib/utils";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useAPI } from "@/browser/contexts/API";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
 import { ChevronDown, ChevronRight, Loader2, Search, Trash2 } from "lucide-react";
 import { ArchiveIcon, ArchiveRestoreIcon } from "./icons/ArchiveIcon";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
@@ -17,9 +17,9 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/browser/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { ForceDeleteModal } from "./ForceDeleteModal";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import type { z } from "zod";
 import type { SessionUsageFileSchema } from "@/common/orpc/schemas/chatStats";
 import {
@@ -27,8 +27,8 @@ import {
   getTotalCost,
   formatCostWithDollar,
 } from "@/common/utils/tokens/usageAggregator";
-import { useOptimisticBatchLRU } from "@/browser/hooks/useOptimisticBatchLRU";
-import { sessionCostCache } from "@/browser/utils/sessionCostCache";
+import { useOptimisticBatchLRU } from "@/hooks/useOptimisticBatchLRU";
+import { sessionCostCache } from "@/utils/sessionCostCache";
 
 type SessionUsageFile = z.infer<typeof SessionUsageFileSchema>;
 

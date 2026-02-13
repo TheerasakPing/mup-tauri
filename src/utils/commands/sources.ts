@@ -1,21 +1,21 @@
-import { THEME_OPTIONS, type ThemeMode } from "@/browser/contexts/ThemeContext";
-import type { CommandAction } from "@/browser/contexts/CommandRegistryContext";
-import type { APIClient } from "@/browser/contexts/API";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { THEME_OPTIONS, type ThemeMode } from "@/contexts/ThemeContext";
+import type { CommandAction } from "@/contexts/CommandRegistryContext";
+import type { APIClient } from "@/contexts/API";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { THINKING_LEVELS, type ThinkingLevel } from "@/common/types/thinking";
 import { getThinkingPolicyForModel } from "@/common/utils/thinking/policy";
 import assert from "@/common/utils/assert";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { getRightSidebarLayoutKey, RIGHT_SIDEBAR_TAB_KEY } from "@/common/constants/storage";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
-import { disableAutoRetryPreference } from "@/browser/utils/messages/autoRetryPreference";
-import { CommandIds } from "@/browser/utils/commandIds";
-import { isTabType, type TabType } from "@/browser/types/rightSidebar";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
+import { disableAutoRetryPreference } from "@/utils/messages/autoRetryPreference";
+import { CommandIds } from "@/utils/commandIds";
+import { isTabType, type TabType } from "@/types/rightSidebar";
 import {
   getEffectiveSlotKeybind,
   getLayoutsConfigOrDefault,
   getPresetForSlot,
-} from "@/browser/utils/uiLayouts";
+} from "@/utils/uiLayouts";
 import type { LayoutPresetsConfig, LayoutSlotNumber } from "@/common/types/uiLayouts";
 import {
   addToolToFocusedTabset,
@@ -24,12 +24,12 @@ import {
   selectTabInTabset,
   setFocusedTabset,
   splitFocusedTabset,
-} from "@/browser/utils/rightSidebarLayout";
+} from "@/utils/rightSidebarLayout";
 
 import type { ProjectConfig } from "@/node/config";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import type { BranchListResult } from "@/common/orpc/types";
-import type { WorkspaceState } from "@/browser/stores/WorkspaceStore";
+import type { WorkspaceState } from "@/stores/WorkspaceStore";
 import type { RuntimeConfig } from "@/common/types/runtime";
 
 export interface BuildSourcesParams {

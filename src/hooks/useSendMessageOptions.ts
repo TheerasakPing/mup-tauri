@@ -1,13 +1,13 @@
 import { WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
 import { useThinkingLevel } from "./useThinkingLevel";
-import { useAgent } from "@/browser/contexts/AgentContext";
+import { useAgent } from "@/contexts/AgentContext";
 import { usePersistedState } from "./usePersistedState";
 import {
   buildSendMessageOptions,
   normalizeModelPreference,
   normalizeSystem1Model,
   normalizeSystem1ThinkingLevel,
-} from "@/browser/utils/messages/buildSendMessageOptions";
+} from "@/utils/messages/buildSendMessageOptions";
 import {
   DEFAULT_MODEL_KEY,
   getModelKey,

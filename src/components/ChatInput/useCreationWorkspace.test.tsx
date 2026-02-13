@@ -1,5 +1,5 @@
-import type { APIClient } from "@/browser/contexts/API";
-import type { DraftWorkspaceSettings } from "@/browser/hooks/useDraftWorkspaceSettings";
+import type { APIClient } from "@/contexts/API";
+import type { DraftWorkspaceSettings } from "@/hooks/useDraftWorkspaceSettings";
 import {
   getAgentIdKey,
   getInputKey,
@@ -16,7 +16,7 @@ import {
   type CoderWorkspaceConfig,
   type ParsedRuntime,
 } from "@/common/types/runtime";
-import type { RuntimeChoice } from "@/browser/utils/runtimeUi";
+import type { RuntimeChoice } from "@/utils/runtimeUi";
 import type {
   FrontendWorkspaceMetadata,
   WorkspaceActivitySnapshot,
@@ -83,7 +83,7 @@ const readPersistedStringMock = mock((key: string) => {
   return storedValue;
 });
 
-void mock.module("@/browser/hooks/usePersistedState", () => ({
+void mock.module("@/hooks/usePersistedState", () => ({
   readPersistedState: readPersistedStateMock,
   readPersistedString: readPersistedStringMock,
   updatePersistedState: updatePersistedStateMock,
@@ -106,7 +106,7 @@ const useDraftWorkspaceSettingsMock = mock(
   }
 );
 
-void mock.module("@/browser/hooks/useDraftWorkspaceSettings", () => ({
+void mock.module("@/hooks/useDraftWorkspaceSettings", () => ({
   useDraftWorkspaceSettings: useDraftWorkspaceSettingsMock,
 }));
 
@@ -118,7 +118,7 @@ const routerState = {
   pendingDraftId: null as string | null,
 };
 
-void mock.module("@/browser/contexts/RouterContext", () => ({
+void mock.module("@/contexts/RouterContext", () => ({
   useRouter: () => ({
     navigateToWorkspace: noop,
     navigateToProject: noop,
@@ -131,7 +131,7 @@ void mock.module("@/browser/contexts/RouterContext", () => ({
   }),
 }));
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => {
     if (!currentORPCClient) {
       return { api: null, status: "connecting" as const, error: null };

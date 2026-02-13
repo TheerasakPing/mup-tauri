@@ -7,6 +7,7 @@
 
 import type { LanguageModelV2Usage } from "@ai-sdk/provider";
 import { getModelStats } from "./modelStats";
+import type { CustomModelConfig } from "@/common/types/project";
 import type { ChatUsageDisplay } from "./usageAggregator";
 
 /**
@@ -18,7 +19,8 @@ import type { ChatUsageDisplay } from "./usageAggregator";
 export function createDisplayUsage(
   usage: LanguageModelV2Usage | undefined,
   model: string,
-  providerMetadata?: Record<string, unknown>
+  providerMetadata?: Record<string, unknown>,
+  customModelConfig?: CustomModelConfig
 ): ChatUsageDisplay | undefined {
   if (!usage) return undefined;
 
@@ -51,7 +53,7 @@ export function createDisplayUsage(
   const outputWithoutReasoning = Math.max(0, (usage.outputTokens ?? 0) - reasoningTokens);
 
   // Get model stats for cost calculation
-  const modelStats = getModelStats(model);
+  const modelStats = getModelStats(model, customModelConfig);
 
   const costsIncluded =
     (providerMetadata?.mux as { costsIncluded?: boolean } | undefined)?.costsIncluded === true;

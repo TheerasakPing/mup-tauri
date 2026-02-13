@@ -5,7 +5,7 @@
 import type { ParsedCommand, SlashCommandDefinition } from "./types";
 import { SLASH_COMMAND_DEFINITION_MAP } from "./registry";
 import { MODEL_ABBREVIATIONS } from "@/common/constants/knownModels";
-import { normalizeModelInput } from "@/browser/utils/models/normalizeModelInput";
+import { normalizeModelInput } from "@/utils/models/normalizeModelInput";
 import { parseThinkingInput, type ParsedThinkingInput } from "@/common/types/thinking";
 
 export { SLASH_COMMAND_DEFINITIONS } from "./registry";

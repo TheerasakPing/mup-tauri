@@ -1,6 +1,6 @@
 import { KNOWN_MODELS } from "@/common/constants/knownModels";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
-import { isProviderSupported } from "@/browser/hooks/useGatewayModels";
+import { isProviderSupported } from "@/hooks/useGatewayModels";
 
 const BUILT_IN_MODELS: string[] = Object.values(KNOWN_MODELS).map((model) => model.id);
 

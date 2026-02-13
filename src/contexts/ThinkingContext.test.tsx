@@ -3,18 +3,18 @@ import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { act, cleanup, render, waitFor } from "@testing-library/react";
 import React from "react";
 import { ThinkingProvider } from "./ThinkingContext";
-import { useThinkingLevel } from "@/browser/hooks/useThinkingLevel";
+import { useThinkingLevel } from "@/hooks/useThinkingLevel";
 import {
   getModelKey,
   getProjectScopeId,
   getThinkingLevelByModelKey,
   getThinkingLevelKey,
 } from "@/common/constants/storage";
-import type { APIClient } from "@/browser/contexts/API";
-import type { RecursivePartial } from "@/browser/testUtils";
+import type { APIClient } from "@/contexts/API";
+import type { RecursivePartial } from "@/testUtils";
 
 const currentClientMock: RecursivePartial<APIClient> = {};
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: currentClientMock as APIClient,
     status: "connected" as const,
@@ -23,7 +23,7 @@ void mock.module("@/browser/contexts/API", () => ({
   APIProvider: ({ children }: { children: React.ReactNode }) => children,
 }));
 
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { updatePersistedState } from "@/hooks/usePersistedState";
 
 // Setup basic DOM environment for testing-library
 const dom = new GlobalWindow();

@@ -26,6 +26,8 @@ declare global {
     isE2E?: boolean;
     // True if running under Rosetta 2 translation on Apple Silicon (storybook/tests may set this)
     isRosetta?: boolean;
+    // Async getter (Electron) for the HTTP API server base URL (used for icon theme file serving)
+    getApiServerUrl?: () => Promise<string | null>;
     // Async getter (used in Electron) for environments where preload cannot use Node builtins
     getIsRosetta?: () => Promise<boolean>;
     // True if Windows appears to be configured to use WSL as the default shell.

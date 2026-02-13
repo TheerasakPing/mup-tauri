@@ -21,13 +21,13 @@ const useProvidersConfigMock = mock(() => ({
   },
 }));
 
-void mock.module("@/browser/hooks/useProvidersConfig", () => ({
+void mock.module("@/hooks/useProvidersConfig", () => ({
   useProvidersConfig: useProvidersConfigMock,
 }));
 
 // Mock useAPI - the hook uses api.config.updateMuxGatewayPrefs for persistence
 // but has a defensive guard so it's safe to pass null/undefined.
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: {
       config: {

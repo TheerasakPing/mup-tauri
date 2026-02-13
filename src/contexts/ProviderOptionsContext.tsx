@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useRef } from "react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import type { MuxProviderOptions } from "@/common/types/providerOptions";
 import { supports1MContext } from "@/common/utils/ai/models";
 import { KNOWN_MODELS } from "@/common/constants/knownModels";

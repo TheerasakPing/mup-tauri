@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/browser/components/ui/popover";
-import { ProviderIcon } from "@/browser/components/ProviderIcon";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ProviderIcon } from "@/components/ProviderIcon";
+import { stopKeyboardPropagation } from "@/utils/events";
 import { cn } from "@/common/lib/utils";
 import { getModelName, getModelProvider } from "@/common/utils/ai/models";
 

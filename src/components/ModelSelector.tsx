@@ -18,11 +18,11 @@ import { GatewayToggleButton } from "./GatewayToggleButton";
 
 import { ProviderIcon } from "./ProviderIcon";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { useGateway } from "@/browser/hooks/useGatewayModels";
+import { useSettings } from "@/contexts/SettingsContext";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { useGateway } from "@/hooks/useGatewayModels";
 
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+import { stopKeyboardPropagation } from "@/utils/events";
 import { formatModelDisplayName } from "@/common/utils/ai/modelDisplay";
 import { getModelName, getModelProvider } from "@/common/utils/ai/models";
 import { Button } from "./ui/button";

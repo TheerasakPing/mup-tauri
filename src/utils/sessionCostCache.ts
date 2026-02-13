@@ -8,7 +8,7 @@
  * Max entries: 500 (reasonable for most users)
  */
 
-import { createLRUCache } from "@/browser/utils/lruCache";
+import { createLRUCache } from "@/utils/lruCache";
 
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 

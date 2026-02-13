@@ -5,14 +5,14 @@ import type { ButtonConfig } from "./MessageWindow";
 import { MessageWindow } from "./MessageWindow";
 import { UserMessageContent } from "./UserMessageContent";
 import { TerminalOutput } from "./TerminalOutput";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
-import { copyToClipboard } from "@/browser/utils/clipboard";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { copyToClipboard } from "@/utils/clipboard";
 import {
   buildEditingStateFromDisplayed,
   type EditingMessageState,
-} from "@/browser/utils/chatEditing";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+} from "@/utils/chatEditing";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { VIM_ENABLED_KEY } from "@/common/constants/storage";
 import { ChevronLeft, ChevronRight, Clipboard, ClipboardCheck, Pencil } from "lucide-react";
 

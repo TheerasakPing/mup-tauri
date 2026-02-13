@@ -1,6 +1,6 @@
 import React from "react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { ProviderIcon } from "@/browser/components/ProviderIcon";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { ProviderIcon } from "@/components/ProviderIcon";
 import { formatModelDisplayName } from "@/common/utils/ai/modelDisplay";
 
 interface ModelDisplayProps {

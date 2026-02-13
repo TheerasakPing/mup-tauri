@@ -1,16 +1,16 @@
 import React from "react";
 import { StreamingBarrierView } from "./StreamingBarrierView";
 import { getModelName } from "@/common/utils/ai/models";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import {
   VIM_ENABLED_KEY,
   getModelKey,
   PREFERRED_COMPACTION_MODEL_KEY,
 } from "@/common/constants/storage";
-import { readPersistedState, readPersistedString } from "@/browser/hooks/usePersistedState";
-import { useWorkspaceState, useWorkspaceAggregator } from "@/browser/stores/WorkspaceStore";
-import { getDefaultModel } from "@/browser/hooks/useModelsFromSettings";
-import { useSettings } from "@/browser/contexts/SettingsContext";
+import { readPersistedState, readPersistedString } from "@/hooks/usePersistedState";
+import { useWorkspaceState, useWorkspaceAggregator } from "@/stores/WorkspaceStore";
+import { getDefaultModel } from "@/hooks/useModelsFromSettings";
+import { useSettings } from "@/contexts/SettingsContext";
 
 type StreamingPhase =
   | "starting" // Message sent, waiting for stream-start

@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Server, Loader2 } from "lucide-react";
-import { Button } from "@/browser/components/ui/button";
-import { Switch } from "@/browser/components/ui/switch";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { useAPI } from "@/browser/contexts/API";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { useSettings } from "@/contexts/SettingsContext";
+import { useAPI } from "@/contexts/API";
 import { cn } from "@/common/lib/utils";
 import type { MCPServerInfo, WorkspaceMCPOverrides } from "@/common/types/mcp";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/browser/components/ui/dialog";
-import { useMCPTestCache } from "@/browser/hooks/useMCPTestCache";
-import { ToolSelector } from "@/browser/components/ToolSelector";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useMCPTestCache } from "@/hooks/useMCPTestCache";
+import { ToolSelector } from "@/components/ToolSelector";
 
 interface WorkspaceMCPModalProps {
   workspaceId: string;

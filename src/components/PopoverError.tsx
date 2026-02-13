@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import { AlertTriangle } from "lucide-react";
-import type { PopoverErrorState } from "@/browser/hooks/usePopoverError";
+import type { PopoverErrorState } from "@/hooks/usePopoverError";
 
 interface PopoverErrorProps {
   error: PopoverErrorState | null;

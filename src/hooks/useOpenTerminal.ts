@@ -1,12 +1,12 @@
 import { useCallback } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import type { RuntimeConfig } from "@/common/types/runtime";
 import { isSSHRuntime, isDevcontainerRuntime } from "@/common/types/runtime";
 import {
   createTerminalSession,
   openTerminalPopout,
   type TerminalSessionCreateOptions,
-} from "@/browser/utils/terminal";
+} from "@/utils/terminal";
 
 /**
  * Hook to open a terminal window for a workspace.

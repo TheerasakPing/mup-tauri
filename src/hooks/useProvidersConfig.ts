@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import type { ProvidersConfigMap, ProviderConfigInfo } from "@/common/orpc/types";
 
 /**

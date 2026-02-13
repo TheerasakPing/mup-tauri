@@ -8,10 +8,10 @@ import {
     DialogFooter,
     DialogClose,
     DialogDescription,
-} from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/common/lib/utils";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import type { HealthCheckResultType } from "@/common/orpc/schemas/api";
 import type { CustomModelMetadata } from "@/common/orpc/schemas/api";
 

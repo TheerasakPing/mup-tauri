@@ -2,7 +2,7 @@ import type { SendMessageOptions } from "@/common/orpc/types";
 import type { ThinkingLevel } from "@/common/types/thinking";
 import type { MuxProviderOptions } from "@/common/types/providerOptions";
 import { coerceThinkingLevel } from "@/common/types/thinking";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
 
 export interface ExperimentValues {
   programmaticToolCalling: boolean | undefined;

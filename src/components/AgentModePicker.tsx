@@ -1,25 +1,25 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, FolderX, RefreshCw } from "lucide-react";
 
-import { useAgent } from "@/browser/contexts/AgentContext";
+import { useAgent } from "@/contexts/AgentContext";
 import { CUSTOM_EVENTS } from "@/common/constants/events";
 import type { AgentDefinitionDescriptor } from "@/common/types/agentDefinition";
 import { cn } from "@/common/lib/utils";
-import { DocsLink } from "@/browser/components/DocsLink";
+import { DocsLink } from "@/components/DocsLink";
 import {
   HelpIndicator,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/browser/components/ui/tooltip";
-import { Button } from "@/browser/components/ui/button";
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 import {
   formatKeybind,
   formatNumberedKeybind,
   KEYBINDS,
   matchNumberedKeybind,
-} from "@/browser/utils/ui/keybinds";
-import { sortAgentsStable } from "@/browser/utils/agents";
+} from "@/utils/ui/keybinds";
+import { sortAgentsStable } from "@/utils/agents";
 
 interface AgentModePickerProps {
   className?: string;

@@ -3,10 +3,10 @@
  */
 
 import React from "react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { STORAGE_KEYS, WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
 import type { ReviewFilters, ReviewStats, ReviewSortOrder } from "@/common/types/review";
-import type { LastRefreshInfo } from "@/browser/utils/RefreshController";
+import type { LastRefreshInfo } from "@/utils/RefreshController";
 import { RefreshButton } from "./RefreshButton";
 import { BaseSelectorPopover } from "./BaseSelectorPopover";
 

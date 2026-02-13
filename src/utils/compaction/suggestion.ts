@@ -4,8 +4,8 @@
  * Used by RetryBarrier to offer "Compact & retry" when we hit context limits.
  */
 
-import { isGatewayFormat, toGatewayModel } from "@/browser/hooks/useGatewayModels";
-import { isModelAllowedByPolicy } from "@/browser/utils/policyUi";
+import { isGatewayFormat, toGatewayModel } from "@/hooks/useGatewayModels";
+import { isModelAllowedByPolicy } from "@/utils/policyUi";
 import { KNOWN_MODELS } from "@/common/constants/knownModels";
 import type { EffectivePolicy, ProvidersConfigMap } from "@/common/orpc/types";
 import { normalizeGatewayModel } from "@/common/utils/ai/models";

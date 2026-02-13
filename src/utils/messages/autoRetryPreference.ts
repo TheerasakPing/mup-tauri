@@ -2,7 +2,7 @@ import {
   usePersistedState,
   readPersistedState,
   updatePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import { getAutoRetryKey } from "@/common/constants/storage";
 import { WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
 

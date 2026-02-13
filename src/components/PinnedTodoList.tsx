@@ -1,7 +1,7 @@
 import React, { useSyncExternalStore } from "react";
 import { TodoList } from "./TodoList";
-import { useWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { useWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { cn } from "@/common/lib/utils";
 
 interface PinnedTodoListProps {

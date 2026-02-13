@@ -26,10 +26,10 @@ import { cn } from "@/common/lib/utils";
 import { Button } from "./ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import type { Review } from "@/common/types/review";
-import { useReviews } from "@/browser/hooks/useReviews";
-import { formatRelativeTime } from "@/browser/utils/ui/dateTime";
+import { useReviews } from "@/hooks/useReviews";
+import { formatRelativeTime } from "@/utils/ui/dateTime";
 import { DiffRenderer } from "./shared/DiffRenderer";
-import { matchesKeybind, formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { matchesKeybind, formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // ERROR BOUNDARY

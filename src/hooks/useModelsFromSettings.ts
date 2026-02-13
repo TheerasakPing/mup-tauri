@@ -7,11 +7,11 @@ import {
 } from "@/common/constants/codexOAuth";
 import { WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
 import { useProvidersConfig } from "./useProvidersConfig";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { useAPI } from "@/browser/contexts/API";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { useAPI } from "@/contexts/API";
 import { migrateGatewayModel } from "./useGatewayModels";
 import { isValidProvider } from "@/common/constants/providers";
-import { isModelAllowedByPolicy } from "@/browser/utils/policyUi";
+import { isModelAllowedByPolicy } from "@/utils/policyUi";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
 import { DEFAULT_MODEL_KEY, HIDDEN_MODELS_KEY } from "@/common/constants/storage";
 

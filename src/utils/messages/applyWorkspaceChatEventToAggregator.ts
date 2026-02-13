@@ -1,5 +1,5 @@
 import assert from "@/common/utils/assert";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { updatePersistedState } from "@/hooks/usePersistedState";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { GATEWAY_CONFIGURED_KEY } from "@/common/constants/storage";
 import { MUX_GATEWAY_SESSION_EXPIRED_MESSAGE } from "@/common/constants/muxGatewayOAuth";

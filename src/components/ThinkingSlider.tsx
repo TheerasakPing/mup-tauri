@@ -5,9 +5,9 @@ import {
   getThinkingDisplayLabel,
   type ThinkingLevel,
 } from "@/common/types/thinking";
-import { useThinkingLevel } from "@/browser/hooks/useThinkingLevel";
+import { useThinkingLevel } from "@/hooks/useThinkingLevel";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { enforceThinkingPolicy, getThinkingPolicyForModel } from "@/common/utils/thinking/policy";
 import { cn } from "@/common/lib/utils";
 

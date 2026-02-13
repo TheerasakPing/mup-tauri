@@ -4,21 +4,21 @@ import { afterEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
 import type { WorkspaceContext } from "./WorkspaceContext";
 import { WorkspaceProvider, useWorkspaceContext } from "./WorkspaceContext";
-import { ProjectProvider } from "@/browser/contexts/ProjectContext";
-import { RouterProvider } from "@/browser/contexts/RouterContext";
-import { useWorkspaceStoreRaw as getWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
+import { ProjectProvider } from "@/contexts/ProjectContext";
+import { RouterProvider } from "@/contexts/RouterContext";
+import { useWorkspaceStoreRaw as getWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
 import {
   SELECTED_WORKSPACE_KEY,
   getModelKey,
   getThinkingLevelKey,
 } from "@/common/constants/storage";
-import type { RecursivePartial } from "@/browser/testUtils";
+import type { RecursivePartial } from "@/testUtils";
 
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 // Mock API
 let currentClientMock: RecursivePartial<APIClient> = {};
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: currentClientMock as APIClient,
     status: "connected" as const,

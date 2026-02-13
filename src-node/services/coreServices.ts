@@ -12,6 +12,7 @@ import { ProviderService } from "@/node/services/providerService";
 import { AIService } from "@/node/services/aiService";
 import { BackgroundProcessManager } from "@/node/services/backgroundProcessManager";
 import { SessionUsageService } from "@/node/services/sessionUsageService";
+import { CostTrackingService } from "@/node/services/costTrackingService";
 import { MCPConfigService } from "@/node/services/mcpConfigService";
 import { MCPServerManager, type MCPServerManagerOptions } from "@/node/services/mcpServerManager";
 import { ExtensionMetadataService } from "@/node/services/ExtensionMetadataService";
@@ -50,6 +51,7 @@ export interface CoreServices {
   extensionMetadata: ExtensionMetadataService;
   workspaceService: WorkspaceService;
   taskService: TaskService;
+  costTrackingService: CostTrackingService;
 }
 
 export function createCoreServices(opts: CoreServicesOptions): CoreServices {
@@ -63,6 +65,7 @@ export function createCoreServices(opts: CoreServicesOptions): CoreServices {
     path.join(os.tmpdir(), "mux-bashes")
   );
   const sessionUsageService = new SessionUsageService(config, historyService);
+  const costTrackingService = new CostTrackingService(config);
 
   const aiService = new AIService(
     config,
@@ -97,6 +100,7 @@ export function createCoreServices(opts: CoreServicesOptions): CoreServices {
     extensionMetadata,
     backgroundProcessManager,
     sessionUsageService,
+    costTrackingService,
     opts.policyService,
     opts.telemetryService,
     opts.experimentsService,
@@ -128,5 +132,6 @@ export function createCoreServices(opts: CoreServicesOptions): CoreServices {
     extensionMetadata,
     workspaceService,
     taskService,
+    costTrackingService,
   };
 }

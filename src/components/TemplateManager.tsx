@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { useWorkspaceTemplates } from "@/browser/hooks/useWorkspaceTemplates";
+import { useWorkspaceTemplates } from "@/hooks/useWorkspaceTemplates";
 import type { WorkspaceTemplateInput } from "@/common/types/workspaceTemplates";
 import { X, Download, Upload, Plus, Trash2, Edit } from "lucide-react";
 

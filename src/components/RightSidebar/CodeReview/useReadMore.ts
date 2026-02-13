@@ -5,15 +5,15 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import type { DiffHunk } from "@/common/types/review";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { getReviewReadMoreKey } from "@/common/constants/storage";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import {
   readFileLines,
   formatAsContextLines,
   getOldFileRef,
   LINES_PER_EXPANSION,
-} from "@/browser/utils/review/readFileLines";
+} from "@/utils/review/readFileLines";
 
 /** Expansion state for a single hunk */
 interface ReadMoreState {

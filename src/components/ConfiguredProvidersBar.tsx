@@ -1,10 +1,10 @@
 import { Check, Settings } from "lucide-react";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
 import { PROVIDER_DISPLAY_NAMES } from "@/common/constants/providers";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { getAllowedProvidersForUi } from "@/browser/utils/policyUi";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { getAllowedProvidersForUi } from "@/utils/policyUi";
 import { hasProviderIcon, ProviderIcon } from "./ProviderIcon";
-import { useSettings } from "@/browser/contexts/SettingsContext";
+import { useSettings } from "@/contexts/SettingsContext";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 interface ConfiguredProvidersBarProps {

@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import type { DisplayedMessage, MuxMessage } from "@/common/types/message";
 import type { ThinkingLevel } from "@/common/types/thinking";
 import type { ChatMuxMessage } from "@/common/orpc/types";
-import { useAPI } from "@/browser/contexts/API";
-import { StreamingMessageAggregator } from "@/browser/utils/messages/StreamingMessageAggregator";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/browser/components/ui/dialog";
+import { useAPI } from "@/contexts/API";
+import { StreamingMessageAggregator } from "@/utils/messages/StreamingMessageAggregator";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ErrorBox, LoadingDots } from "./shared/ToolPrimitives";
-import { MessageRenderer } from "@/browser/components/Messages/MessageRenderer";
-import { ModelDisplay } from "@/browser/components/Messages/ModelDisplay";
+import { MessageRenderer } from "@/components/Messages/MessageRenderer";
+import { ModelDisplay } from "@/components/Messages/ModelDisplay";
 
 interface SubagentTranscriptDialogProps {
   open: boolean;

@@ -27,15 +27,15 @@ import {
   WORKSPACE_ONLY_COMMAND_KEYS,
   WORKSPACE_ONLY_COMMAND_TYPES,
 } from "@/constants/slashCommands";
-import type { Toast } from "@/browser/components/ChatInputToast";
-import type { ParsedCommand } from "@/browser/utils/slashCommands/types";
+import type { Toast } from "@/components/ChatInputToast";
+import type { ParsedCommand } from "@/utils/slashCommands/types";
 import {
   formatCompactionCommandLine,
   getFollowUpContentText,
-} from "@/browser/utils/compaction/format";
-import { applyCompactionOverrides } from "@/browser/utils/messages/compactionOptions";
-import { resolveCompactionModel } from "@/browser/utils/messages/compactionModelPreference";
-import { normalizeModelInput } from "@/browser/utils/models/normalizeModelInput";
+} from "@/utils/compaction/format";
+import { applyCompactionOverrides } from "@/utils/messages/compactionOptions";
+import { resolveCompactionModel } from "@/utils/messages/compactionModelPreference";
+import { normalizeModelInput } from "@/utils/models/normalizeModelInput";
 import type { ChatAttachment } from "../components/ChatAttachments";
 import { dispatchWorkspaceSwitch } from "./workspaceEvents";
 import { getRuntimeKey, copyWorkspaceStorage } from "@/common/constants/storage";
@@ -44,7 +44,7 @@ import {
   WORDS_TO_TOKENS_RATIO,
   buildCompactionPrompt,
 } from "@/common/constants/ui";
-import { openInEditor } from "@/browser/utils/openInEditor";
+import { openInEditor } from "@/utils/openInEditor";
 
 // ============================================================================
 // Workspace Creation
@@ -53,9 +53,9 @@ import { openInEditor } from "@/browser/utils/openInEditor";
 import {
   createCommandToast,
   createInvalidCompactModelToast,
-} from "@/browser/components/ChatInputToasts";
+} from "@/components/ChatInputToasts";
 import { trackCommandUsed } from "@/common/telemetry";
-import { addEphemeralMessage } from "@/browser/stores/WorkspaceStore";
+import { addEphemeralMessage } from "@/stores/WorkspaceStore";
 
 const BUILT_IN_MODEL_SET = new Set<string>(Object.values(KNOWN_MODELS).map((model) => model.id));
 

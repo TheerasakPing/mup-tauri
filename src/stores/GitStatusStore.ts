@@ -6,12 +6,12 @@ import {
   GIT_FETCH_SCRIPT,
   parseGitStatusScriptOutput,
 } from "@/common/utils/git/gitStatus";
-import { readPersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState } from "@/hooks/usePersistedState";
 import { STORAGE_KEYS, WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
 import { useSyncExternalStore } from "react";
 import { MapStore } from "./MapStore";
 import { isSSHRuntime } from "@/common/types/runtime";
-import { RefreshController } from "@/browser/utils/RefreshController";
+import { RefreshController } from "@/utils/RefreshController";
 
 /**
  * External store for git status of all workspaces.

@@ -7,7 +7,7 @@
  *   3) undefined → caller falls back to workspace model
  */
 
-import { readPersistedString } from "@/browser/hooks/usePersistedState";
+import { readPersistedString } from "@/hooks/usePersistedState";
 import { PREFERRED_COMPACTION_MODEL_KEY } from "@/common/constants/storage";
 
 function trimmedOrUndefined(value: unknown): string | undefined {

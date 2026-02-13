@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Play } from "lucide-react";
 import { Mermaid } from "./Mermaid";
 import { useOptionalMessageListContext } from "./MessageListContext";
-import { highlightCode } from "@/browser/utils/highlighting/highlightWorkerClient";
-import { extractShikiLines } from "@/browser/utils/highlighting/shiki-shared";
-import { useTheme } from "@/browser/contexts/ThemeContext";
-import { CopyButton } from "@/browser/components/ui/CopyButton";
+import { highlightCode } from "@/utils/highlighting/highlightWorkerClient";
+import { extractShikiLines } from "@/utils/highlighting/shiki-shared";
+import { useTheme } from "@/contexts/ThemeContext";
+import { CopyButton } from "@/components/ui/CopyButton";
 
 interface CodeProps {
   node?: unknown;

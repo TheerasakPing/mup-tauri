@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { Check, GitBranch, Loader2 } from "lucide-react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 interface GitInitBannerProps {
   projectPath: string;

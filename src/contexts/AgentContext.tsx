@@ -11,10 +11,10 @@ import {
   type SetStateAction,
 } from "react";
 
-import { useAPI } from "@/browser/contexts/API";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
-import { matchesKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { matchesKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import {
   getAgentIdKey,
   getProjectScopeId,
@@ -22,7 +22,7 @@ import {
   GLOBAL_SCOPE_ID,
 } from "@/common/constants/storage";
 import type { AgentDefinitionDescriptor } from "@/common/types/agentDefinition";
-import { sortAgentsStable } from "@/browser/utils/agents";
+import { sortAgentsStable } from "@/utils/agents";
 
 export interface AgentContextValue {
   agentId: string;

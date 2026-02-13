@@ -6,9 +6,9 @@
 import React from "react";
 import { Mic, Loader2 } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { cn } from "@/common/lib/utils";
-import type { VoiceInputState } from "@/browser/hooks/useVoiceInput";
+import type { VoiceInputState } from "@/hooks/useVoiceInput";
 
 interface VoiceInputButtonProps {
   state: VoiceInputState;

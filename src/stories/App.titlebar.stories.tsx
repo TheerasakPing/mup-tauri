@@ -4,7 +4,7 @@
 
 import React from "react";
 import { appMeta, AppWithMocks, type AppStory } from "./meta.js";
-import { createMockORPCClient } from "@/browser/stories/mocks/orpc";
+import { createMockORPCClient } from "@/stories/mocks/orpc";
 
 export default {
   ...appMeta,

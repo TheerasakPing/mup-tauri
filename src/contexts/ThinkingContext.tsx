@@ -5,7 +5,7 @@ import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import {
   getAgentIdKey,
   getModelKey,
@@ -15,15 +15,15 @@ import {
   getWorkspaceAISettingsByAgentKey,
   GLOBAL_SCOPE_ID,
 } from "@/common/constants/storage";
-import { getDefaultModel } from "@/browser/hooks/useModelsFromSettings";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
+import { getDefaultModel } from "@/hooks/useModelsFromSettings";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
 import { enforceThinkingPolicy, getThinkingPolicyForModel } from "@/common/utils/thinking/policy";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import {
   clearPendingWorkspaceAiSettings,
   markPendingWorkspaceAiSettings,
-} from "@/browser/utils/workspaceAiSettingsSync";
-import { KEYBINDS, matchesKeybind } from "@/browser/utils/ui/keybinds";
+} from "@/utils/workspaceAiSettingsSync";
+import { KEYBINDS, matchesKeybind } from "@/utils/ui/keybinds";
 
 interface ThinkingContextType {
   thinkingLevel: ThinkingLevel;

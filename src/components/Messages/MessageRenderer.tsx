@@ -1,9 +1,9 @@
 import React from "react";
 import type { DisplayedMessage } from "@/common/types/message";
-import type { BashOutputGroupInfo } from "@/browser/utils/messages/messageUtils";
-import type { TaskReportLinking } from "@/browser/utils/messages/taskReportLinking";
+import type { BashOutputGroupInfo } from "@/utils/messages/messageUtils";
+import type { TaskReportLinking } from "@/utils/messages/taskReportLinking";
 import type { ReviewNoteData } from "@/common/types/review";
-import type { EditingMessageState } from "@/browser/utils/chatEditing";
+import type { EditingMessageState } from "@/utils/chatEditing";
 import { UserMessage, type UserMessageNavigation } from "./UserMessage";
 import { AssistantMessage } from "./AssistantMessage";
 import { ToolMessage } from "./ToolMessage";
@@ -13,7 +13,7 @@ import { CompactionBoundaryMessage } from "./CompactionBoundaryMessage";
 import { HistoryHiddenMessage } from "./HistoryHiddenMessage";
 import { InitMessage } from "./InitMessage";
 import { ProposePlanToolCall } from "../tools/ProposePlanToolCall";
-import { removeEphemeralMessage } from "@/browser/stores/WorkspaceStore";
+import { removeEphemeralMessage } from "@/stores/WorkspaceStore";
 
 interface MessageRendererProps {
   message: DisplayedMessage;

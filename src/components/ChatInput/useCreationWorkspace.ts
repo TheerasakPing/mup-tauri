@@ -7,13 +7,13 @@ import type {
   ParsedRuntime,
   RuntimeAvailabilityStatus,
 } from "@/common/types/runtime";
-import type { RuntimeChoice } from "@/browser/utils/runtimeUi";
+import type { RuntimeChoice } from "@/utils/runtimeUi";
 import { buildRuntimeConfig, RUNTIME_MODE } from "@/common/types/runtime";
 import type { ThinkingLevel } from "@/common/types/thinking";
-import { useDraftWorkspaceSettings } from "@/browser/hooks/useDraftWorkspaceSettings";
-import { setWorkspaceModelWithOrigin } from "@/browser/utils/modelChange";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
+import { useDraftWorkspaceSettings } from "@/hooks/useDraftWorkspaceSettings";
+import { setWorkspaceModelWithOrigin } from "@/utils/modelChange";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
 import {
   getAgentIdKey,
   getInputKey,
@@ -29,22 +29,22 @@ import {
   getProjectScopeId,
 } from "@/common/constants/storage";
 import type { SendMessageError } from "@/common/types/errors";
-import { useOptionalWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { useRouter } from "@/browser/contexts/RouterContext";
-import type { Toast } from "@/browser/components/ChatInputToast";
-import { useAPI } from "@/browser/contexts/API";
+import { useOptionalWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { useRouter } from "@/contexts/RouterContext";
+import type { Toast } from "@/components/ChatInputToast";
+import { useAPI } from "@/contexts/API";
 import type { FilePart, SendMessageOptions } from "@/common/orpc/types";
-import type { WorkspaceCreatedOptions } from "@/browser/components/ChatInput/types";
+import type { WorkspaceCreatedOptions } from "@/components/ChatInput/types";
 import {
   useWorkspaceName,
   type WorkspaceNameState,
   type WorkspaceIdentity,
-} from "@/browser/hooks/useWorkspaceName";
+} from "@/hooks/useWorkspaceName";
 
 import { KNOWN_MODELS } from "@/common/constants/knownModels";
 import { getModelCapabilities } from "@/common/utils/ai/modelCapabilities";
-import { normalizeModelInput } from "@/browser/utils/models/normalizeModelInput";
-import { resolveDevcontainerSelection } from "@/browser/utils/devcontainerSelection";
+import { normalizeModelInput } from "@/utils/models/normalizeModelInput";
+import { resolveDevcontainerSelection } from "@/utils/devcontainerSelection";
 
 export type CreationSendResult = { success: true } | { success: false; error?: SendMessageError };
 

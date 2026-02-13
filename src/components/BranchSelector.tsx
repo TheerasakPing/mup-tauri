@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { GitBranch, Loader2, Check, Copy, Globe, ChevronRight } from "lucide-react";
 import { cn } from "@/common/lib/utils";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
-import { invalidateGitStatus, useGitStatus } from "@/browser/stores/GitStatusStore";
-import { createLRUCache } from "@/browser/utils/lruCache";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { invalidateGitStatus, useGitStatus } from "@/stores/GitStatusStore";
+import { createLRUCache } from "@/utils/lruCache";
 
 // LRU cache for persisting branch names across app restarts
 const branchCache = createLRUCache<string>({

@@ -4,11 +4,11 @@ import { GlobalWindow } from "happy-dom";
 import { ExperimentsProvider, useExperimentValue } from "./ExperimentsContext";
 import { EXPERIMENT_IDS } from "@/common/constants/experiments";
 import type { ExperimentValue } from "@/common/orpc/types";
-import type { APIClient } from "@/browser/contexts/API";
-import type { RecursivePartial } from "@/browser/testUtils";
+import type { APIClient } from "@/contexts/API";
+import type { RecursivePartial } from "@/testUtils";
 
 let currentClientMock: RecursivePartial<APIClient> = {};
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: currentClientMock as APIClient,
     status: "connected" as const,

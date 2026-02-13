@@ -9,6 +9,7 @@ import type { InitStateManager } from "./initStateManager";
 import type { PartialService } from "./partialService";
 import type { MuxMessage } from "@/common/types/message";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 // NOTE: This test validates that legacy `mode` field in follow-up content is correctly
 // converted to `agentId` during dispatch. With the crash-safe follow-up architecture,
@@ -105,6 +106,7 @@ describe("AgentSession continue-message agentId fallback", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

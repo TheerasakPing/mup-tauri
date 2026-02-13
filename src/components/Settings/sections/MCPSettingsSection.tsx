@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { useAPI } from "@/browser/contexts/API";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { useAPI } from "@/contexts/API";
 import {
   Trash2,
   Play,
@@ -15,30 +15,30 @@ import {
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
-import { Button } from "@/browser/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { createEditKeyHandler } from "@/browser/utils/ui/keybinds";
-import { Switch } from "@/browser/components/ui/switch";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
+} from "@/components/ui/select";
+import { createEditKeyHandler } from "@/utils/ui/keybinds";
+import { Switch } from "@/components/ui/switch";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/common/lib/utils";
-import { formatRelativeTime } from "@/browser/utils/ui/dateTime";
+import { formatRelativeTime } from "@/utils/ui/dateTime";
 import type { CachedMCPTestResult, MCPServerInfo, MCPServerTransport } from "@/common/types/mcp";
 import type { MCPOAuthPendingServerConfig } from "@/common/types/mcpOauth";
-import { useMCPTestCache } from "@/browser/hooks/useMCPTestCache";
-import { MCPHeadersEditor } from "@/browser/components/MCPHeadersEditor";
+import { useMCPTestCache } from "@/hooks/useMCPTestCache";
+import { MCPHeadersEditor } from "@/components/MCPHeadersEditor";
 import {
   mcpHeaderRowsToRecord,
   mcpHeadersRecordToRows,
   type MCPHeaderRow,
-} from "@/browser/utils/mcpHeaders";
-import { ToolSelector } from "@/browser/components/ToolSelector";
-import { KebabMenu, type KebabMenuItem } from "@/browser/components/KebabMenu";
+} from "@/utils/mcpHeaders";
+import { ToolSelector } from "@/components/ToolSelector";
+import { KebabMenu, type KebabMenuItem } from "@/components/KebabMenu";
 
 /** Component for managing tool allowlist for a single MCP server */
 const ToolAllowlistSection: React.FC<{

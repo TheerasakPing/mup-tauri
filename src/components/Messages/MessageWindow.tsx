@@ -1,10 +1,10 @@
 import { cn } from "@/common/lib/utils";
 import type { DisplayedMessage, MuxMessage, QueuedMessage } from "@/common/types/message";
-import { formatTimestamp } from "@/browser/utils/ui/dateTime";
+import { formatTimestamp } from "@/utils/ui/dateTime";
 import { Code2Icon } from "lucide-react";
 import type { ReactNode } from "react";
 import React, { useMemo, useState } from "react";
-import { useChatHostContext } from "@/browser/contexts/ChatHostContext";
+import { useChatHostContext } from "@/contexts/ChatHostContext";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { Button } from "../ui/button";
 

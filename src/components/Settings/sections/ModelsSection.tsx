@@ -1,25 +1,25 @@
 import { useCallback, useMemo, useState } from "react";
 import { Loader2, Plus, ShieldCheck, Bookmark } from "lucide-react";
-import { useProviderOptions } from "@/browser/hooks/useProviderOptions";
-import { Button } from "@/browser/components/ui/button";
-import { ProviderWithIcon } from "@/browser/components/ProviderIcon";
+import { useProviderOptions } from "@/hooks/useProviderOptions";
+import { Button } from "@/components/ui/button";
+import { ProviderWithIcon } from "@/components/ProviderIcon";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { useAPI } from "@/browser/contexts/API";
-import { getSuggestedModels, useModelsFromSettings } from "@/browser/hooks/useModelsFromSettings";
-import { migrateGatewayModel, useGateway } from "@/browser/hooks/useGatewayModels";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useProvidersConfig } from "@/browser/hooks/useProvidersConfig";
+} from "@/components/ui/select";
+import { useAPI } from "@/contexts/API";
+import { getSuggestedModels, useModelsFromSettings } from "@/hooks/useModelsFromSettings";
+import { migrateGatewayModel, useGateway } from "@/hooks/useGatewayModels";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useProvidersConfig } from "@/hooks/useProvidersConfig";
 import { SearchableModelSelect } from "../components/SearchableModelSelect";
 import { KNOWN_MODELS } from "@/common/constants/knownModels";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
+import { usePolicy } from "@/contexts/PolicyContext";
 import { supports1MContext } from "@/common/utils/ai/models";
-import { getAllowedProvidersForUi, isModelAllowedByPolicy } from "@/browser/utils/policyUi";
+import { getAllowedProvidersForUi, isModelAllowedByPolicy } from "@/utils/policyUi";
 import {
   LAST_CUSTOM_MODEL_PROVIDER_KEY,
   PREFERRED_COMPACTION_MODEL_KEY,

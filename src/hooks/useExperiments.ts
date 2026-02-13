@@ -8,7 +8,7 @@ export {
   useExperimentOverrideValue,
   useSetExperiment,
   useAllExperiments,
-} from "@/browser/contexts/ExperimentsContext";
+} from "@/contexts/ExperimentsContext";
 
 /**
  * Non-hook version to read experiment state.

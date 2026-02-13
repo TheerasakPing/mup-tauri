@@ -2,10 +2,10 @@ import { act, cleanup, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
 import React from "react";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import type { PolicyGetResponse } from "@/common/orpc/types";
 
-// Idiomatic pattern: mock @/browser/contexts/API at the top of the file
+// Idiomatic pattern: mock @/contexts/API at the top of the file
 // before importing PolicyProvider. This ensures our mock takes precedence
 // even when other test files have already mocked the same module (bun module
 // mocks leak between files: https://github.com/oven-sh/bun/issues/12823).
@@ -16,7 +16,7 @@ async function* emptyStream() {
 
 let mockGet: () => Promise<PolicyGetResponse>;
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: {
       policy: {

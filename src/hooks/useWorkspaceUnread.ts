@@ -1,5 +1,5 @@
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useWorkspaceSidebarState } from "@/browser/stores/WorkspaceStore";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useWorkspaceSidebarState } from "@/stores/WorkspaceStore";
 import { getWorkspaceLastReadKey } from "@/common/constants/storage";
 
 /**

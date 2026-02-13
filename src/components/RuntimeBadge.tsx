@@ -8,10 +8,10 @@ import {
   isDockerRuntime,
   isDevcontainerRuntime,
 } from "@/common/types/runtime";
-import { extractSshHostname } from "@/browser/utils/ui/runtimeBadge";
+import { extractSshHostname } from "@/utils/ui/runtimeBadge";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
-import { RUNTIME_BADGE_UI } from "@/browser/utils/runtimeUi";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { RUNTIME_BADGE_UI } from "@/utils/runtimeUi";
 
 interface RuntimeBadgeProps {
   runtimeConfig?: RuntimeConfig;

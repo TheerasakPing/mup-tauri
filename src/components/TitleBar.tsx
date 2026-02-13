@@ -7,19 +7,19 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import type { UpdateStatus } from "@/common/orpc/types";
 import { Download, Loader2, RefreshCw, ShieldCheck } from "lucide-react";
 
-import { useAPI } from "@/browser/contexts/API";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { useGateway } from "@/browser/hooks/useGatewayModels";
+import { useAPI } from "@/contexts/API";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { useSettings } from "@/contexts/SettingsContext";
+import { useGateway } from "@/hooks/useGatewayModels";
 import {
   formatMuxGatewayBalance,
   useMuxGatewayAccountStatus,
-} from "@/browser/hooks/useMuxGatewayAccountStatus";
+} from "@/hooks/useMuxGatewayAccountStatus";
 import {
   isDesktopMode,
   getTitlebarLeftInset,
   DESKTOP_TITLEBAR_HEIGHT_CLASS,
-} from "@/browser/hooks/useDesktopTitlebar";
+} from "@/hooks/useDesktopTitlebar";
 
 // Update check intervals
 const UPDATE_CHECK_INTERVAL_MS = 4 * 60 * 60 * 1000; // 4 hours

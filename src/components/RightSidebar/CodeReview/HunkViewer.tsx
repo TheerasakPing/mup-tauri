@@ -11,12 +11,12 @@ import type { ReviewActionCallbacks } from "../../shared/InlineReviewNote";
 import {
   type SearchHighlightConfig,
   highlightSearchInText,
-} from "@/browser/utils/highlighting/highlightSearchTerms";
+} from "@/utils/highlighting/highlightSearchTerms";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../../ui/tooltip";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { getReviewExpandStateKey } from "@/common/constants/storage";
-import { KEYBINDS, formatKeybind } from "@/browser/utils/ui/keybinds";
-import { formatRelativeTime } from "@/browser/utils/ui/dateTime";
+import { KEYBINDS, formatKeybind } from "@/utils/ui/keybinds";
+import { formatRelativeTime } from "@/utils/ui/dateTime";
 import { cn } from "@/common/lib/utils";
 import { ContextCollapseIndicator } from "./ContextCollapseIndicator";
 import { useReadMore } from "./useReadMore";

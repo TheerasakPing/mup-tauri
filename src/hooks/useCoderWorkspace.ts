@@ -6,7 +6,7 @@
  * This hook only manages async-fetched data and derived state.
  */
 import { useState, useEffect, useCallback, useRef } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import type {
   CoderInfo,
   CoderTemplate,

@@ -1,11 +1,11 @@
 import React from "react";
 import { Loader2, Plus, Server } from "lucide-react";
 import type { MCPServerInfo } from "@/common/types/mcp";
-import { useAPI } from "@/browser/contexts/API";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { Button } from "@/browser/components/ui/button";
+import { useAPI } from "@/contexts/API";
+import { useSettings } from "@/contexts/SettingsContext";
+import { Button } from "@/components/ui/button";
 import { getMCPServersKey } from "@/common/constants/storage";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 
 interface ProjectMCPOverviewProps {
   projectPath: string;

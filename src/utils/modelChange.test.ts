@@ -4,7 +4,7 @@ import { GlobalWindow } from "happy-dom";
 import {
   consumeWorkspaceModelChange,
   setWorkspaceModelWithOrigin,
-} from "@/browser/utils/modelChange";
+} from "@/utils/modelChange";
 
 let workspaceCounter = 0;
 

@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import React, { useContext, useEffect, useId, useRef, useState } from "react";
 import mermaid from "mermaid";
 import { StreamingContext } from "./StreamingContext";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 
 const MIN_HEIGHT = 300;
 const MAX_HEIGHT = 1200;

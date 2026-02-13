@@ -2,9 +2,9 @@ import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
 import { cleanup, render, waitFor } from "@testing-library/react";
 
-import { AgentProvider } from "@/browser/contexts/AgentContext";
-import { consumeWorkspaceModelChange } from "@/browser/utils/modelChange";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { AgentProvider } from "@/contexts/AgentContext";
+import { consumeWorkspaceModelChange } from "@/utils/modelChange";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 import {
   AGENT_AI_DEFAULTS_KEY,
   getModelKey,

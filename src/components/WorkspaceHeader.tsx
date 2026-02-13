@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-// Direct icon imports from /icons directory (3 levels up from src/browser/components/)
-import workflowIcon from "../../../icons/workflow.svg";
-import searchIcon from "../../../icons/search.svg";
-import serverlessIcon from "../../../icons/serverless.svg";
-import editorconfigIcon from "../../../icons/editorconfig.svg";
-import terminalIcon from "../../../icons/terminal.svg";
-import explorerIcon from "../../../icons/explorer.svg";
+import {
+  GitBranch,
+  Search,
+  Zap,
+  Settings,
+  Terminal,
+  Files,
+} from "lucide-react";
 import { CUSTOM_EVENTS } from "@/common/constants/events";
 import { cn } from "@/common/lib/utils";
 
@@ -22,28 +23,28 @@ import { WorkspaceMCPModal } from "./WorkspaceMCPModal";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 import { Checkbox } from "./ui/checkbox";
-import { formatKeybind, KEYBINDS, matchesKeybind } from "@/browser/utils/ui/keybinds";
-import { useGitStatus } from "@/browser/stores/GitStatusStore";
-import { useWorkspaceSidebarState } from "@/browser/stores/WorkspaceStore";
-import { Button } from "@/browser/components/ui/button";
+import { formatKeybind, KEYBINDS, matchesKeybind } from "@/utils/ui/keybinds";
+import { useGitStatus } from "@/stores/GitStatusStore";
+import { useWorkspaceSidebarState } from "@/stores/WorkspaceStore";
+import { Button } from "@/components/ui/button";
 import type { RuntimeConfig } from "@/common/types/runtime";
-import { useTutorial } from "@/browser/contexts/TutorialContext";
+import { useTutorial } from "@/contexts/TutorialContext";
 
-import type { TerminalSessionCreateOptions } from "@/browser/utils/terminal";
-import { useOpenTerminal } from "@/browser/hooks/useOpenTerminal";
-import { useOpenInEditor } from "@/browser/hooks/useOpenInEditor";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import type { TerminalSessionCreateOptions } from "@/utils/terminal";
+import { useOpenTerminal } from "@/hooks/useOpenTerminal";
+import { useOpenInEditor } from "@/hooks/useOpenInEditor";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import {
   getTitlebarRightInset,
   isDesktopMode,
   DESKTOP_TITLEBAR_HEIGHT_CLASS,
-} from "@/browser/hooks/useDesktopTitlebar";
+} from "@/hooks/useDesktopTitlebar";
 import { DebugLlmRequestModal } from "./DebugLlmRequestModal";
 import { WorkspaceLinks } from "./WorkspaceLinks";
 
 import { SkillIndicator } from "./SkillIndicator";
-import { useAPI } from "@/browser/contexts/API";
-import { useAgent } from "@/browser/contexts/AgentContext";
+import { useAPI } from "@/contexts/API";
+import { useAgent } from "@/contexts/AgentContext";
 import type { AgentSkillDescriptor, AgentSkillIssue } from "@/common/types/agentSkill";
 
 interface WorkspaceHeaderProps {
@@ -226,12 +227,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
                 aria-label="Open sidebar menu"
                 className="mobile-menu-btn text-muted hover:text-foreground hidden h-6 w-6 shrink-0"
               >
-                <img
-                  src={explorerIcon}
-                  alt="Explorer"
-                  className="h-3.5 w-3.5 shrink-0 select-none"
-                  draggable={false}
-                />
+                <Files className="h-3.5 w-3.5 shrink-0 select-none" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Open sidebar ({formatKeybind(KEYBINDS.TOGGLE_SIDEBAR)})</TooltipContent>
@@ -274,12 +270,9 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
                   data-testid="notify-on-response-button"
                   aria-pressed={notifyOnResponse}
                 >
-                  <img
-                    src={searchIcon}
-                    alt={notifyOnResponse ? "Notifications enabled" : "Notifications disabled"}
+                  <Search
                     className="h-3.5 w-3.5 shrink-0 select-none"
                     style={{ opacity: notifyOnResponse ? 1 : 0.5 }}
-                    draggable={false}
                   />
                 </button>
               </PopoverTrigger>
@@ -379,12 +372,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
               className="text-muted hover:text-foreground h-6 w-6 shrink-0"
               data-testid="workspace-mcp-button"
             >
-              <img
-                src={serverlessIcon}
-                alt="MCP Server"
-                className="h-3.5 w-3.5 shrink-0 select-none"
-                draggable={false}
-              />
+              <Zap className="h-3.5 w-3.5 shrink-0 select-none" />
             </Button>
           </TooltipTrigger>
           <TooltipContent side="bottom" align="center">
@@ -400,12 +388,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
                 onClick={() => void handleOpenInEditor()}
                 className="text-muted hover:text-foreground ml-1 h-6 w-6 shrink-0"
               >
-                <img
-                  src={editorconfigIcon}
-                  alt="Edit in editor"
-                  className="h-3.5 w-3.5 shrink-0 select-none"
-                  draggable={false}
-                />
+                <Settings className="h-3.5 w-3.5 shrink-0 select-none" />
               </Button>
             </TooltipTrigger>
             <TooltipContent side="bottom" align="center">
@@ -422,12 +405,7 @@ export const WorkspaceHeader: React.FC<WorkspaceHeaderProps> = ({
               className="text-muted hover:text-foreground ml-1 h-6 w-6 shrink-0 [&_svg]:h-4 [&_svg]:w-4"
               data-tutorial="terminal-button"
             >
-              <img
-                src={terminalIcon}
-                alt="New terminal"
-                className="h-4 w-4 shrink-0 select-none"
-                draggable={false}
-              />
+              <Terminal className="h-4 w-4 shrink-0 select-none" />
             </Button>
           </TooltipTrigger>
           <TooltipContent side="bottom" align="center">

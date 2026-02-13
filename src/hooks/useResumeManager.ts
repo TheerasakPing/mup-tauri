@@ -1,22 +1,22 @@
 import { useEffect, useRef } from "react";
-import { useWorkspaceStoreRaw, type WorkspaceState } from "@/browser/stores/WorkspaceStore";
+import { useWorkspaceStoreRaw, type WorkspaceState } from "@/stores/WorkspaceStore";
 import { CUSTOM_EVENTS, type CustomEventType } from "@/common/constants/events";
 import { getRetryStateKey } from "@/common/constants/storage";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
 import { readPersistedState, updatePersistedState } from "./usePersistedState";
-import { readAutoRetryPreference } from "@/browser/utils/messages/autoRetryPreference";
+import { readAutoRetryPreference } from "@/utils/messages/autoRetryPreference";
 import {
   getInterruptionContext,
   isNonRetryableSendError,
-} from "@/browser/utils/messages/retryEligibility";
-import { applyCompactionOverrides } from "@/browser/utils/messages/compactionOptions";
+} from "@/utils/messages/retryEligibility";
+import { applyCompactionOverrides } from "@/utils/messages/compactionOptions";
 import type { SendMessageError } from "@/common/types/errors";
 import {
   createFailedRetryState,
   calculateBackoffDelay,
   INITIAL_DELAY,
-} from "@/browser/utils/messages/retryState";
-import { useAPI } from "@/browser/contexts/API";
+} from "@/utils/messages/retryState";
+import { useAPI } from "@/contexts/API";
 
 export interface RetryState {
   attempt: number;

@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/common/lib/utils";
 import type { DisplayedMessage } from "@/common/types/message";
-import { showAllMessages } from "@/browser/stores/WorkspaceStore";
+import { showAllMessages } from "@/stores/WorkspaceStore";
 
 interface HistoryHiddenMessageProps {
   message: DisplayedMessage & { type: "history-hidden" };

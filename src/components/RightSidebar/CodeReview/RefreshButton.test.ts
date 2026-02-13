@@ -8,7 +8,7 @@
  */
 
 import { describe, test, expect } from "bun:test";
-import type { RefreshTrigger, LastRefreshInfo } from "@/browser/utils/RefreshController";
+import type { RefreshTrigger, LastRefreshInfo } from "@/utils/RefreshController";
 
 // Extract tooltip content logic for testing
 type AnimationState = "idle" | "spinning" | "stopping";

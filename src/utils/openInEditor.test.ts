@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import { openInEditor } from "./openInEditor";
 import type { RuntimeConfig } from "@/common/types/runtime";
 

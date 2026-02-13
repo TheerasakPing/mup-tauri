@@ -9,6 +9,7 @@ import type { BackgroundProcessManager } from "./backgroundProcessManager";
 import type { Result } from "@/common/types/result";
 import { Ok } from "@/common/types/result";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 describe("AgentSession.resumeStream", () => {
   let historyCleanup: (() => Promise<void>) | undefined;
@@ -56,6 +57,7 @@ describe("AgentSession.resumeStream", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

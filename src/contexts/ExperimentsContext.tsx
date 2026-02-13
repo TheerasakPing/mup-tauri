@@ -15,7 +15,7 @@ import {
 } from "@/common/constants/experiments";
 import { getStorageChangeEvent } from "@/common/constants/events";
 import type { ExperimentValue } from "@/common/orpc/types";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 /**
  * Subscribe to experiment changes for a specific experiment ID.

@@ -14,6 +14,7 @@ import type { BackgroundProcessManager } from "./backgroundProcessManager";
 import type { MuxMessage } from "@/common/types/message";
 import type { SendMessageOptions } from "@/common/orpc/types";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 function createPersistedPostCompactionState(options: {
   filePath: string;
@@ -144,6 +145,7 @@ describe("AgentSession post-compaction context retry", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -355,6 +357,7 @@ describe("AgentSession execSubagentHardRestart", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -577,6 +580,7 @@ describe("AgentSession execSubagentHardRestart", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 
@@ -694,6 +698,7 @@ describe("AgentSession execSubagentHardRestart", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

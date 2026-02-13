@@ -1,21 +1,21 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
-import { Input } from "@/browser/components/ui/input";
-import { Switch } from "@/browser/components/ui/switch";
-import { Button } from "@/browser/components/ui/button";
-import { ModelSelector } from "@/browser/components/ModelSelector";
+import { useAPI } from "@/contexts/API";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { ModelSelector } from "@/components/ModelSelector";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { copyToClipboard } from "@/browser/utils/clipboard";
-import { getDefaultModel, useModelsFromSettings } from "@/browser/hooks/useModelsFromSettings";
-import { updatePersistedState, usePersistedState } from "@/browser/hooks/usePersistedState";
+} from "@/components/ui/select";
+import { copyToClipboard } from "@/utils/clipboard";
+import { getDefaultModel, useModelsFromSettings } from "@/hooks/useModelsFromSettings";
+import { updatePersistedState, usePersistedState } from "@/hooks/usePersistedState";
 import { AGENT_AI_DEFAULTS_KEY, getModelKey } from "@/common/constants/storage";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import type { AgentDefinitionDescriptor } from "@/common/types/agentDefinition";

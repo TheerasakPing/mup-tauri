@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import { useAPI } from "@/browser/contexts/API";
-import { useSettings } from "@/browser/contexts/SettingsContext";
+import { useAPI } from "@/contexts/API";
+import { useSettings } from "@/contexts/SettingsContext";
 import type { RuntimeConfig } from "@/common/types/runtime";
-import { openInEditor } from "@/browser/utils/openInEditor";
+import { openInEditor } from "@/utils/openInEditor";
 
-export type { OpenInEditorResult } from "@/browser/utils/openInEditor";
+export type { OpenInEditorResult } from "@/utils/openInEditor";
 
 /**
  * Hook to open a path in the user's configured code editor.

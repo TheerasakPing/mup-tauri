@@ -488,6 +488,50 @@ export const router = (authToken?: string) => {
           return state;
         }),
     },
+    iconTheme: {
+      getActiveThemeId: t
+        .input(schemas.iconTheme.getActiveThemeId.input)
+        .output(schemas.iconTheme.getActiveThemeId.output)
+        .handler(async ({ context }) => {
+          return context.iconThemeService.getActiveThemeId();
+        }),
+      setActiveTheme: t
+        .input(schemas.iconTheme.setActiveTheme.input)
+        .output(schemas.iconTheme.setActiveTheme.output)
+        .handler(async ({ context, input }) => {
+          await context.iconThemeService.setActiveTheme(input.themeId);
+        }),
+      getInstalledThemes: t
+        .input(schemas.iconTheme.getInstalledThemes.input)
+        .output(schemas.iconTheme.getInstalledThemes.output)
+        .handler(async ({ context }) => {
+          return context.iconThemeService.getInstalledThemes();
+        }),
+      deleteTheme: t
+        .input(schemas.iconTheme.deleteTheme.input)
+        .output(schemas.iconTheme.deleteTheme.output)
+        .handler(async ({ context, input }) => {
+          return context.iconThemeService.deleteTheme(input.themeId);
+        }),
+      getActiveThemeDocument: t
+        .input(schemas.iconTheme.getActiveThemeDocument.input)
+        .output(schemas.iconTheme.getActiveThemeDocument.output)
+        .handler(async ({ context }) => {
+          return context.iconThemeService.getActiveThemeDocument();
+        }),
+      importVsix: t
+        .input(schemas.iconTheme.importVsix.input)
+        .output(schemas.iconTheme.importVsix.output)
+        .handler(async ({ context, input }) => {
+          return context.iconThemeService.importVsix(input.vsixBase64);
+        }),
+      getIconFile: t
+        .input(schemas.iconTheme.getIconFile.input)
+        .output(schemas.iconTheme.getIconFile.output)
+        .handler(async ({ context, input }) => {
+          return context.iconThemeService.getIconFile(input.themeId, input.iconPath);
+        }),
+    },
     config: {
       getConfig: t
         .input(schemas.config.getConfig.input)

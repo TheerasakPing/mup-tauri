@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { cn } from "@/common/lib/utils";
-import { isDesktopMode } from "@/browser/hooks/useDesktopTitlebar";
-import MuxLogoDark from "@/browser/assets/logos/mux-logo-dark.svg?react";
-import MuxLogoLight from "@/browser/assets/logos/mux-logo-light.svg?react";
-import { useTheme } from "@/browser/contexts/ThemeContext";
+import { isDesktopMode } from "@/hooks/useDesktopTitlebar";
+import MuxLogoDark from "@/assets/logos/mux-logo-dark.svg?react";
+import MuxLogoLight from "@/assets/logos/mux-logo-light.svg?react";
+import { useTheme } from "@/contexts/ThemeContext";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useDebouncedValue } from "@/browser/hooks/useDebouncedValue";
-import { useWorkspaceFallbackModel } from "@/browser/hooks/useWorkspaceFallbackModel";
-import { useWorkspaceUnread } from "@/browser/hooks/useWorkspaceUnread";
-import { useWorkspaceStoreRaw } from "@/browser/stores/WorkspaceStore";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
+import { useWorkspaceFallbackModel } from "@/hooks/useWorkspaceFallbackModel";
+import { useWorkspaceUnread } from "@/hooks/useWorkspaceUnread";
+import { useWorkspaceStoreRaw } from "@/stores/WorkspaceStore";
 import {
   EXPANDED_PROJECTS_KEY,
   getDraftScopeId,
   getInputKey,
   getWorkspaceNameStateKey,
 } from "@/common/constants/storage";
-import { getDisplayTitleFromPersistedState } from "@/browser/hooks/useWorkspaceName";
+import { getDisplayTitleFromPersistedState } from "@/hooks/useWorkspaceName";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend, getEmptyImage } from "react-dnd-html5-backend";
 import { useDrag, useDrop, useDragLayer } from "react-dnd";
@@ -25,7 +25,7 @@ import {
   reorderProjects,
   normalizeOrder,
 } from "@/common/utils/projectOrdering";
-import { matchesKeybind, formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { matchesKeybind, formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { PlatformPaths } from "@/common/utils/paths";
 import {
   partitionWorkspacesByAge,
@@ -38,7 +38,7 @@ import {
   getSectionExpandedKey,
   getSectionTierKey,
   sortSectionsByLinkedList,
-} from "@/browser/utils/ui/workspaceFiltering";
+} from "@/utils/ui/workspaceFiltering";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
 import { SidebarCollapseButton } from "./ui/SidebarCollapseButton";
 import { ConfirmationModal } from "./ConfirmationModal";
@@ -47,13 +47,13 @@ import type { Secret } from "@/common/types/secrets";
 
 import { WorkspaceListItem, type WorkspaceSelection } from "./WorkspaceListItem";
 import { WorkspaceStatusIndicator } from "./WorkspaceStatusIndicator";
-import { RenameProvider } from "@/browser/contexts/WorkspaceRenameContext";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
+import { RenameProvider } from "@/contexts/WorkspaceRenameContext";
+import { useProjectContext } from "@/contexts/ProjectContext";
 import { ChevronRight, CircleHelp, KeyRound } from "lucide-react";
 import { MUX_HELP_CHAT_WORKSPACE_ID } from "@/common/constants/muxChat";
-import { useWorkspaceActions } from "@/browser/contexts/WorkspaceContext";
-import { useRouter } from "@/browser/contexts/RouterContext";
-import { usePopoverError } from "@/browser/hooks/usePopoverError";
+import { useWorkspaceActions } from "@/contexts/WorkspaceContext";
+import { useRouter } from "@/contexts/RouterContext";
+import { usePopoverError } from "@/hooks/usePopoverError";
 import { PopoverError } from "./PopoverError";
 import { SectionHeader } from "./SectionHeader";
 import { AddSectionButton } from "./AddSectionButton";

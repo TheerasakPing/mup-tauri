@@ -17,7 +17,7 @@ import {
 } from "./shared/ToolPrimitives";
 import { getStatusDisplay, useToolExpansion, type ToolStatus } from "./shared/toolUtils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { cn } from "@/common/lib/utils";
 
 type TaskApplyGitPatchSuccessResult = Extract<TaskApplyGitPatchToolResult, { success: true }>;

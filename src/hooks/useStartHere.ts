@@ -1,8 +1,8 @@
 import { useState } from "react";
 import React from "react";
-import { StartHereModal } from "@/browser/components/StartHereModal";
+import { StartHereModal } from "@/components/StartHereModal";
 import { createMuxMessage } from "@/common/types/message";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 /**
  * Hook for managing Start Here button state and modal.

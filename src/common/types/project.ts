@@ -12,6 +12,7 @@ import type {
 import type { TaskSettings, SubagentAiDefaults } from "./tasks";
 import type { LayoutPresetsConfig } from "./uiLayouts";
 import type { AgentAiDefaults } from "./agentAiDefaults";
+import type { IconThemeConfig } from "./iconTheme";
 
 export type Workspace = z.infer<typeof WorkspaceConfigSchema>;
 
@@ -102,4 +103,26 @@ export interface ProjectsConfig {
    * Stored as `false` only (undefined behaves as true) to keep config.json minimal.
    */
   stopCoderWorkspaceOnArchive?: boolean;
+
+  /**
+   * Custom model configuration overrides (shared via ~/.mux/config.json).
+   * Maps model ID to custom settings (costs, limits).
+   */
+  customModelPrices?: Record<string, CustomModelConfig>;
+
+  /**
+   * Active icon theme configuration (shared via ~/.mux/config.json).
+   * Stores current theme ID and list of installed themes.
+   */
+  iconThemeConfig?: IconThemeConfig;
+}
+
+
+export interface CustomModelConfig {
+  maxInputTokens?: number;
+  maxOutputTokens?: number;
+  inputCostPerToken?: number;
+  outputCostPerToken?: number;
+  cacheCreationInputTokenCost?: number;
+  cacheReadInputTokenCost?: number;
 }

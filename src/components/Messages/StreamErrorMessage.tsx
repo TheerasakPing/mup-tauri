@@ -1,8 +1,8 @@
 import React from "react";
 import { AlertTriangle, Bug, ExternalLink } from "lucide-react";
-import { Button } from "@/browser/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
-import { useCompactAndRetry } from "@/browser/hooks/useCompactAndRetry";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useCompactAndRetry } from "@/hooks/useCompactAndRetry";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { cn } from "@/common/lib/utils";
 import { getModelProvider } from "@/common/utils/ai/models";

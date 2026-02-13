@@ -22,7 +22,7 @@ import {
   readPersistedState,
   readPersistedString,
   updatePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import {
   addTabToFocusedTabset,
   collectAllTabs,
@@ -32,10 +32,10 @@ import {
   parseRightSidebarLayoutState,
   type RightSidebarLayoutNode,
   type RightSidebarLayoutState,
-} from "@/browser/utils/rightSidebarLayout";
-import { isTabType, makeTerminalTabType, type TabType } from "@/browser/types/rightSidebar";
-import { createTerminalSession } from "@/browser/utils/terminal";
-import type { APIClient } from "@/browser/contexts/API";
+} from "@/utils/rightSidebarLayout";
+import { isTabType, makeTerminalTabType, type TabType } from "@/types/rightSidebar";
+import { createTerminalSession } from "@/utils/terminal";
+import type { APIClient } from "@/contexts/API";
 
 export function createLayoutPresetId(): string {
   const maybeCrypto = globalThis.crypto;

@@ -15,7 +15,7 @@
  * - Never triggers in edit mode (caller's responsibility to check)
  */
 
-import type { WorkspaceUsageState } from "@/browser/stores/WorkspaceStore";
+import type { WorkspaceUsageState } from "@/stores/WorkspaceStore";
 import type { ChatUsageDisplay } from "@/common/utils/tokens/usageAggregator";
 import {
   DEFAULT_AUTO_COMPACTION_THRESHOLD,

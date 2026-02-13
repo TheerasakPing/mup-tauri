@@ -1,9 +1,9 @@
 import { Activity, Eye, Info, Pencil, Star, Trash2 } from "lucide-react";
-import { GatewayToggleButton } from "@/browser/components/GatewayToggleButton";
+import { GatewayToggleButton } from "@/components/GatewayToggleButton";
 import { cn } from "@/common/lib/utils";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { ProviderWithIcon } from "@/browser/components/ProviderIcon";
-import { Button } from "@/browser/components/ui/button";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { ProviderWithIcon } from "@/components/ProviderIcon";
+import { Button } from "@/components/ui/button";
 import { getModelStats, type ModelStats } from "@/common/utils/tokens/modelStats";
 
 /** Format tokens as human-readable string (e.g. 200000 -> "200k") */

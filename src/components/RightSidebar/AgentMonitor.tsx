@@ -13,7 +13,7 @@ import {
     useWorkspaceState,
     useWorkspaceStatsSnapshot,
     useWorkspaceUsage,
-} from "@/browser/stores/WorkspaceStore";
+} from "@/stores/WorkspaceStore";
 import { sumUsageHistory, type ChatUsageDisplay } from "@/common/utils/tokens/usageAggregator";
 import { Activity, Zap, Clock, Cpu, DollarSign, Pause, AlertCircle } from "lucide-react";
 import type { RuntimeStatusEvent } from "@/common/types/stream";

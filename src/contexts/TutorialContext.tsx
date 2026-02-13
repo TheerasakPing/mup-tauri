@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
-import { TutorialTooltip, type TutorialStep } from "@/browser/components/TutorialTooltip";
+import { TutorialTooltip, type TutorialStep } from "@/components/TutorialTooltip";
 import {
   TUTORIAL_STATE_KEY,
   DEFAULT_TUTORIAL_STATE,
   type TutorialState,
   type TutorialSequence,
 } from "@/common/constants/storage";
-import { useIsSplashScreenActive } from "@/browser/components/splashScreens/SplashScreenProvider";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { useIsSplashScreenActive } from "@/components/splashScreens/SplashScreenProvider";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 
 // Tutorial step definitions for each sequence
 const TUTORIAL_SEQUENCES: Record<TutorialSequence, TutorialStep[]> = {

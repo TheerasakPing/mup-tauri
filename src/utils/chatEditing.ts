@@ -5,7 +5,7 @@ import type {
   QueuedMessage,
   ReviewNoteDataForDisplay,
 } from "@/common/types/message";
-import { getEditableUserMessageText } from "@/browser/utils/messages/messageUtils";
+import { getEditableUserMessageText } from "@/utils/messages/messageUtils";
 
 // Keep pending edit data normalized with required arrays so edits can't drop attachments/reviews.
 export interface PendingUserMessage extends Omit<QueuedMessage, "id" | "hasCompactionRequest"> {

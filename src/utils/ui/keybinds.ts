@@ -7,7 +7,7 @@
  * is not discoverable in the UI (e.g., no tooltip, placeholder text, or visible hint).
  */
 
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+import { stopKeyboardPropagation } from "@/utils/events";
 import type { Keybind } from "@/common/types/keybind";
 
 export type { Keybind };

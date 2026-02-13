@@ -3,7 +3,7 @@
  * PR is detected from the workspace's current branch via `gh pr view`.
  */
 
-import { useWorkspacePR } from "@/browser/stores/PRStatusStore";
+import { useWorkspacePR } from "@/stores/PRStatusStore";
 import { PRLinkBadge } from "./PRLinkBadge";
 
 interface WorkspaceLinksProps {

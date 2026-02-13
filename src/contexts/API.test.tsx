@@ -74,7 +74,7 @@ void mock.module("@orpc/client/message-port", () => ({
   RPCLink: class {},
 }));
 
-void mock.module("@/browser/components/AuthTokenModal", () => ({
+void mock.module("@/components/AuthTokenModal", () => ({
   // Note: Module mocks leak between bun test files.
   // Export all commonly-used symbols to avoid cross-test import errors.
   AuthTokenModal: () => null,
@@ -88,7 +88,7 @@ void mock.module("@/browser/components/AuthTokenModal", () => ({
 // Import the real API module types (not the mocked version)
 import type { UseAPIResult as _UseAPIResult, APIProvider as APIProviderType } from "./API";
 
-// IMPORTANT: Other test files mock @/browser/contexts/API with a fake APIProvider.
+// IMPORTANT: Other test files mock @/contexts/API with a fake APIProvider.
 // Module mocks leak between test files in bun (https://github.com/oven-sh/bun/issues/12823).
 // The query string creates a distinct module cache key, bypassing any mocked version.
 /* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment */

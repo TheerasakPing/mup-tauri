@@ -18,19 +18,19 @@ import { MarkdownRenderer } from "../Messages/MarkdownRenderer";
 import { Button } from "../ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { IconActionButton, type ButtonConfig } from "../Messages/MessageWindow";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import { useStartHere } from "@/browser/hooks/useStartHere";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import { useStartHere } from "@/hooks/useStartHere";
 import { createMuxMessage } from "@/common/types/message";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { cn } from "@/common/lib/utils";
-import { useAPI } from "@/browser/contexts/API";
-import { useOpenInEditor } from "@/browser/hooks/useOpenInEditor";
-import { useOptionalWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { usePopoverError } from "@/browser/hooks/usePopoverError";
+import { useAPI } from "@/contexts/API";
+import { useOpenInEditor } from "@/hooks/useOpenInEditor";
+import { useOptionalWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { usePopoverError } from "@/hooks/usePopoverError";
 import { PopoverError } from "../PopoverError";
 import { getAgentIdKey, getPlanContentKey } from "@/common/constants/storage";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
-import { getSendOptionsFromStorage } from "@/browser/utils/messages/sendOptions";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
+import { getSendOptionsFromStorage } from "@/utils/messages/sendOptions";
 import {
   Clipboard,
   ClipboardCheck,

@@ -11,9 +11,9 @@
 
 import * as Comlink from "comlink";
 import type { Highlighter } from "shiki";
-import type { HighlightWorkerAPI } from "@/browser/workers/highlightWorker";
+import type { HighlightWorkerAPI } from "@/workers/highlightWorker";
 import { mapToShikiLang, SHIKI_DARK_THEME, SHIKI_LIGHT_THEME } from "./shiki-shared";
-import { isVscodeWebview } from "@/browser/utils/env";
+import { isVscodeWebview } from "@/utils/env";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Main-thread Shiki (fallback only)

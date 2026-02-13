@@ -15,7 +15,7 @@
 import type { RouterClient } from "@orpc/server";
 import type { AppRouter } from "@/node/orpc/router";
 import type { GitHubPRLink, GitHubPRStatus, GitHubPRLinkWithStatus } from "@/common/types/links";
-import { createLRUCache } from "@/browser/utils/lruCache";
+import { createLRUCache } from "@/utils/lruCache";
 /**
  * Parse a GitHub PR URL to extract owner, repo, and number.
  * Returns null if the URL is not a valid GitHub PR URL.
@@ -26,7 +26,7 @@ function parseGitHubPRUrl(url: string): { owner: string; repo: string; number: n
   return { owner: match[1], repo: match[2], number: parseInt(match[3], 10) };
 }
 import { MapStore } from "./MapStore";
-import { RefreshController } from "@/browser/utils/RefreshController";
+import { RefreshController } from "@/utils/RefreshController";
 import { useSyncExternalStore } from "react";
 
 // Cache TTL: PR status is refreshed at most every 5 seconds

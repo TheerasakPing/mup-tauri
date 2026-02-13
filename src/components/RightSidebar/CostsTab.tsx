@@ -1,17 +1,17 @@
 import React from "react";
-import { useWorkspaceUsage, useWorkspaceConsumers } from "@/browser/stores/WorkspaceStore";
+import { useWorkspaceUsage, useWorkspaceConsumers } from "@/stores/WorkspaceStore";
 import { getModelStats } from "@/common/utils/tokens/modelStats";
 import {
   sumUsageHistory,
   formatCostWithDollar,
   type ChatUsageDisplay,
 } from "@/common/utils/tokens/usageAggregator";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { PREFERRED_COMPACTION_MODEL_KEY } from "@/common/constants/storage";
-import { resolveCompactionModel } from "@/browser/utils/messages/compactionModelPreference";
+import { resolveCompactionModel } from "@/utils/messages/compactionModelPreference";
 import { ToggleGroup, type ToggleOption } from "../ToggleGroup";
-import { useProviderOptions } from "@/browser/hooks/useProviderOptions";
-import { useSendMessageOptions } from "@/browser/hooks/useSendMessageOptions";
+import { useProviderOptions } from "@/hooks/useProviderOptions";
+import { useSendMessageOptions } from "@/hooks/useSendMessageOptions";
 import { supports1MContext } from "@/common/utils/ai/models";
 import {
   TOKEN_COMPONENT_COLORS,
@@ -21,12 +21,12 @@ import {
 import { ConsumerBreakdown } from "./ConsumerBreakdown";
 import { FileBreakdown } from "./FileBreakdown";
 import { ContextUsageBar } from "./ContextUsageBar";
-import { useAutoCompactionSettings } from "@/browser/hooks/useAutoCompactionSettings";
+import { useAutoCompactionSettings } from "@/hooks/useAutoCompactionSettings";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { PostCompactionSection } from "./PostCompactionSection";
-import { usePostCompactionState } from "@/browser/hooks/usePostCompactionState";
-import { useOptionalWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { useProvidersConfig } from "@/browser/hooks/useProvidersConfig";
+import { usePostCompactionState } from "@/hooks/usePostCompactionState";
+import { useOptionalWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { useProvidersConfig } from "@/hooks/useProvidersConfig";
 
 /**
  * Calculate cost with elevated pricing for 1M context (200k-1M tokens)

@@ -1,7 +1,7 @@
 import React from "react";
-import { TerminalView } from "@/browser/components/TerminalView";
-import type { TabType } from "@/browser/types/rightSidebar";
-import { getTerminalSessionId } from "@/browser/types/rightSidebar";
+import { TerminalView } from "@/components/TerminalView";
+import type { TabType } from "@/types/rightSidebar";
+import { getTerminalSessionId } from "@/types/rightSidebar";
 
 interface TerminalTabProps {
   workspaceId: string;

@@ -27,7 +27,7 @@ export interface HighlightedLine {
   originalIndex: number; // Index in original diff
 }
 
-import type { ThemeMode } from "@/browser/contexts/ThemeContext";
+import type { ThemeMode } from "@/contexts/ThemeContext";
 
 /** Map theme mode to Shiki theme (light/dark only) */
 function isLightTheme(theme: ThemeMode): boolean {

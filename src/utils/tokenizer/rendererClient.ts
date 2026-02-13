@@ -1,4 +1,4 @@
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 const MAX_CACHE_ENTRIES = 256;
 

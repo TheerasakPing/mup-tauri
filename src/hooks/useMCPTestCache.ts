@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { CachedMCPTestResult, MCPTestResult } from "@/common/types/mcp";
 import { getMCPTestResultsKey } from "@/common/constants/storage";
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 
 type CachedResults = Record<string, CachedMCPTestResult>;
 

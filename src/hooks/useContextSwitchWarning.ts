@@ -10,23 +10,23 @@ import type { RouterClient } from "@orpc/server";
 import type { AppRouter } from "@/node/orpc/router";
 import type { SendMessageOptions } from "@/common/orpc/types";
 import type { DisplayedMessage } from "@/common/types/message";
-import type { WorkspaceUsageState } from "@/browser/stores/WorkspaceStore";
+import type { WorkspaceUsageState } from "@/stores/WorkspaceStore";
 import { normalizeGatewayModel } from "@/common/utils/ai/models";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
+import { usePolicy } from "@/contexts/PolicyContext";
 import {
   checkContextSwitch,
   findPreviousModel,
   type ContextSwitchOptions,
   type ContextSwitchWarning,
-} from "@/browser/utils/compaction/contextSwitchCheck";
-import { getHigherContextCompactionSuggestion } from "@/browser/utils/compaction/suggestion";
-import { getEffectiveContextLimit } from "@/browser/utils/compaction/contextLimit";
+} from "@/utils/compaction/contextSwitchCheck";
+import { getHigherContextCompactionSuggestion } from "@/utils/compaction/suggestion";
+import { getEffectiveContextLimit } from "@/utils/compaction/contextLimit";
 import {
   consumeWorkspaceModelChange,
   setWorkspaceModelWithOrigin,
-} from "@/browser/utils/modelChange";
+} from "@/utils/modelChange";
 import { useProvidersConfig } from "./useProvidersConfig";
-import { executeCompaction } from "@/browser/utils/chatCommands";
+import { executeCompaction } from "@/utils/chatCommands";
 
 interface UseContextSwitchWarningProps {
   workspaceId: string;

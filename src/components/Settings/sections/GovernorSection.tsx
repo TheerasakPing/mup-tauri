@@ -5,14 +5,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AlertTriangle, ExternalLink, ShieldCheck, X } from "lucide-react";
-import { Button } from "@/browser/components/ui/button";
-import { Input } from "@/browser/components/ui/input";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/browser/components/ui/dialog";
-import { useAPI } from "@/browser/contexts/API";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { JsonHighlight } from "@/browser/components/tools/shared/HighlightedCode";
-import { getStoredAuthToken } from "@/browser/components/AuthTokenModal";
-import { getBrowserBackendBaseUrl } from "@/browser/utils/backendBaseUrl";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useAPI } from "@/contexts/API";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { JsonHighlight } from "@/components/tools/shared/HighlightedCode";
+import { getStoredAuthToken } from "@/components/AuthTokenModal";
+import { getBrowserBackendBaseUrl } from "@/utils/backendBaseUrl";
 
 /** Get server auth token from URL query param or localStorage. */
 function getServerAuthToken(): string | null {

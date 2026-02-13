@@ -2,25 +2,25 @@ import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import { cn } from "@/common/lib/utils";
-import { AgentProvider } from "@/browser/contexts/AgentContext";
-import { ThinkingProvider } from "@/browser/contexts/ThinkingContext";
+import { AgentProvider } from "@/contexts/AgentContext";
+import { ThinkingProvider } from "@/contexts/ThinkingContext";
 import { ChatInput } from "./ChatInput/index";
 import type { ChatInputAPI, WorkspaceCreatedOptions } from "./ChatInput/types";
 import { ProjectMCPOverview } from "./ProjectMCPOverview";
 import { ArchivedWorkspaces } from "./ArchivedWorkspaces";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import { isWorkspaceArchived } from "@/common/utils/archive";
 import { GitInitBanner } from "./GitInitBanner";
 import { ConfiguredProvidersBar } from "./ConfiguredProvidersBar";
 import { ConfigureProvidersPrompt } from "./ConfigureProvidersPrompt";
-import { useProvidersConfig } from "@/browser/hooks/useProvidersConfig";
+import { useProvidersConfig } from "@/hooks/useProvidersConfig";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
 import { AgentsInitBanner } from "./AgentsInitBanner";
 import {
   usePersistedState,
   updatePersistedState,
   readPersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import {
   getAgentIdKey,
   getAgentsInitNudgeKey,
@@ -30,9 +30,9 @@ import {
   getPendingScopeId,
   getProjectScopeId,
 } from "@/common/constants/storage";
-import { Button } from "@/browser/components/ui/button";
-import { Skeleton } from "@/browser/components/ui/skeleton";
-import { isDesktopMode } from "@/browser/hooks/useDesktopTitlebar";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { isDesktopMode } from "@/hooks/useDesktopTitlebar";
 
 interface ProjectPageProps {
   projectPath: string;

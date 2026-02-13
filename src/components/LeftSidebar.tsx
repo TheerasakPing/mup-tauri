@@ -3,7 +3,7 @@ import { cn } from "@/common/lib/utils";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import ProjectSidebar from "./ProjectSidebar";
 import { TitleBar } from "./TitleBar";
-import { isDesktopMode } from "@/browser/hooks/useDesktopTitlebar";
+import { isDesktopMode } from "@/hooks/useDesktopTitlebar";
 
 interface LeftSidebarProps {
   collapsed: boolean;

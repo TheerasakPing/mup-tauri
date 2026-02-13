@@ -49,6 +49,7 @@ import {
   applyCacheControlToTools,
 } from "@/common/utils/ai/cacheStrategy";
 import type { SessionUsageService } from "./sessionUsageService";
+import type { CostTrackingService } from "./costTrackingService";
 import { createDisplayUsage } from "@/common/utils/tokens/displayUsage";
 import { extractToolMediaAsUserMessagesFromModelMessages } from "@/node/utils/messages/extractToolMediaAsUserMessagesFromModelMessages";
 import { normalizeGatewayModel } from "@/common/utils/ai/models";
@@ -276,8 +277,8 @@ interface WorkspaceStreamInfo {
   processingPromise: Promise<void>;
   // Soft-interrupt state: when pending, stream will end at next block boundary
   softInterrupt:
-    | { pending: false }
-    | { pending: true; abandonPartial: boolean; abortReason: StreamAbortReason };
+  | { pending: false }
+  | { pending: true; abandonPartial: boolean; abortReason: StreamAbortReason };
   // Temporary directory for tool outputs (auto-cleaned when stream ends)
   runtimeTempDir: string;
   // Runtime for temp directory cleanup
@@ -320,6 +321,7 @@ export class StreamManager extends EventEmitter {
   private readonly partialService: PartialService;
   private mcpServerManager?: MCPServerManager;
   private readonly sessionUsageService?: SessionUsageService;
+  private readonly costTrackingService?: CostTrackingService;
   // Token tracker for live streaming statistics
   private tokenTracker = new StreamingTokenTracker();
   // Track OpenAI previousResponseIds that have been invalidated
@@ -329,12 +331,14 @@ export class StreamManager extends EventEmitter {
   constructor(
     historyService: HistoryService,
     partialService: PartialService,
-    sessionUsageService?: SessionUsageService
+    sessionUsageService?: SessionUsageService,
+    costTrackingService?: CostTrackingService
   ) {
     super();
     this.historyService = historyService;
     this.partialService = partialService;
     this.sessionUsageService = sessionUsageService;
+    this.costTrackingService = costTrackingService;
   }
 
   private getWorkspaceLogger(
@@ -908,22 +912,42 @@ export class StreamManager extends EventEmitter {
     logLevel: "warn" | "error",
     streamInfo?: Pick<WorkspaceStreamInfo, "workspaceName">
   ): Promise<void> {
-    if (!this.sessionUsageService || !usage) {
+    if (!usage) {
       return;
     }
+
     const messageUsage = createDisplayUsage(usage, model, providerMetadata);
     if (!messageUsage) {
       return;
     }
+
     const workspaceLog = this.getWorkspaceLogger(workspaceId, streamInfo);
-    try {
-      await this.sessionUsageService.recordUsage(
-        workspaceId as string,
-        normalizeGatewayModel(model),
-        messageUsage
-      );
-    } catch (error) {
-      (logLevel === "error" ? workspaceLog.error : workspaceLog.warn)(logMessage, { error });
+
+    // Track cost if service is available
+    if (this.costTrackingService) {
+      try {
+        await this.costTrackingService.trackCost(
+          workspaceId as string,
+          normalizeGatewayModel(model),
+          usage,
+          providerMetadata
+        );
+      } catch (error) {
+        workspaceLog.warn("Failed to track cost", { error });
+      }
+    }
+
+    // Record session usage if service is available
+    if (this.sessionUsageService) {
+      try {
+        await this.sessionUsageService.recordUsage(
+          workspaceId as string,
+          normalizeGatewayModel(model),
+          messageUsage
+        );
+      } catch (error) {
+        (logLevel === "error" ? workspaceLog.error : workspaceLog.warn)(logMessage, { error });
+      }
     }
   }
 

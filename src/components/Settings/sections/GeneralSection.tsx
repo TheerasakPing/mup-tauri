@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
-import { useTheme, THEME_OPTIONS, type ThemeMode } from "@/browser/contexts/ThemeContext";
+import { useTheme, THEME_OPTIONS, type ThemeMode } from "@/contexts/ThemeContext";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { Input } from "@/browser/components/ui/input";
-import { Switch } from "@/browser/components/ui/switch";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useAPI } from "@/browser/contexts/API";
-import { useFeatureFlags } from "@/browser/contexts/FeatureFlagsContext";
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
+import { useFeatureFlags } from "@/contexts/FeatureFlagsContext";
 import {
   EDITOR_CONFIG_KEY,
   DEFAULT_EDITOR_CONFIG,
@@ -26,7 +26,7 @@ import {
   getPrimaryFontFamily,
   isFontFamilyAvailableInBrowser,
   isGenericFontFamily,
-} from "@/browser/terminal/terminalFontFamily";
+} from "@/terminal/terminalFontFamily";
 
 // Guard against corrupted/old persisted settings (e.g. from a downgraded build).
 const ALLOWED_EDITOR_TYPES: ReadonlySet<EditorType> = new Set([

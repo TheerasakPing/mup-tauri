@@ -10,9 +10,9 @@ import {
   DiffRenderer,
   SelectableDiffRenderer,
   type DiffLineType,
-} from "@/browser/components/shared/DiffRenderer";
-import type { ReviewActionCallbacks } from "@/browser/components/shared/InlineReviewNote";
-import { useReviews } from "@/browser/hooks/useReviews";
+} from "@/components/shared/DiffRenderer";
+import type { ReviewActionCallbacks } from "@/components/shared/InlineReviewNote";
+import { useReviews } from "@/hooks/useReviews";
 import { getLanguageFromPath, getLanguageDisplayName } from "@/common/utils/git/languageDetector";
 import type { ReviewNoteData } from "@/common/types/review";
 

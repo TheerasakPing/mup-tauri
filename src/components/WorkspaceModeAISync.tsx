@@ -1,18 +1,18 @@
 import { useEffect, useRef } from "react";
-import { useAgent } from "@/browser/contexts/AgentContext";
+import { useAgent } from "@/contexts/AgentContext";
 import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
+} from "@/hooks/usePersistedState";
 import {
   getModelKey,
   getThinkingLevelKey,
   getWorkspaceAISettingsByAgentKey,
   AGENT_AI_DEFAULTS_KEY,
 } from "@/common/constants/storage";
-import { getDefaultModel } from "@/browser/hooks/useModelsFromSettings";
-import { setWorkspaceModelWithOrigin } from "@/browser/utils/modelChange";
+import { getDefaultModel } from "@/hooks/useModelsFromSettings";
+import { setWorkspaceModelWithOrigin } from "@/utils/modelChange";
 import { coerceThinkingLevel, type ThinkingLevel } from "@/common/types/thinking";
 import type { AgentAiDefaults } from "@/common/types/agentAiDefaults";
 

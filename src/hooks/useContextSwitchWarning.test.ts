@@ -2,17 +2,17 @@ import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { act, cleanup, renderHook, waitFor } from "@testing-library/react";
 import { GlobalWindow } from "happy-dom";
 import React from "react";
-import { APIProvider, type APIClient } from "@/browser/contexts/API";
-import { PolicyProvider } from "@/browser/contexts/PolicyContext";
-import type { WorkspaceUsageState } from "@/browser/stores/WorkspaceStore";
+import { APIProvider, type APIClient } from "@/contexts/API";
+import { PolicyProvider } from "@/contexts/PolicyContext";
+import type { WorkspaceUsageState } from "@/stores/WorkspaceStore";
 import type { SendMessageOptions } from "@/common/orpc/types";
 import type { DisplayedMessage } from "@/common/types/message";
 import { useContextSwitchWarning } from "./useContextSwitchWarning";
-import { getEffectiveContextLimit } from "@/browser/utils/compaction/contextLimit";
+import { getEffectiveContextLimit } from "@/utils/compaction/contextLimit";
 import {
   recordWorkspaceModelChange,
   setWorkspaceModelWithOrigin,
-} from "@/browser/utils/modelChange";
+} from "@/utils/modelChange";
 
 async function* emptyStream() {
   // no-op

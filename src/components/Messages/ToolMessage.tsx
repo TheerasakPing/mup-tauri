@@ -1,8 +1,8 @@
 import React from "react";
 import type { DisplayedMessage } from "@/common/types/message";
 import type { ReviewNoteData } from "@/common/types/review";
-import type { BashOutputGroupInfo } from "@/browser/utils/messages/messageUtils";
-import type { TaskReportLinking } from "@/browser/utils/messages/taskReportLinking";
+import type { BashOutputGroupInfo } from "@/utils/messages/messageUtils";
+import type { TaskReportLinking } from "@/utils/messages/taskReportLinking";
 import { getToolComponent } from "../tools/shared/getToolComponent";
 import {
   HookOutputDisplay,

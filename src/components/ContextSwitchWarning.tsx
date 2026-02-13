@@ -1,7 +1,7 @@
 import React from "react";
 import { AlertTriangle, X } from "lucide-react";
 import { getModelName } from "@/common/utils/ai/models";
-import type { ContextSwitchWarning as WarningData } from "@/browser/utils/compaction/contextSwitchCheck";
+import type { ContextSwitchWarning as WarningData } from "@/utils/compaction/contextSwitchCheck";
 
 function formatTokens(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(".0", "")}M`;

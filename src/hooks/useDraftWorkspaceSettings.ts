@@ -11,7 +11,7 @@ import {
   RUNTIME_MODE,
   CODER_RUNTIME_PLACEHOLDER,
 } from "@/common/types/runtime";
-import type { RuntimeChoice } from "@/browser/utils/runtimeUi";
+import type { RuntimeChoice } from "@/utils/runtimeUi";
 import {
   DEFAULT_MODEL_KEY,
   getAgentIdKey,

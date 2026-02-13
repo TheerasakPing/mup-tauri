@@ -14,8 +14,8 @@ import {
   getStoredAuthToken,
   setStoredAuthToken,
   clearStoredAuthToken,
-} from "@/browser/components/AuthTokenModal";
-import { getBrowserBackendBaseUrl } from "@/browser/utils/backendBaseUrl";
+} from "@/components/AuthTokenModal";
+import { getBrowserBackendBaseUrl } from "@/utils/backendBaseUrl";
 
 type APIClient = ReturnType<typeof createClient>;
 

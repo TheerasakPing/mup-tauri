@@ -47,20 +47,20 @@ import {
   LEFT_SIDEBAR_COLLAPSED_KEY,
   LEFT_SIDEBAR_WIDTH_KEY,
 } from "@/common/constants/storage";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
-import { getDefaultModel } from "@/browser/hooks/useModelsFromSettings";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
+import { getDefaultModel } from "@/hooks/useModelsFromSettings";
 import type { BranchListResult } from "@/common/orpc/types";
 import { useTelemetry } from "./hooks/useTelemetry";
 import { getRuntimeTypeForTelemetry } from "@/common/telemetry";
 import { useStartWorkspaceCreation, getFirstProjectPath } from "./hooks/useStartWorkspaceCreation";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import {
   clearPendingWorkspaceAiSettings,
   markPendingWorkspaceAiSettings,
-} from "@/browser/utils/workspaceAiSettingsSync";
-import { AuthTokenModal } from "@/browser/components/AuthTokenModal";
+} from "@/utils/workspaceAiSettingsSync";
+import { AuthTokenModal } from "@/components/AuthTokenModal";
 import { Button } from "./components/ui/button";
-import { ProjectPage } from "@/browser/components/ProjectPage";
+import { ProjectPage } from "@/components/ProjectPage";
 
 import { SettingsProvider, useSettings } from "./contexts/SettingsContext";
 import { SettingsModal } from "./components/Settings/SettingsModal";
@@ -70,7 +70,7 @@ import { TutorialProvider } from "./contexts/TutorialContext";
 import { PowerModeProvider } from "./contexts/PowerModeContext";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { useFeatureFlags } from "./contexts/FeatureFlagsContext";
-import { UILayoutsProvider, useUILayouts } from "@/browser/contexts/UILayoutsContext";
+import { UILayoutsProvider, useUILayouts } from "@/contexts/UILayoutsContext";
 import { FeatureFlagsProvider } from "./contexts/FeatureFlagsContext";
 import { ExperimentsProvider } from "./contexts/ExperimentsContext";
 import { ProviderOptionsProvider } from "./contexts/ProviderOptionsContext";

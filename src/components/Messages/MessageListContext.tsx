@@ -1,4 +1,4 @@
-import type { TerminalSessionCreateOptions } from "@/browser/utils/terminal";
+import type { TerminalSessionCreateOptions } from "@/utils/terminal";
 import React, { createContext, useContext } from "react";
 
 interface MessageListContextValue {

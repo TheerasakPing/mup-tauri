@@ -1,6 +1,6 @@
 import { test, expect, describe, beforeEach } from "bun:test";
 import { renderHook, act } from "@testing-library/react";
-import { useCodeSnippets } from "@/browser/hooks/useCodeSnippets";
+import { useCodeSnippets } from "@/hooks/useCodeSnippets";
 import type { SnippetInput } from "@/common/types/codeSnippets";
 
 // Mock localStorage

@@ -6,8 +6,8 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/common/lib/utils";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
-import type { VoiceInputState } from "@/browser/hooks/useVoiceInput";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
+import type { VoiceInputState } from "@/hooks/useVoiceInput";
 
 // Waveform shows last 10 seconds of audio, sampled every 50ms (200 samples)
 const WINDOW_DURATION_MS = 10_000;

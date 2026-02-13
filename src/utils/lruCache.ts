@@ -7,7 +7,7 @@
  * Pattern extracted from fileContentCache.ts and sharedUrlCache.ts.
  */
 
-import { readPersistedState, updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState, updatePersistedState } from "@/hooks/usePersistedState";
 
 export interface LRUCacheOptions {
   /** Prefix for individual entry keys (e.g., "prStatus:") */

@@ -5,14 +5,14 @@ import type { WorkspaceChatMessage, WorkspaceStatsSnapshot } from "@/common/orpc
 import type { RouterClient } from "@orpc/server";
 import type { AppRouter } from "@/node/orpc/router";
 import type { TodoItem } from "@/common/types/tools";
-import { applyWorkspaceChatEventToAggregator } from "@/browser/utils/messages/applyWorkspaceChatEventToAggregator";
+import { applyWorkspaceChatEventToAggregator } from "@/utils/messages/applyWorkspaceChatEventToAggregator";
 import {
   StreamingMessageAggregator,
   type LoadedSkill,
   type SkillLoadError,
-} from "@/browser/utils/messages/StreamingMessageAggregator";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
-import { isAbortError } from "@/browser/utils/isAbortError";
+} from "@/utils/messages/StreamingMessageAggregator";
+import { updatePersistedState } from "@/hooks/usePersistedState";
+import { isAbortError } from "@/utils/isAbortError";
 import { getRetryStateKey } from "@/common/constants/storage";
 import { BASH_TRUNCATE_MAX_TOTAL_BYTES } from "@/common/constants/toolLimits";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
@@ -44,12 +44,12 @@ import { normalizeGatewayModel } from "@/common/utils/ai/models";
 import type { z } from "zod";
 import type { SessionUsageFileSchema } from "@/common/orpc/schemas/chatStats";
 import type { LanguageModelV2Usage } from "@ai-sdk/provider";
-import { createFreshRetryState } from "@/browser/utils/messages/retryState";
+import { createFreshRetryState } from "@/utils/messages/retryState";
 import {
   appendLiveBashOutputChunk,
   type LiveBashOutputInternal,
   type LiveBashOutputView,
-} from "@/browser/utils/messages/liveBashOutputBuffer";
+} from "@/utils/messages/liveBashOutputBuffer";
 import { trackStreamCompleted } from "@/common/telemetry";
 
 export interface WorkspaceState {

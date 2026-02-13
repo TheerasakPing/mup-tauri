@@ -10,7 +10,7 @@ import type {
 } from "./types";
 import minimist from "minimist";
 import { MODEL_ABBREVIATIONS } from "@/common/constants/knownModels";
-import { normalizeModelInput } from "@/browser/utils/models/normalizeModelInput";
+import { normalizeModelInput } from "@/utils/models/normalizeModelInput";
 
 /**
  * Parse multiline command input into first-line tokens and remaining message

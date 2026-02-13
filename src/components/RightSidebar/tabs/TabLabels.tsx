@@ -12,9 +12,9 @@ import { ExternalLink, X } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import { FileIcon, getRootIconUrl } from "../../FileIcon";
 import { formatTabDuration, type ReviewStats } from "./registry";
-import { formatKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { formatKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { cn } from "@/common/lib/utils";
-import { useWorkspaceUsage, useWorkspaceStatsSnapshot } from "@/browser/stores/WorkspaceStore";
+import { useWorkspaceUsage, useWorkspaceStatsSnapshot } from "@/stores/WorkspaceStore";
 import { sumUsageHistory, type ChatUsageDisplay } from "@/common/utils/tokens/usageAggregator";
 
 interface CostsTabLabelProps {

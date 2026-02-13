@@ -6,9 +6,9 @@
  */
 
 import ReactDOM from "react-dom/client";
-import { TerminalView } from "@/browser/components/TerminalView";
-import { APIProvider, useAPI } from "@/browser/contexts/API";
-import { TerminalRouterProvider } from "@/browser/terminal/TerminalRouterContext";
+import { TerminalView } from "@/components/TerminalView";
+import { APIProvider, useAPI } from "@/contexts/API";
+import { TerminalRouterProvider } from "@/terminal/TerminalRouterContext";
 import "./styles/globals.css";
 
 function TerminalWindowContent(props: { workspaceId: string; sessionId: string }) {

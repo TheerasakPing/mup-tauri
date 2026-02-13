@@ -5,7 +5,7 @@
  * Used by both ChatInput (initial send) and useResumeManager (resume after interruption).
  */
 
-import { readPersistedState } from "@/browser/hooks/usePersistedState";
+import { readPersistedState } from "@/hooks/usePersistedState";
 import { AGENT_AI_DEFAULTS_KEY } from "@/common/constants/storage";
 import type { SendMessageOptions } from "@/common/orpc/types";
 import type { CompactionRequestData } from "@/common/types/message";

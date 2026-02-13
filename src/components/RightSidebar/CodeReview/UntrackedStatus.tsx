@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/common/lib/utils";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 interface UntrackedStatusProps {
   workspaceId: string;

@@ -1,4 +1,4 @@
-import { isTabType, type TabType } from "@/browser/types/rightSidebar";
+import { isTabType, type TabType } from "@/types/rightSidebar";
 
 export type RightSidebarLayoutNode =
   | {

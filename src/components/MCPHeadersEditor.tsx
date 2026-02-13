@@ -1,12 +1,12 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/browser/components/ui/popover";
-import { ToggleGroup, ToggleGroupItem } from "@/browser/components/ui/toggle-group";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   createMCPHeaderRow,
   mcpHeaderRowsToRecord,
   type MCPHeaderRow,
-} from "@/browser/utils/mcpHeaders";
+} from "@/utils/mcpHeaders";
 
 export const MCPHeadersEditor: React.FC<{
   rows: MCPHeaderRow[];

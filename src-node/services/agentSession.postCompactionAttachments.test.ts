@@ -14,6 +14,7 @@ import type { InitStateManager } from "./initStateManager";
 import type { PartialService } from "./partialService";
 import { DisposableTempDir } from "./tempDir";
 import { createTestHistoryService } from "./testHistoryService";
+import type { CostTrackingService } from "./costTrackingService";
 
 function createSuccessfulFileEditMessage(id: string, filePath: string, diff: string): MuxMessage {
   return {
@@ -91,6 +92,7 @@ function createSessionForHistory(historyService: HistoryService, sessionDir: str
     partialService,
     aiService,
     initStateManager,
+    costTrackingService: {} as unknown as CostTrackingService,
     backgroundProcessManager,
   });
 }

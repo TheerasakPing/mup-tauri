@@ -6,7 +6,7 @@
  */
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 import { TerminalSessionRouter } from "./TerminalSessionRouter";
 
 const TerminalRouterContext = createContext<TerminalSessionRouter | null>(null);

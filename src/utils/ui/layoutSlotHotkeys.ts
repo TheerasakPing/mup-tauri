@@ -1,6 +1,6 @@
 import type { LayoutPresetsConfig, LayoutSlotNumber } from "@/common/types/uiLayouts";
-import { getEffectiveSlotKeybind, getPresetForSlot } from "@/browser/utils/uiLayouts";
-import { matchesKeybind, isTerminalFocused } from "@/browser/utils/ui/keybinds";
+import { getEffectiveSlotKeybind, getPresetForSlot } from "@/utils/uiLayouts";
+import { matchesKeybind, isTerminalFocused } from "@/utils/ui/keybinds";
 
 export function handleLayoutSlotHotkeys(
   e: KeyboardEvent,

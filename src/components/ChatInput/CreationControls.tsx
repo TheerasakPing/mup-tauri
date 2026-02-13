@@ -10,7 +10,7 @@ import type { RuntimeAvailabilityMap, RuntimeAvailabilityState } from "./useCrea
 import {
   resolveDevcontainerSelection,
   DEFAULT_DEVCONTAINER_CONFIG_PATH,
-} from "@/browser/utils/devcontainerSelection";
+} from "@/utils/devcontainerSelection";
 import { Select } from "../Select";
 import {
   Select as RadixSelect,
@@ -21,8 +21,8 @@ import {
 } from "../ui/select";
 import { Loader2, Wand2, X } from "lucide-react";
 import { PlatformPaths } from "@/common/utils/paths";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
 import { cn } from "@/common/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { Skeleton } from "../ui/skeleton";
@@ -31,8 +31,8 @@ import {
   RUNTIME_CHOICE_UI,
   type RuntimeChoice,
   type RuntimeIconProps,
-} from "@/browser/utils/runtimeUi";
-import type { WorkspaceNameState } from "@/browser/hooks/useWorkspaceName";
+} from "@/utils/runtimeUi";
+import type { WorkspaceNameState } from "@/hooks/useWorkspaceName";
 import type { CoderInfo } from "@/common/orpc/schemas/coder";
 import type { SectionConfig } from "@/common/types/project";
 import { resolveSectionColor } from "@/common/constants/ui";

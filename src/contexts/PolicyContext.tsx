@@ -5,7 +5,7 @@ import type {
   PolicySource,
   PolicyStatus,
 } from "@/common/orpc/types";
-import { useAPI } from "@/browser/contexts/API";
+import { useAPI } from "@/contexts/API";
 
 interface PolicyContextValue {
   source: PolicySource;

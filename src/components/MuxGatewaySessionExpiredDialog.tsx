@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getStoredAuthToken } from "@/browser/components/AuthTokenModal";
-import { getBrowserBackendBaseUrl } from "@/browser/utils/backendBaseUrl";
-import { SplashScreen } from "@/browser/components/splashScreens/SplashScreen";
+import { getStoredAuthToken } from "@/components/AuthTokenModal";
+import { getBrowserBackendBaseUrl } from "@/utils/backendBaseUrl";
+import { SplashScreen } from "@/components/splashScreens/SplashScreen";
 import { CUSTOM_EVENTS } from "@/common/constants/events";
 import { MUX_GATEWAY_SESSION_EXPIRED_MESSAGE } from "@/common/constants/muxGatewayOAuth";
 

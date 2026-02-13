@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import { z } from "zod";
-import { useAPI } from "@/browser/contexts/API";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { useAPI } from "@/contexts/API";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { getWorkspaceNameStateKey } from "@/common/constants/storage";
 import { useGateway, formatAsGatewayModel } from "./useGatewayModels";
 import { getKnownModel } from "@/common/constants/knownModels";

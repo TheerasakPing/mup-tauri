@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { ChevronRight, FileText, ExternalLink, Check, Eye, EyeOff } from "lucide-react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useOpenInEditor } from "@/browser/hooks/useOpenInEditor";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/browser/components/ui/tooltip";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useOpenInEditor } from "@/hooks/useOpenInEditor";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import type { RuntimeConfig } from "@/common/types/runtime";
 
 interface PostCompactionSectionProps {

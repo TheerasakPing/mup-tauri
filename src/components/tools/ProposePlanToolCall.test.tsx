@@ -3,7 +3,7 @@ import { GlobalWindow } from "happy-dom";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 
 import type { SendMessageOptions } from "@/common/orpc/types";
-import { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import { updatePersistedState } from "@/hooks/usePersistedState";
 import { getAgentIdKey } from "@/common/constants/storage";
 
 import { TooltipProvider } from "../ui/tooltip";
@@ -76,25 +76,25 @@ const useStartHereMock = mock(
   }
 );
 
-void mock.module("@/browser/hooks/useStartHere", () => ({
+void mock.module("@/hooks/useStartHere", () => ({
   useStartHere: useStartHereMock,
 }));
 
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({ api: mockApi, status: "connected" as const, error: null }),
 }));
 
-void mock.module("@/browser/hooks/useOpenInEditor", () => ({
+void mock.module("@/hooks/useOpenInEditor", () => ({
   useOpenInEditor: () => () => Promise.resolve({ success: true } as const),
 }));
 
-void mock.module("@/browser/contexts/WorkspaceContext", () => ({
+void mock.module("@/contexts/WorkspaceContext", () => ({
   useWorkspaceContext: () => ({
     workspaceMetadata: new Map<string, { runtimeConfig?: unknown }>(),
   }),
 }));
 
-void mock.module("@/browser/contexts/TelemetryEnabledContext", () => ({
+void mock.module("@/contexts/TelemetryEnabledContext", () => ({
   useLinkSharingEnabled: () => true,
 }));
 

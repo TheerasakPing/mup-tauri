@@ -3,7 +3,7 @@
  *
  * Creates a client that matches the AppRouter interface with configurable mock data.
  */
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 import type {
   AgentDefinitionDescriptor,
   AgentDefinitionPackage,

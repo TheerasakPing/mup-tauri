@@ -1,6 +1,6 @@
-import type { ParsedCommand } from "@/browser/utils/slashCommands/types";
-import { parseCommand } from "@/browser/utils/slashCommands/parser";
-import type { APIClient } from "@/browser/contexts/API";
+import type { ParsedCommand } from "@/utils/slashCommands/types";
+import { parseCommand } from "@/utils/slashCommands/parser";
+import type { APIClient } from "@/contexts/API";
 import type { AgentSkillDescriptor } from "@/common/types/agentSkill";
 import type { SendMessageError } from "@/common/types/errors";
 import type { ParsedRuntime } from "@/common/types/runtime";

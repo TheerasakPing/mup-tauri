@@ -10,7 +10,7 @@ import type { FC } from "react";
 import { useRef } from "react";
 import { AppLoader } from "../components/AppLoader";
 import { SELECTED_WORKSPACE_KEY, UI_THEME_KEY } from "@/common/constants/storage";
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // META CONFIG

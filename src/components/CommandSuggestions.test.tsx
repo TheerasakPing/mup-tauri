@@ -4,7 +4,7 @@ import { GlobalWindow } from "happy-dom";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 
 import { CommandSuggestions } from "./CommandSuggestions";
-import type { SlashSuggestion } from "@/browser/utils/slashCommands/types";
+import type { SlashSuggestion } from "@/utils/slashCommands/types";
 
 function makeSuggestion(id: string): SlashSuggestion {
   return {

@@ -13,7 +13,7 @@ import {
 } from "@/common/constants/storage";
 import type { ProjectConfig } from "@/node/config";
 
-import type { updatePersistedState } from "@/browser/hooks/usePersistedState";
+import type { updatePersistedState } from "@/hooks/usePersistedState";
 
 type PersistFn = typeof updatePersistedState;
 type PersistCall = [string, unknown, unknown?];

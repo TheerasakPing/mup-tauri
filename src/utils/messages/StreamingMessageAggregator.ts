@@ -41,7 +41,7 @@ import { createDeltaStorage, type DeltaRecordStorage } from "./StreamingTPSCalcu
 import { computeRecencyTimestamp } from "./recency";
 import { assert } from "@/common/utils/assert";
 import { getStatusStateKey } from "@/common/constants/storage";
-import { getFollowUpContentText } from "@/browser/utils/compaction/format";
+import { getFollowUpContentText } from "@/utils/compaction/format";
 
 // Maximum number of messages to display in the DOM for performance
 // Full history is still maintained internally for token counting and stats

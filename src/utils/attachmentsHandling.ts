@@ -1,6 +1,6 @@
 import type { FilePart } from "@/common/orpc/types";
 import { MAX_SVG_TEXT_CHARS, SVG_MEDIA_TYPE } from "@/common/constants/imageAttachments";
-import type { ChatAttachment } from "@/browser/components/ChatAttachments";
+import type { ChatAttachment } from "@/components/ChatAttachments";
 
 const PDF_MEDIA_TYPE = "application/pdf";
 

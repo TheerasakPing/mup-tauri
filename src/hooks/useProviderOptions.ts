@@ -1,4 +1,4 @@
-import { useProviderOptionsContext } from "@/browser/contexts/ProviderOptionsContext";
+import { useProviderOptionsContext } from "@/contexts/ProviderOptionsContext";
 
 export function useProviderOptions() {
   const context = useProviderOptionsContext();

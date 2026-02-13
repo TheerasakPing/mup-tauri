@@ -8,17 +8,17 @@ import {
   DialogDescription,
   DialogFooter,
   DialogInfo,
-} from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { ToggleGroup, ToggleGroupItem } from "@/browser/components/ui/toggle-group";
-import { useAPI } from "@/browser/contexts/API";
+} from "@/components/ui/select";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { useAPI } from "@/contexts/API";
 import type { Secret } from "@/common/types/secrets";
 
 // Visibility toggle icon component

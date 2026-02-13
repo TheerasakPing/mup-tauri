@@ -8,6 +8,7 @@ import type { InitStateManager } from "./initStateManager";
 import type { BackgroundProcessManager } from "./backgroundProcessManager";
 import type { Result } from "@/common/types/result";
 import { Ok } from "@/common/types/result";
+import type { CostTrackingService } from "./costTrackingService";
 
 function createDeferred<T>(): {
   promise: Promise<T>;
@@ -74,6 +75,7 @@ describe("AgentSession disposal race conditions", () => {
       partialService,
       aiService,
       initStateManager,
+      costTrackingService: {} as unknown as CostTrackingService,
       backgroundProcessManager,
     });
 

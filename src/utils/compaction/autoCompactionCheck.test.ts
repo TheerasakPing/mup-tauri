@@ -1,6 +1,6 @@
 import { describe, test, expect } from "bun:test";
 import { checkAutoCompaction } from "./autoCompactionCheck";
-import type { WorkspaceUsageState } from "@/browser/stores/WorkspaceStore";
+import type { WorkspaceUsageState } from "@/stores/WorkspaceStore";
 import type { ChatUsageDisplay } from "@/common/utils/tokens/usageAggregator";
 import { KNOWN_MODELS } from "@/common/constants/knownModels";
 

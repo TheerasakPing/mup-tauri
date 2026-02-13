@@ -1,12 +1,12 @@
 import React from "react";
 import { AlertTriangle, Check, EyeOff, XCircle } from "lucide-react";
 import { cn } from "@/common/lib/utils";
-import { SkillIcon } from "@/browser/components/icons/SkillIcon";
-import { HoverClickPopover } from "@/browser/components/ui/hover-click-popover";
+import { SkillIcon } from "@/components/icons/SkillIcon";
+import { HoverClickPopover } from "@/components/ui/hover-click-popover";
 import type {
   LoadedSkill,
   SkillLoadError,
-} from "@/browser/utils/messages/StreamingMessageAggregator";
+} from "@/utils/messages/StreamingMessageAggregator";
 import type {
   AgentSkillDescriptor,
   AgentSkillIssue,

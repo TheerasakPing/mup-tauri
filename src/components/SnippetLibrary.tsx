@@ -5,21 +5,21 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/browser/components/ui/dialog";
-import { Button } from "@/browser/components/ui/button";
-import { Input } from "@/browser/components/ui/input";
-import { Label } from "@/browser/components/ui/label";
-import { Textarea } from "@/browser/components/ui/textarea";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { Badge } from "@/browser/components/ui/badge";
-import { ScrollArea } from "@/browser/components/ui/scroll-area";
-import { useCodeSnippets } from "@/browser/hooks/useCodeSnippets";
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useCodeSnippets } from "@/hooks/useCodeSnippets";
 import {
   DEFAULT_SNIPPET_CATEGORIES,
   SUPPORTED_LANGUAGES,

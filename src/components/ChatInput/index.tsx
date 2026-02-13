@@ -10,32 +10,32 @@ import { ChatInputToast } from "../ChatInputToast";
 import type { SendMessageError } from "@/common/types/errors";
 import { createErrorToast } from "../ChatInputToasts";
 import { ConfirmationModal } from "../ConfirmationModal";
-import type { ParsedCommand } from "@/browser/utils/slashCommands/types";
-import { parseCommand } from "@/browser/utils/slashCommands/parser";
+import type { ParsedCommand } from "@/utils/slashCommands/types";
+import { parseCommand } from "@/utils/slashCommands/parser";
 import {
   readPersistedState,
   usePersistedState,
   updatePersistedState,
-} from "@/browser/hooks/usePersistedState";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { useWorkspaceContext } from "@/browser/contexts/WorkspaceContext";
-import { useProjectContext } from "@/browser/contexts/ProjectContext";
-import { useAgent } from "@/browser/contexts/AgentContext";
+} from "@/hooks/usePersistedState";
+import { useSettings } from "@/contexts/SettingsContext";
+import { useWorkspaceContext } from "@/contexts/WorkspaceContext";
+import { useProjectContext } from "@/contexts/ProjectContext";
+import { useAgent } from "@/contexts/AgentContext";
 import { ThinkingSliderComponent } from "../ThinkingSlider";
 import {
   getAllowedRuntimeModesForUi,
   isParsedRuntimeAllowedByPolicy,
-} from "@/browser/utils/policyUi";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { useAPI } from "@/browser/contexts/API";
-import { useThinkingLevel } from "@/browser/hooks/useThinkingLevel";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
-import { useSendMessageOptions } from "@/browser/hooks/useSendMessageOptions";
-import { setWorkspaceModelWithOrigin } from "@/browser/utils/modelChange";
+} from "@/utils/policyUi";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { useAPI } from "@/contexts/API";
+import { useThinkingLevel } from "@/hooks/useThinkingLevel";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
+import { useSendMessageOptions } from "@/hooks/useSendMessageOptions";
+import { setWorkspaceModelWithOrigin } from "@/utils/modelChange";
 import {
   clearPendingWorkspaceAiSettings,
   markPendingWorkspaceAiSettings,
-} from "@/browser/utils/workspaceAiSettingsSync";
+} from "@/utils/workspaceAiSettingsSync";
 import {
   getModelKey,
   getThinkingLevelKey,
@@ -55,32 +55,32 @@ import {
   prepareCompactionMessage,
   processSlashCommand,
   type SlashCommandContext,
-} from "@/browser/utils/chatCommands";
+} from "@/utils/chatCommands";
 import { Button } from "../ui/button";
-import { shouldTriggerAutoCompaction } from "@/browser/utils/compaction/shouldTriggerAutoCompaction";
+import { shouldTriggerAutoCompaction } from "@/utils/compaction/shouldTriggerAutoCompaction";
 import { CUSTOM_EVENTS } from "@/common/constants/events";
 import { findAtMentionAtCursor } from "@/common/utils/atMentions";
 import {
   getSlashCommandSuggestions,
   type SlashSuggestion,
-} from "@/browser/utils/slashCommands/suggestions";
+} from "@/utils/slashCommands/suggestions";
 import { Tooltip, TooltipTrigger, TooltipContent, HelpIndicator } from "../ui/tooltip";
 import { AgentModePicker } from "../AgentModePicker";
 import { ContextUsageIndicatorButton } from "../ContextUsageIndicatorButton";
-import { useWorkspaceUsage } from "@/browser/stores/WorkspaceStore";
-import { useProviderOptions } from "@/browser/hooks/useProviderOptions";
-import { useAutoCompactionSettings } from "@/browser/hooks/useAutoCompactionSettings";
-import { useIdleCompactionHours } from "@/browser/hooks/useIdleCompactionHours";
+import { useWorkspaceUsage } from "@/stores/WorkspaceStore";
+import { useProviderOptions } from "@/hooks/useProviderOptions";
+import { useAutoCompactionSettings } from "@/hooks/useAutoCompactionSettings";
+import { useIdleCompactionHours } from "@/hooks/useIdleCompactionHours";
 import { calculateTokenMeterData } from "@/common/utils/tokens/tokenMeterUtils";
 import {
   matchesKeybind,
   formatKeybind,
   KEYBINDS,
   isEditableElement,
-} from "@/browser/utils/ui/keybinds";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
+} from "@/utils/ui/keybinds";
+import { stopKeyboardPropagation } from "@/utils/events";
 import { ModelSelector, type ModelSelectorRef } from "../ModelSelector";
-import { useModelsFromSettings } from "@/browser/hooks/useModelsFromSettings";
+import { useModelsFromSettings } from "@/hooks/useModelsFromSettings";
 import { SendHorizontal } from "lucide-react";
 import { VimTextArea } from "../VimTextArea";
 import { ChatAttachments, type ChatAttachment } from "../ChatAttachments";
@@ -89,8 +89,8 @@ import {
   extractAttachmentsFromDrop,
   chatAttachmentsToFileParts,
   processAttachmentFiles,
-} from "@/browser/utils/attachmentsHandling";
-import type { PendingUserMessage } from "@/browser/utils/chatEditing";
+} from "@/utils/attachmentsHandling";
+import type { PendingUserMessage } from "@/utils/chatEditing";
 
 import type { AgentSkillDescriptor } from "@/common/types/agentSkill";
 import type { AgentAiDefaults } from "@/common/types/agentAiDefaults";
@@ -104,7 +104,7 @@ import {
 import type { Review } from "@/common/types/review";
 import { getModelCapabilities } from "@/common/utils/ai/modelCapabilities";
 import { KNOWN_MODELS, MODEL_ABBREVIATION_EXAMPLES } from "@/common/constants/knownModels";
-import { useTelemetry } from "@/browser/hooks/useTelemetry";
+import { useTelemetry } from "@/hooks/useTelemetry";
 import { trackCommandUsed } from "@/common/telemetry";
 import type { FilePart, SendMessageOptions } from "@/common/orpc/types";
 
@@ -113,10 +113,10 @@ import { cn } from "@/common/lib/utils";
 import type { ChatInputProps, ChatInputAPI } from "./types";
 import { CreationControls } from "./CreationControls";
 import { useCreationWorkspace } from "./useCreationWorkspace";
-import { useCoderWorkspace } from "@/browser/hooks/useCoderWorkspace";
-import { useTutorial } from "@/browser/contexts/TutorialContext";
-import { usePowerMode } from "@/browser/contexts/PowerModeContext";
-import { useVoiceInput } from "@/browser/hooks/useVoiceInput";
+import { useCoderWorkspace } from "@/hooks/useCoderWorkspace";
+import { useTutorial } from "@/contexts/TutorialContext";
+import { usePowerMode } from "@/contexts/PowerModeContext";
+import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { VoiceInputButton } from "./VoiceInputButton";
 import {
   estimatePersistedChatAttachmentsChars,

@@ -1,22 +1,22 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Command } from "cmdk";
-import { useCommandRegistry } from "@/browser/contexts/CommandRegistryContext";
-import { useAPI } from "@/browser/contexts/API";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { useCommandRegistry } from "@/contexts/CommandRegistryContext";
+import { useAPI } from "@/contexts/API";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import type { AgentSkillDescriptor } from "@/common/types/agentSkill";
-import type { CommandAction } from "@/browser/contexts/CommandRegistryContext";
+import type { CommandAction } from "@/contexts/CommandRegistryContext";
 import {
   formatKeybind,
   KEYBINDS,
   isEditableElement,
   matchesKeybind,
-} from "@/browser/utils/ui/keybinds";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
-import { getSlashCommandSuggestions } from "@/browser/utils/slashCommands/suggestions";
+} from "@/utils/ui/keybinds";
+import { stopKeyboardPropagation } from "@/utils/events";
+import { getSlashCommandSuggestions } from "@/utils/slashCommands/suggestions";
 import { CUSTOM_EVENTS, createCustomEvent } from "@/common/constants/events";
 import { getDisableWorkspaceAgentsKey, GLOBAL_SCOPE_ID } from "@/common/constants/storage";
-import { filterCommandsByPrefix } from "@/browser/utils/commandPaletteFiltering";
-import { matchesAllTerms } from "@/browser/utils/fuzzySearch";
+import { filterCommandsByPrefix } from "@/utils/commandPaletteFiltering";
+import { matchesAllTerms } from "@/utils/fuzzySearch";
 
 interface CommandPaletteProps {
   getSlashContext?: () => { workspaceId?: string };

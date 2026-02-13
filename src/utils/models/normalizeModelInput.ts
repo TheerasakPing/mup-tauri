@@ -1,5 +1,5 @@
 import { resolveModelAlias, isValidModelFormat } from "@/common/utils/ai/models";
-import { migrateGatewayModel } from "@/browser/hooks/useGatewayModels";
+import { migrateGatewayModel } from "@/hooks/useGatewayModels";
 
 export interface ModelInputResult {
   model: string | null;

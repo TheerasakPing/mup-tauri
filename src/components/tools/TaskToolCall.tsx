@@ -24,10 +24,10 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import {
   useOptionalWorkspaceContext,
   toWorkspaceSelection,
-} from "@/browser/contexts/WorkspaceContext";
-import { useTaskToolLiveTaskId } from "@/browser/stores/WorkspaceStore";
-import { useCopyToClipboard } from "@/browser/hooks/useCopyToClipboard";
-import { useBackgroundProcesses } from "@/browser/stores/BackgroundBashStore";
+} from "@/contexts/WorkspaceContext";
+import { useTaskToolLiveTaskId } from "@/stores/WorkspaceStore";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useBackgroundProcesses } from "@/stores/BackgroundBashStore";
 import type { FrontendWorkspaceMetadata } from "@/common/types/workspace";
 import type {
   TaskToolArgs,
@@ -39,7 +39,7 @@ import type {
   TaskTerminateToolArgs,
   TaskTerminateToolSuccessResult,
 } from "@/common/types/tools";
-import type { TaskReportLinking } from "@/browser/utils/messages/taskReportLinking";
+import type { TaskReportLinking } from "@/utils/messages/taskReportLinking";
 
 /**
  * Clean SVG icon for task tools - represents spawning/branching work

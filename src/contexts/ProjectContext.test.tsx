@@ -4,13 +4,13 @@ import { afterEach, describe, expect, mock, test } from "bun:test";
 import { GlobalWindow } from "happy-dom";
 import type { ProjectContext } from "./ProjectContext";
 import { ProjectProvider, useProjectContext } from "./ProjectContext";
-import type { RecursivePartial } from "@/browser/testUtils";
+import type { RecursivePartial } from "@/testUtils";
 
-import type { APIClient } from "@/browser/contexts/API";
+import type { APIClient } from "@/contexts/API";
 
 // Mock API
 let currentClientMock: RecursivePartial<APIClient> = {};
-void mock.module("@/browser/contexts/API", () => ({
+void mock.module("@/contexts/API", () => ({
   useAPI: () => ({
     api: currentClientMock as APIClient,
     status: "connected" as const,

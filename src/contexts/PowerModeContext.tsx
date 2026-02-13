@@ -8,15 +8,15 @@ import React, {
   type ReactNode,
 } from "react";
 
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { stopKeyboardPropagation } from "@/browser/utils/events";
-import { matchesKeybind, KEYBINDS } from "@/browser/utils/ui/keybinds";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { stopKeyboardPropagation } from "@/utils/events";
+import { matchesKeybind, KEYBINDS } from "@/utils/ui/keybinds";
 import { POWER_MODE_ENABLED_KEY } from "@/common/constants/storage";
 import {
   PowerModeEngine,
   type PowerModeBurstKind,
-} from "@/browser/utils/powerMode/PowerModeEngine";
-import { PowerModeOverlay } from "@/browser/components/PowerMode/PowerModeOverlay";
+} from "@/utils/powerMode/PowerModeEngine";
+import { PowerModeOverlay } from "@/components/PowerMode/PowerModeOverlay";
 
 interface PowerModeContextValue {
   enabled: boolean;

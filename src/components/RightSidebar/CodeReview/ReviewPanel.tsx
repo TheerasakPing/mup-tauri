@@ -31,15 +31,15 @@ import { ReviewControls } from "./ReviewControls";
 import { FileTree } from "./FileTree";
 import { UntrackedStatus } from "./UntrackedStatus";
 import { shellQuote } from "@/common/utils/shell";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { STORAGE_KEYS, WORKSPACE_DEFAULTS } from "@/constants/workspaceDefaults";
-import { useReviewState } from "@/browser/hooks/useReviewState";
-import { useReviews } from "@/browser/hooks/useReviews";
-import { useHunkFirstSeen } from "@/browser/hooks/useHunkFirstSeen";
-import { RefreshController, type LastRefreshInfo } from "@/browser/utils/RefreshController";
+import { useReviewState } from "@/hooks/useReviewState";
+import { useReviews } from "@/hooks/useReviews";
+import { useHunkFirstSeen } from "@/hooks/useHunkFirstSeen";
+import { RefreshController, type LastRefreshInfo } from "@/utils/RefreshController";
 import { parseDiff, extractAllHunks, buildGitDiffCommand } from "@/common/utils/git/diffParser";
 import { getReviewSearchStateKey, REVIEW_SORT_ORDER_KEY } from "@/common/constants/storage";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { parseNumstat, buildFileTree, extractNewPath } from "@/common/utils/git/numstatParser";
 import { parseNameStatus } from "@/common/utils/git/nameStatusParser";
 import type {
@@ -54,13 +54,13 @@ import {
   KEYBINDS,
   formatKeybind,
   isEditableElement,
-} from "@/browser/utils/ui/keybinds";
-import { applyFrontendFilters } from "@/browser/utils/review/filterHunks";
-import { findNextHunkId, findNextHunkIdAfterFileRemoval } from "@/browser/utils/review/navigation";
+} from "@/utils/ui/keybinds";
+import { applyFrontendFilters } from "@/utils/review/filterHunks";
+import { findNextHunkId, findNextHunkIdAfterFileRemoval } from "@/utils/review/navigation";
 import { cn } from "@/common/lib/utils";
-import { useAPI, type APIClient } from "@/browser/contexts/API";
-import { workspaceStore } from "@/browser/stores/WorkspaceStore";
-import { invalidateGitStatus } from "@/browser/stores/GitStatusStore";
+import { useAPI, type APIClient } from "@/contexts/API";
+import { workspaceStore } from "@/stores/WorkspaceStore";
+import { invalidateGitStatus } from "@/stores/GitStatusStore";
 
 /** Stats reported to parent for tab display */
 interface ReviewPanelStats {

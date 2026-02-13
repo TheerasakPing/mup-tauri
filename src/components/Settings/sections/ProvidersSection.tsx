@@ -10,41 +10,41 @@ import {
   X,
 } from "lucide-react";
 
-import { createEditKeyHandler } from "@/browser/utils/ui/keybinds";
-import { getBrowserBackendBaseUrl } from "@/browser/utils/backendBaseUrl";
+import { createEditKeyHandler } from "@/utils/ui/keybinds";
+import { getBrowserBackendBaseUrl } from "@/utils/backendBaseUrl";
 import type { ProvidersConfigMap } from "@/common/orpc/types";
 import type { ProviderName } from "@/common/constants/providers";
-import { usePolicy } from "@/browser/contexts/PolicyContext";
-import { getAllowedProvidersForUi } from "@/browser/utils/policyUi";
-import { ProviderWithIcon } from "@/browser/components/ProviderIcon";
-import { getStoredAuthToken } from "@/browser/components/AuthTokenModal";
-import { useAPI } from "@/browser/contexts/API";
-import { useSettings } from "@/browser/contexts/SettingsContext";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
-import { useProvidersConfig } from "@/browser/hooks/useProvidersConfig";
+import { usePolicy } from "@/contexts/PolicyContext";
+import { getAllowedProvidersForUi } from "@/utils/policyUi";
+import { ProviderWithIcon } from "@/components/ProviderIcon";
+import { getStoredAuthToken } from "@/components/AuthTokenModal";
+import { useAPI } from "@/contexts/API";
+import { useSettings } from "@/contexts/SettingsContext";
+import { usePersistedState } from "@/hooks/usePersistedState";
+import { useProvidersConfig } from "@/hooks/useProvidersConfig";
 import {
   formatMuxGatewayBalance,
   useMuxGatewayAccountStatus,
-} from "@/browser/hooks/useMuxGatewayAccountStatus";
-import { useGateway } from "@/browser/hooks/useGatewayModels";
-import { getEligibleGatewayModels } from "@/browser/utils/gatewayModels";
-import { Button } from "@/browser/components/ui/button";
+} from "@/hooks/useMuxGatewayAccountStatus";
+import { useGateway } from "@/hooks/useGatewayModels";
+import { getEligibleGatewayModels } from "@/utils/gatewayModels";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { Switch } from "@/browser/components/ui/switch";
-import { ToggleGroup, ToggleGroupItem } from "@/browser/components/ui/toggle-group";
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   HelpIndicator,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/browser/components/ui/tooltip";
+} from "@/components/ui/tooltip";
 
 type MuxGatewayLoginStatus = "idle" | "starting" | "waiting" | "success" | "error";
 type CodexOauthFlowStatus = "idle" | "starting" | "waiting" | "error";

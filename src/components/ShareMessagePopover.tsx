@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/browser/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/browser/components/ui/select";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/browser/components/ui/tooltip";
-import { Button } from "@/browser/components/ui/button";
+} from "@/components/ui/select";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 import { Check, ExternalLink, Link2, Loader2, Trash2 } from "lucide-react";
-import { CopyIcon } from "@/browser/components/icons/CopyIcon";
-import { copyToClipboard } from "@/browser/utils/clipboard";
+import { CopyIcon } from "@/components/icons/CopyIcon";
+import { copyToClipboard } from "@/utils/clipboard";
 
 import {
   uploadToMuxMd,
@@ -25,7 +25,7 @@ import {
   removeShareData,
   updateShareExpiration,
   type ShareData,
-} from "@/browser/utils/sharedUrlCache";
+} from "@/utils/sharedUrlCache";
 import { cn } from "@/common/lib/utils";
 import {
   type ExpirationValue,
@@ -39,9 +39,9 @@ import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
-import { useLinkSharingEnabled } from "@/browser/contexts/TelemetryEnabledContext";
-import { useAPI } from "@/browser/contexts/API";
+} from "@/hooks/usePersistedState";
+import { useLinkSharingEnabled } from "@/contexts/TelemetryEnabledContext";
+import { useAPI } from "@/contexts/API";
 import type { SigningCapabilities } from "@/common/orpc/schemas";
 import { EncryptionBadge, SigningBadge } from "./ShareSigningBadges";
 

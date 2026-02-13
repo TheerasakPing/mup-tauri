@@ -5,14 +5,14 @@ import {
   getRightSidebarLayoutKey,
   getTerminalTitlesKey,
 } from "@/common/constants/storage";
-import { isDesktopMode } from "@/browser/hooks/useDesktopTitlebar";
+import { isDesktopMode } from "@/hooks/useDesktopTitlebar";
 import {
   readPersistedState,
   updatePersistedState,
   usePersistedState,
-} from "@/browser/hooks/usePersistedState";
-import { useFeatureFlags } from "@/browser/contexts/FeatureFlagsContext";
-import { useAPI } from "@/browser/contexts/API";
+} from "@/hooks/usePersistedState";
+import { useFeatureFlags } from "@/contexts/FeatureFlagsContext";
+import { useAPI } from "@/contexts/API";
 import { CostsTab } from "./RightSidebar/CostsTab";
 
 import { ReviewPanel } from "./RightSidebar/CodeReview/ReviewPanel";
@@ -20,7 +20,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { StatsTab } from "./RightSidebar/StatsTab";
 import { AgentMonitor } from "./RightSidebar/AgentMonitor";
 
-import { matchesKeybind, KEYBINDS, formatKeybind } from "@/browser/utils/ui/keybinds";
+import { matchesKeybind, KEYBINDS, formatKeybind } from "@/utils/ui/keybinds";
 import { SidebarCollapseButton } from "./ui/SidebarCollapseButton";
 import { cn } from "@/common/lib/utils";
 import type { ReviewNoteData } from "@/common/types/review";
@@ -35,7 +35,7 @@ import {
   makeTerminalTabType,
   makeFileTabType,
   type TabType,
-} from "@/browser/types/rightSidebar";
+} from "@/types/rightSidebar";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import {
   addTabToFocusedTabset,
@@ -56,7 +56,7 @@ import {
   updateSplitSizes,
   type RightSidebarLayoutNode,
   type RightSidebarLayoutState,
-} from "@/browser/utils/rightSidebarLayout";
+} from "@/utils/rightSidebarLayout";
 import {
   RightSidebarTabStrip,
   getTabName,
@@ -66,7 +66,7 @@ import {
   createTerminalSession,
   openTerminalPopout,
   type TerminalSessionCreateOptions,
-} from "@/browser/utils/terminal";
+} from "@/utils/terminal";
 import {
   CostsTabLabel,
   ExplorerTabLabel,

@@ -10,7 +10,7 @@
  * This keeps per-tab decisions out of RightSidebar.tsx and avoids switch statements.
  */
 
-import type { TabType } from "@/browser/types/rightSidebar";
+import type { TabType } from "@/types/rightSidebar";
 import type { ReviewNoteData } from "@/common/types/review";
 
 /** Stats reported by ReviewPanel for tab display */

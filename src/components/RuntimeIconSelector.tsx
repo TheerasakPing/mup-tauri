@@ -1,7 +1,7 @@
 import { cn } from "@/common/lib/utils";
 import { RUNTIME_MODE, type RuntimeMode } from "@/common/types/runtime";
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip";
-import { RUNTIME_UI } from "@/browser/utils/runtimeUi";
+import { RUNTIME_UI } from "@/utils/runtimeUi";
 
 interface RuntimeIconSelectorProps {
   value: RuntimeMode;

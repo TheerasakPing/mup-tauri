@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usePersistedState } from "@/browser/hooks/usePersistedState";
+import { usePersistedState } from "@/hooks/usePersistedState";
 import { BarChart, TrendingUp, Clock, DollarSign } from "lucide-react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 
