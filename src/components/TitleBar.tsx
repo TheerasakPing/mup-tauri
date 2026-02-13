@@ -87,7 +87,7 @@ export function TitleBar() {
   const lastHoverCheckTime = useRef<number>(0);
 
   useEffect(() => {
-    // Skip update checks in browser mode - app updates only apply to Electron
+    // Skip update checks in browser mode - app updates only apply to Desktop (Electron/Tauri)
     if (!window.api) {
       return;
     }
@@ -126,7 +126,7 @@ export function TitleBar() {
   }, [api]);
 
   const handleIndicatorHover = () => {
-    // Skip update checks in browser mode - app updates only apply to Electron
+    // Skip update checks in browser mode - app updates only apply to Desktop (Electron/Tauri)
     if (!window.api) {
       return;
     }
@@ -153,7 +153,7 @@ export function TitleBar() {
   };
 
   const handleUpdateClick = () => {
-    // Skip in browser mode - app updates only apply to Electron
+    // Skip in browser mode - app updates only apply to Desktop (Electron/Tauri)
     if (!window.api) {
       return;
     }
@@ -170,7 +170,7 @@ export function TitleBar() {
     const lines: React.ReactNode[] = [`Current: ${currentVersion}`, `Built: ${extendedTimestamp}`];
 
     if (!window.api) {
-      lines.push("Desktop updates are available in the Electron app only.");
+      lines.push("Desktop updates are available in the Desktop app only.");
     } else if (isCheckingOnHover || updateStatus.type === "checking") {
       lines.push("Checking for updates...");
     } else {

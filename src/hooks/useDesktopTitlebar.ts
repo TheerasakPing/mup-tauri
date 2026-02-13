@@ -1,7 +1,7 @@
 /**
  * Desktop titlebar utilities for Electron's integrated titlebar.
  *
- * In Electron mode (window.api exists), the native titlebar is hidden and we need:
+ * In Desktop mode (Electron or Tauri), the native titlebar is hidden and we need:
  * 1. Drag regions for window dragging
  * 2. Insets for native window controls (traffic lights on mac, overlay on win/linux)
  *
@@ -19,8 +19,8 @@
  */
 
 /**
- * Whether we're running in Electron desktop mode.
- * Checks for getIsRosetta function which only exists in real Electron preload,
+ * Whether we're running in Desktop mode (Electron or Tauri).
+ * Checks for getIsRosetta function which only exists in real Desktop preload,
  * not in story mocks that just set window.api for testing specific features.
  */
 export function isDesktopMode(): boolean {

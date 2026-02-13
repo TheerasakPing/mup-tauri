@@ -20,7 +20,7 @@ export interface OpenInEditorResult {
   error?: string;
 }
 
-// Browser mode: window.api is not set (only exists in Electron via preload)
+// Browser mode: window.api is not set (only exists in Desktop via preload)
 const isBrowserMode = typeof window !== "undefined" && !window.api;
 
 // Helper for opening URLs - allows testing in Node environment

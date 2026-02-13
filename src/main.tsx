@@ -3,6 +3,13 @@ import ReactDOM from "react-dom/client";
 import { AppLoader } from "@/components/AppLoader";
 import { initTelemetry, trackAppStarted } from "@/common/telemetry";
 import { initTitlebarInsets } from "@/hooks/useDesktopTitlebar";
+import { initTauriApiShim } from "@/tauri-api-shim";
+
+// Initialize Tauri API shim (provides window.api compatibility layer)
+// This must be called before any code that accesses window.api
+initTauriApiShim().catch((error) => {
+  console.error("Failed to initialize Tauri API shim:", error);
+});
 
 // Initialize telemetry on app startup
 initTelemetry();

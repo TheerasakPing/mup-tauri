@@ -10,12 +10,12 @@ import {
 
 /**
  * Hook to open a terminal window for a workspace.
- * Handles the difference between Desktop (Electron) and Browser (Web) environments.
+ * Handles the difference between Desktop (Electron/Tauri) and Browser (Web) environments.
  *
  * For SSH/Devcontainer workspaces: Always opens a web-based xterm.js terminal that
- * connects through the backend PTY service (works in both browser and Electron modes).
+ * connects through the backend PTY service (works in both browser and Desktop modes).
  *
- * For local workspaces in Electron: Opens the user's native terminal emulator
+ * For local workspaces in Desktop: Opens the user's native terminal emulator
  * (Ghostty, Terminal.app, etc.) with the working directory set to the workspace path.
  *
  * For local workspaces in browser: Opens a web-based xterm.js terminal in a popup window.
@@ -32,8 +32,8 @@ export function useOpenTerminal() {
       if (!api) return;
 
       // Check if running in browser mode
-      // window.api is only available in Electron (set by preload.ts)
-      // If window.api exists, we're in Electron; if not, we're in browser mode
+      // window.api is only available in Desktop (Electron/Tauri, set by preload/shim)
+      // If window.api exists, we're in Desktop; if not, we're in browser mode
       const isBrowser = !window.api;
       const isSSH = isSSHRuntime(runtimeConfig);
       const isDevcontainer = isDevcontainerRuntime(runtimeConfig);

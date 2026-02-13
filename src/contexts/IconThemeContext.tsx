@@ -82,11 +82,11 @@ export const IconThemeProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [activeThemeId, setActiveThemeId] = useState<string>(DEFAULT_MUP_THEME_ID);
   const [activeThemeDocument, setActiveThemeDocument] = useState<IconThemeDocument | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  // In Electron mode, store the HTTP API server base URL for icon file requests.
+  // In Desktop mode, store the HTTP API server base URL for icon file requests.
   // Falls back to getBrowserBackendBaseUrl() (correct for browser/dev-server with proxy).
   const [iconBaseUrl, setIconBaseUrl] = useState<string>(() => getBrowserBackendBaseUrl());
 
-  // Fetch API server URL from Electron main process on mount
+  // Fetch API server URL from Desktop process on mount
   useEffect(() => {
     if (window.api?.getApiServerUrl) {
       window.api.getApiServerUrl().then((url) => {

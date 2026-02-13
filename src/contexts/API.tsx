@@ -188,6 +188,7 @@ export const APIProvider = (props: APIProviderProps) => {
       }
 
       // Skip Electron detection if custom WebSocket factory provided (for testing)
+      // Tauri uses browser WebSocket or MessagePort bridge (handled in tauri-api-shim.ts)
       if (!props.createWebSocket && window.api) {
         const { client, cleanup } = createElectronClient();
         window.__ORPC_CLIENT__ = client;
@@ -416,11 +417,11 @@ export const APIProvider = (props: APIProviderProps) => {
   }, []);
 
   // Liveness check: periodic ping to detect degraded connections
-  // Only runs for browser WebSocket connections (not Electron or test clients)
+  // Only runs for browser WebSocket connections (not Desktop or test clients)
   useEffect(() => {
     // Only check liveness for connected/degraded browser connections
     if (state.status !== "connected" && state.status !== "degraded") return;
-    // Skip for Electron (MessagePort) and test clients (externally provided)
+    // Skip for Desktop (MessagePort) and test clients (externally provided)
     if (props.client || (!props.createWebSocket && window.api)) return;
 
     const client = state.client;
