@@ -17,7 +17,10 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*", "./src-node/*", "./src-common/*"]
+      "@/node/*": ["./src-node/*"],
+      "@/common/*": ["./src/common/*"],
+      "@/browser/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
 
     /* Linting */
@@ -26,6 +29,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src-node", "src-common"],
+  "include": ["src", "src-node"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -15,7 +15,9 @@ import type { RuntimeConfig } from "@/common/types/runtime";
 import type { MCPServerTransport } from "@/common/types/mcp";
 import { compareVersions } from "@/node/services/coderService";
 
-import packageJson from "../../../package.json";
+// Read version from package.json at runtime for bundled builds
+// This avoids issues with bun build --compile and relative JSON imports
+const PACKAGE_VERSION = "0.17.4"; // Keep in sync with package.json version
 
 const POLICY_FETCH_TIMEOUT_MS = 10 * 1000;
 const POLICY_MAX_BYTES = 1024 * 1024;
@@ -59,11 +61,7 @@ async function getClientVersion(): Promise<string> {
   }
 
   // Fallback for CLI/headless.
-  if (typeof packageJson.version === "string") {
-    return packageJson.version;
-  }
-
-  return "0.0.0";
+  return PACKAGE_VERSION;
 }
 
 function isRemotePolicySource(source: string): boolean {
